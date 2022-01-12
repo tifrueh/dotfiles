@@ -24,6 +24,11 @@ plugins=(git zsh-syntax-highlighting)
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# source alias file if it exists
+if [[ -f ~/.zshaliases ]]; then
+	source ~/.zshaliases;
+fi
+
 # User configuration
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
