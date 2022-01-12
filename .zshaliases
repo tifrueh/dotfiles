@@ -1,0 +1,10 @@
+# Permanent aliases are put here:
+alias zshconfig="vim ~/.zshrc"
+alias aliasconfig="vim ~/.zhsaliases"
+alias vimconfig="vim ~/.vimrc"
+alias nethackconfig="vim ~/.nethackrc"
+alias l="ls -lAhF"
+alias q="exit"
+alias nao="ssh nethack@alt.org"
+alias universal-python="/Library/Frameworks/Python.framework/Versions/Current/bin/python3"
+alias sha256="shasum --algorithm 256"
