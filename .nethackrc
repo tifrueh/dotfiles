@@ -1,0 +1,96 @@
+
+## See https://nethackwiki.com/wiki/Options
+
+# *** Some reasonable defaults ***
+OPTIONS=showexp,showscore,time,color
+OPTIONS=autodig,fruit:slime mold,boulder:0
+
+# *** My personal changes ***
+OPTIONS=name:player
+OPTIONS=horsename:/mnt,dogname:Hachi,catname:/usr/bin/cat
+OPTIONS=number_pad:-1
+OPTIONS=map_mode:fit_to_screen
+OPTIONS=fullscreen
+OPTIONS=ascii_map
+OPTIONS=dark_room
+OPTIONS=!implicit_uncursed
+OPTIONS=force_invmenu
+OPTIONS=hilite_pet
+OPTIONS=symset:DECgraphics
+OPTIONS=lit_corridor
+OPTIONS=pickup_types:$
+OPTIONS=pickup_thrown
+OPTIONS=msg_window:reversed
+
+# *** Options just for curses windowport ***
+OPTIONS=windowtype=curses
+OPTIONS=statuslines:3
+OPTIONS=perm_invent
+OPTIONS=align_status=top
+OPTIONS=align_message=bottom
+OPTIONS=!guicolor
+OPTIONS=petattr:u
+OPTIONS=!force_invmenu
+
+# *** Custom symbols ***
+SYMBOLS=S_corr=#
+SYMBOLS=S_litcorr=#
+SYMBOLS=S_hcdoor=+
+SYMBOLS=S_vcdoor=+
+SYMBOLS=S_hodoor=|
+SYMBOLS=S_vodoor=-
+
+# *** Menucolors ***
+OPTIONS=menucolors
+MENUCOLOR="(being worn)"=gray&underline
+MENUCOLOR="(.* hand)"=gray&underline
+
+MENUCOLOR="uncursed"=green
+MENUCOLOR="uncursed.*((being worn)|(.* hand))"=green&underline
+
+MENUCOLOR="(blessed|holy)"=bright magenta
+MENUCOLOR="(blessed|holy).*((being worn)|(.* hand))"=bright magenta&underline
+
+MENUCOLOR="( cursed|unholy)"=orange
+MENUCOLOR="( cursed|unholy).*((being worn)|(.* hand))"=red&underline
+
+MENUCOLOR="(rusty|corroded)"=brown
+MENUCOLOR="(rusty|corroded).*((being worn)|(.* hand))"=brown&underline
+
+MENUCOLOR="gold piece"=yellow
+
+MENUCOLOR="Excalibur"=cyan
+MENUCOLOR="Excalibur.*(.* hand)"=cyan&underline
+
+# *** Statushilites ***
+OPTIONS=statushilites
+# HP
+OPTIONS=hitpointbar
+OPTIONS=hilite_status:hitpoints/100%/green&normal
+OPTIONS=hilite_status:hitpoints/<100%/green&normal
+OPTIONS=hilite_status:hitpoints/<66%/yellow&normal
+OPTIONS=hilite_status:hitpoints/<50%/orange&normal
+OPTIONS=hilite_status:hitpoints/<33%/red&bold
+OPTIONS=hilite_status:hitpoints/<15%/red&inverse
+# Pw
+OPTIONS=hilite_status:power/100%/grey&normal
+OPTIONS=hilite_status:power/<100%/green&normal
+OPTIONS=hilite_status:power/<66%/yellow&normal
+OPTIONS=hilite_status:power/<50%/orange&normal
+OPTIONS=hilite_status:power/<33%/red&bold
+# Carry
+OPTIONS=hilite_status:cap/burdened/yellow/stressed/orange/strained/red&bold/overtaxed/red&inverse/overloaded/red&inverse&blink
+# Hunger
+OPTIONS=hilite_status:hunger/satiated/yellow/hungry/orange/weak/red&bold/fainting/red&inverse/fainted/red&inverse&blink
+# Mental
+OPTIONS=hilite_status:condition/hallu/yellow&bold
+OPTIONS=hilite_status:condition/conf/orange&bold
+OPTIONS=hilite_status:condition/stun/red&bold
+# Health
+OPTIONS=hilite_status:condition/termill/red&inverse
+OPTIONS=hilite_status:condition/foodpois/red&inverse
+OPTIONS=hilite_status:condition/slime/red&inverse
+# Str, Con, Dex, Int, Wis, Cha
+OPTIONS=hilite_status:characteristics/up/green/down/red
+# gold
+OPTIONS=hilite_status:gold/always/yellow
