@@ -1,8 +1,8 @@
 # Permanent aliases are put here:
-alias zshconfig="vim ~/.zshrc"
-alias aliasconfig="vim ~/.zhsaliases"
-alias vimconfig="vim ~/.vimrc"
-alias nethackconfig="vim ~/.nethackrc"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias aliasconfig="$EDITOR ~/.zshaliases"
+alias vimconfig="$EDITOR ~/.vimrc"
+alias nethackconfig="$EDITOR ~/.nethackrc"
 alias l="ls -lAhF"
 alias q="exit"
 alias nao="ssh nethack@alt.org"
