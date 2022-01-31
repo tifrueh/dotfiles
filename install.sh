@@ -1,6 +1,7 @@
 #!/bin/sh
 
 input_args=$*
+script_dirname=$(dirname "$0")
 
 input_contains () {
 	seeking=$1
@@ -17,7 +18,7 @@ input_contains () {
 link () {
 	if ! [ -f ~/$1 ]; then
 		echo "Linking $1 ..."
-		ln -s ~/.dotfiles/$1 ~/$1
+		ln -s $script_dirname/$1 ~/$1
 	elif input_contains '--force-links'; then
 		echo "Do you really want to overwrite your existing $1? [y|n] \c"
 		read confirm
@@ -25,7 +26,7 @@ link () {
 			echo "Removing existing $1 ..."
 			rm ~/$1
 			echo "Linking $1 ..."
-			ln -s ~/.dotfiles/$1 ~/$1
+			ln -s $script_dirname/$1 ~/$1
 		else
 			echo "SKIP: Not overwriting $1, skipping ..."
 		fi
@@ -34,7 +35,6 @@ link () {
 	fi
 }
 
-cd
 
 # enforce requirements
 if ! type zsh > /dev/null 2> /dev/null; then
