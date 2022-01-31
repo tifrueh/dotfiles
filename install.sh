@@ -58,7 +58,7 @@ fi
 # install oh-my-zsh if not already installed
 if ! [ -d ~/.oh-my-zsh ]; then
 	echo "Installing OH-MY-ZSH ..."
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh --unattended --keep-zshrc)"
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 else
 	echo "SKIP: OH-MY-ZSH already installed, skipping ..."
 fi
