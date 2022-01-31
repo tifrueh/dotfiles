@@ -102,6 +102,14 @@ else
 	echo "SKIP: P10K already installed, skipping ..."
 fi
 
+# install zsh-syntax-highlighting if not already installed
+if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+	echo "Installing ZSH-SYNTAX-HIGHLIGHTING ..."
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+else
+	echo "SKIP: ZSH-SYNTAX-HIGHLIGHTING already installed, skipping ..."
+fi
+
 # add symlinks if they do not exist already and overwrite them if requested
 link ".zshrc"
 link ".zprofile"
