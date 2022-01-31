@@ -40,7 +40,7 @@ cd
 if ! type zsh > /dev/null 2> /dev/null; then
 	echo "ERROR: Please install ZSH before executing this script ..."
 	exit 1
-elif ! [ $SHELL == '/bin/zsh' ]; then
+elif ! [ $SHELL = '/bin/zsh' ]; then
 	echo "ERROR: Please set ZSH as default shell before executing this script ..."
 	exit 1
 fi
