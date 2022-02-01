@@ -6,8 +6,6 @@ input_args=$*
 # store script path in variable
 script_dirname=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
-echo $script_dirname
-
 # function for checking whether input argument was given
 input_contains () {
 	seeking=$1
