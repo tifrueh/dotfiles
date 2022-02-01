@@ -74,10 +74,10 @@ fi
 if input_contains '--brew' && type brew > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: HOMEBREW already installed ..."
 	exit 1
-elif input_contains '--brew' && ! $(uname) == "Darwin"; then
+elif input_contains '--brew' && ! $(uname) = "Darwin"; then
 	echo "DOT-INSTALL: ERROR: HOMEBREW cannot be installed on any other system than macOS ..."
 	exit 1
-elif input_contains '--brew' && $(uname) == "Darwin" && ! type brew > /dev/null 2> /dev/null; then
+elif input_contains '--brew' && $(uname) = "Darwin" && ! type brew > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: Installing HOMEBREW ..."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -94,7 +94,7 @@ elif input_contains '--pyenv' && ! type pyenv > /dev/null 2> /dev/null; then
 fi
 
 # install vim if on macOS or a Debian based Linux, ask for manual installation if not
-if ! type vim > /dev/null 2> /dev/null && $(uname) == "Darwin"; then
+if ! type vim > /dev/null 2> /dev/null && $(uname) = "Darwin"; then
 	brew install vim
 elif ! type vim > /dev/null 2> /dev/null && [ -f /etc/debian_version ]; then
 	sudo apt install vim
