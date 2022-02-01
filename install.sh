@@ -47,6 +47,7 @@ if input_contains '-h' || input_contains '--help'; then
 	echo "--pyenv:       Install PYENV"
 	echo "--force-links: Overwrite existing dotfiles"
 	exit 0
+fi
 
 # enforce requirements
 if ! type zsh > /dev/null 2> /dev/null; then
