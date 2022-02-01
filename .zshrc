@@ -32,7 +32,7 @@ fi
 
 # User configuration
 if [ -d $HOME/.pyenv ]; then eval "$(pyenv init -)"; fi
-if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plugins/pyenv-virtualenv]; then
+if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plugins/pyenv-virtualenv ]; then
   eval "$(pyenv virtualenv-init -)";
 fi
 
