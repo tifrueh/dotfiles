@@ -30,8 +30,10 @@ if [[ -f ~/.zshaliases ]]; then
 fi
 
 # User configuration
-if type pyenv-virtualenv-init > /dev/null 2> /dev/null; then eval "$(pyenv init -)"; fi
-if type pyenv > /dev/null 2> /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if [ -d $HOME/.pyenv ]; then eval "$(pyenv init -)"; fi
+if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plugins/pyenv-virtualenv]; then
+  eval "$(pyenv virtualenv-init -)";
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
