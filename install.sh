@@ -1,7 +1,9 @@
 #!/bin/sh
 
 input_args=$*
-script_dirname=$(dirname "$0")
+script_dirname=$(realpath "$0")
+
+echo $script_dirname
 
 input_contains () {
 	seeking=$1
@@ -137,4 +139,4 @@ if input_contains '--pyenv'; then
 	echo "DOT-INSTALL: NOTIFICATION: PYENV was installed, but please install all Python dependencies before installing Python ..."
 fi
 
-exec zsh
+exec /bin/zsh
