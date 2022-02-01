@@ -1,7 +1,8 @@
 #!/bin/sh
 
 input_args=$*
-script_dirname=$(realpath "$0")
+script_path=$(realpath "$0")
+script_dirname=$(dirname $script_path)
 
 echo $script_dirname
 
