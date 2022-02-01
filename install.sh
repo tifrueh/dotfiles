@@ -88,6 +88,7 @@ elif input_contains '--pyenv' && ! type pyenv > /dev/null 2> /dev/null; then
 	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 	echo "DOT-INSTALL: Intalling PYENV-VIRTUALENV  ..."
 	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+fi
 
 # install vim if on macOS or a Debian based Linux, ask for manual installation if not
 if ! type vim > /dev/null 2> /dev/null && $(uname) == "Darwin"; then
@@ -134,3 +135,6 @@ link ".nethackrc"
 
 if input_contains '--pyenv'; then
 	echo "DOT-INSTALL: NOTIFICATION: PYENV was installed, but please install all Python dependencies before installing Python ..."
+fi
+
+exec zsh
