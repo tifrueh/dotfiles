@@ -41,6 +41,13 @@ link () {
 	fi
 }
 
+if input_contains '-h' || input_contains '--help'; then
+	echo "Possible options:"
+	echo "--brew:        Install HOMEBREW"
+	echo "--pyenv:       Install PYENV"
+	echo "--force-links: Overwrite existing dotfiles"
+	exit 0
+
 # enforce requirements
 if ! type zsh > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install ZSH before executing this script ..."
