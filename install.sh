@@ -41,7 +41,6 @@ link () {
 	fi
 }
 
-
 # enforce requirements
 if ! type zsh > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install ZSH before executing this script ..."
@@ -59,18 +58,6 @@ fi
 if ! type git > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install GIT before executing this script ..."
 	exit 1
-fi
-
-# install oh-my-zsh if not already installed
-if ! [ -d $HOME/.oh-my-zsh ]; then
-	echo "DOT-INSTALL: Installing OH-MY-ZSH ..."
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
-
-	# remove the .zshrc the OH-MY-ZSH installer created
-	echo "DOT-INSTALL: Removing .zshrc (which was added by the OH-MY-ZSH installer) ..."
-	rm $HOME/.zshrc
-else
-	echo "DOT-INSTALL: SKIP: OH-MY-ZSH already installed, skipping ..."
 fi
 
 # install homebrew if requested, if on macOS and if not already installed
@@ -94,6 +81,18 @@ elif input_contains '--pyenv' && ! type pyenv > /dev/null 2> /dev/null; then
 	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 	echo "DOT-INSTALL: Intalling PYENV-VIRTUALENV  ..."
 	git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+fi
+
+# install oh-my-zsh if not already installed
+if ! [ -d $HOME/.oh-my-zsh ]; then
+	echo "DOT-INSTALL: Installing OH-MY-ZSH ..."
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+
+	# remove the .zshrc the OH-MY-ZSH installer created
+	echo "DOT-INSTALL: Removing .zshrc (which was added by the OH-MY-ZSH installer) ..."
+	rm $HOME/.zshrc
+else
+	echo "DOT-INSTALL: SKIP: OH-MY-ZSH already installed, skipping ..."
 fi
 
 # install vim if on macOS or a Debian based Linux, ask for manual installation if not
