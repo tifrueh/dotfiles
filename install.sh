@@ -1,11 +1,13 @@
 #!/bin/sh
 
+# store input arguments in variable
 input_args=$*
+
+# store script path in variable
 script_path=$(realpath "$0")
 script_dirname=$(dirname $script_path)
 
-echo $script_dirname
-
+# function for checking whether input argument was given
 input_contains () {
 	seeking=$1
 	in=1
@@ -18,6 +20,7 @@ input_contains () {
 	return $in
 }
 
+# function for linking a dotfile
 link () {
 	if ! [ -f $HOME/$1 ]; then
 		echo "DOT-INSTALL: Linking $1 ..."
