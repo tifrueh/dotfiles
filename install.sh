@@ -19,17 +19,17 @@ input_contains () {
 }
 
 link () {
-	if ! [ -f ~/$1 ]; then
+	if ! [ -f $HOME/$1 ]; then
 		echo "DOT-INSTALL: Linking $1 ..."
-		ln -s $script_dirname/$1 ~/$1
+		ln -s $script_dirname/$1 $HOME/$1
 	elif input_contains '--force-links'; then
 		echo "Do you really want to overwrite your existing $1? [y|n] \c"
 		read confirm
 		if [ $confirm = "y" ]; then
 			echo "DOT-INSTALL: Removing existing $1 ..."
-			rm ~/$1
+			rm $HOME/$1
 			echo "DOT-INSTALL: Linking $1 ..."
-			ln -s $script_dirname/$1 ~/$1
+			ln -s $script_dirname/$1 $HOME/$1
 		else
 			echo "DOT-INSTALL: SKIP: Not overwriting $1, skipping ..."
 		fi
@@ -59,13 +59,13 @@ if ! type git > /dev/null 2> /dev/null; then
 fi
 
 # install oh-my-zsh if not already installed
-if ! [ -d ~/.oh-my-zsh ]; then
+if ! [ -d $HOME/.oh-my-zsh ]; then
 	echo "DOT-INSTALL: Installing OH-MY-ZSH ..."
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 	# remove the .zshrc the OH-MY-ZSH installer created
 	echo "DOT-INSTALL: Removing .zshrc (which was added by the OH-MY-ZSH installer) ..."
-	rm ~/.zshrc
+	rm $HOME/.zshrc
 else
 	echo "DOT-INSTALL: SKIP: OH-MY-ZSH already installed, skipping ..."
 fi
@@ -88,9 +88,9 @@ if input_contains '--pyenv' && type pyenv > /dev/null 2> /dev/null; then
 	exit 1
 elif input_contains '--pyenv' && ! type pyenv > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: Installing PYENV ..."
-	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 	echo "DOT-INSTALL: Intalling PYENV-VIRTUALENV  ..."
-	git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+	git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
 fi
 
 # install vim if on macOS or a Debian based Linux, ask for manual installation if not
@@ -105,15 +105,15 @@ elif ! type vim > /dev/null 2> /dev/null; then
 fi
 
 # install vim-plug if not already installed
-if ! [ -f ~/.vim/autoload/plug.vim ]; then
+if ! [ -f $HOME/.vim/autoload/plug.vim ]; then
 	echo "DOT-INSTALL: Installing VIM-PLUG ..."
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
 	echo "DOT-INSTALL: SKIP: VIM-PLUG already installed, skipping ..."
 fi
 
 # install powerlevel10k if not already installed
-if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+if ! [ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 	echo "DOT-INSTALL: Installing P10K ..."
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 else
@@ -121,9 +121,9 @@ else
 fi
 
 # install zsh-syntax-highlighting if not already installed
-if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+if ! [ -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
 	echo "DOT-INSTALL: Installing ZSH-SYNTAX-HIGHLIGHTING ..."
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 else
 	echo "DOT-INSTALL: SKIP: ZSH-SYNTAX-HIGHLIGHTING already installed, skipping ..."
 fi
