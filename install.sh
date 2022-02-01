@@ -81,10 +81,10 @@ elif input_contains '--brew' && $(uname) = "Darwin" && ! type brew > /dev/null 2
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
-if input_contains '--pyenv' && type pyenv > /dev/null 2> /dev/null; then
+if input_contains '--pyenv' && [ -d $HOME/.pyenv ]; then
 	echo "DOT-INSTALL: ERROR: PYENV already installed ..."
 	exit 1
-elif input_contains '--pyenv' && ! type pyenv > /dev/null 2> /dev/null; then
+elif input_contains '--pyenv' && ! [ -d $HOME/.pyenv ]; then
 	echo "DOT-INSTALL: Installing PYENV ..."
 	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 	echo "DOT-INSTALL: Intalling PYENV-VIRTUALENV  ..."
