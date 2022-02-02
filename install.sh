@@ -45,6 +45,7 @@ if input_contains '-h' || input_contains '--help'; then
 	echo "--brew:        Install HOMEBREW"
 	echo "--pyenv:       Install PYENV"
 	echo "--force-links: Overwrite existing dotfiles"
+	echo "--exec-zsh:    Execute ZSH after completion"
 	exit 0
 fi
 
@@ -149,4 +150,6 @@ if input_contains '--pyenv'; then
 	echo "DOT-INSTALL: NOTIFICATION: PYENV was installed, but please install all Python dependencies before installing Python ..."
 fi
 
-exec /bin/zsh
+if input_contains '--exec-zsh'; then
+	exec /bin/zsh
+fi
