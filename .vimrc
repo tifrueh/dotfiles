@@ -7,6 +7,8 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -22,6 +24,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 set t_Co=256
-colorscheme onehalfdark
-let g:lightline = { 'colorscheme': 'onehalfdark' }
+colorscheme dracula
+let g:lightline = { 'colorscheme': 'dracula' }
 
