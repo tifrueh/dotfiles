@@ -18,6 +18,7 @@ OPTIONS=!implicit_uncursed
 OPTIONS=hilite_pet
 OPTIONS=symset:DECgraphics
 OPTIONS=lit_corridor
+OPTIONS=autopickup
 OPTIONS=pickup_types:$
 OPTIONS=pickup_thrown
 OPTIONS=msg_window:reversed
