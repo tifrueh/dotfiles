@@ -16,7 +16,7 @@ OPTIONS=dark_room
 OPTIONS=!implicit_uncursed
 OPTIONS=force_invmenu
 OPTIONS=hilite_pet
-#OPTIONS=symset:DECgraphics
+OPTIONS=symset:DECgraphics
 OPTIONS=lit_corridor
 OPTIONS=autopickup
 OPTIONS=pickup_types:$
@@ -34,12 +34,12 @@ OPTIONS=msg_window:reversed
 #OPTIONS=!force_invmenu
 
 # *** Custom symbols ***
-#SYMBOLS=S_corr=#
-#SYMBOLS=S_litcorr=#
-#SYMBOLS=S_hcdoor=+
-#SYMBOLS=S_vcdoor=+
-#SYMBOLS=S_hodoor=|
-#SYMBOLS=S_vodoor=-
+SYMBOLS=S_corr=#
+SYMBOLS=S_litcorr=#
+SYMBOLS=S_hcdoor=+
+SYMBOLS=S_vcdoor=+
+SYMBOLS=S_hodoor=|
+SYMBOLS=S_vodoor=-
 
 # *** Menucolors ***
 OPTIONS=menucolors
