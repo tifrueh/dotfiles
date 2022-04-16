@@ -24,6 +24,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 set t_Co=256
-colorscheme dracula
-let g:lightline = { 'colorscheme': 'dracula' }
+colorscheme onehalfdark
+let g:lightline = { 'colorscheme': 'onehalfdark' }
 
