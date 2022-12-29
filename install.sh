@@ -44,6 +44,7 @@ if input_contains '-h' || input_contains '--help'; then
 	echo "Possible options:"
 	echo "--brew:        Install HOMEBREW"
 	echo "--pyenv:       Install PYENV"
+	echo "--nvim:        Link NVIM config"
 	echo "--force-links: Overwrite existing dotfiles"
 	echo "--exec-zsh:    Execute ZSH after completion"
 	exit 0
@@ -89,6 +90,16 @@ elif input_contains '--pyenv' && ! [ -d $HOME/.pyenv ]; then
 	git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 	echo "DOT-INSTALL: Intalling PYENV-VIRTUALENV  ..."
 	git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+fi
+
+# link nvim config if requested and no config is present
+if input_contains '--nvim' && [ -d $HOME/.config/nvim ]; then
+	echo "DOT-INSTALL: ERROR: NVIM configuration already present, remove first ..."
+	exit 1
+elif input_contains '--nvim'; then
+	echo "DOT-INSTALL: Linking NVIM config"
+	mkdir -p $HOME/.config
+	ln -s $script_dirname/nvim $HOME/.config/nvim
 fi
 
 # install oh-my-zsh if not already installed
