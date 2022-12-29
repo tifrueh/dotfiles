@@ -21,17 +21,17 @@ input_contains () {
 
 # function for linking a dotfile
 link () {
-	if ! [ -f $HOME/$1 ]; then
+	if ! [ -e $HOME/.$1 ]; then
 		echo "DOT-INSTALL: Linking $1 ..."
-		ln -s $script_dirname/$1 $HOME/$1
+		ln -s $script_dirname/$1 $HOME/.$1
 	elif input_contains '--force-links'; then
-		echo "Do you really want to overwrite your existing $1? [y|n] \c"
+		echo -n "Do you really want to overwrite your existing $1? [y|n] "
 		read confirm
 		if [ $confirm = "y" ]; then
 			echo "DOT-INSTALL: Removing existing $1 ..."
-			rm $HOME/$1
+			rm $HOME/.$1
 			echo "DOT-INSTALL: Linking $1 ..."
-			ln -s $script_dirname/$1 $HOME/$1
+			ln -s $script_dirname/$1 $HOME/.$1
 		else
 			echo "DOT-INSTALL: SKIP: Not overwriting $1, skipping ..."
 		fi
@@ -150,12 +150,11 @@ else
 fi
 
 # add symlinks if they do not exist already and overwrite them if requested
-link ".zshrc"
-link ".zprofile"
-link ".zshaliases"
-link ".vimrc"
-link ".p10k.zsh"
-link ".nethackrc"
+link "zshrc"
+link "zprofile"
+link "zshaliases"
+link "vimrc"
+link "nethackrc"
 
 if input_contains '--pyenv'; then
 	echo "DOT-INSTALL: NOTIFICATION: PYENV was installed, but please install all Python dependencies before installing Python ..."
