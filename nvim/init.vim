@@ -3,7 +3,7 @@ set number
 syntax on
 
 " vim-plug
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.config/nvim/plugged")
 
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
