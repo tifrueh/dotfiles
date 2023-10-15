@@ -151,7 +151,7 @@ fi
 
 # add symlinks if they do not exist already and overwrite them if requested
 link "zshrc"
-link "zshenv"
+link "zprofile"
 link "zshaliases"
 link "vimrc"
 link "nethackrc"
