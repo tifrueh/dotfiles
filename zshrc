@@ -12,7 +12,7 @@ setopt HIST_FIND_NO_DUPS
 THEMES_DIR="$HOME/.zsh/themes"
 PLUGINS_DIR="$HOME/.zsh/plugins"
 
-# Source spaceship-prompt
+# Source theme
 source "$THEMES_DIR/spaceship-prompt/spaceship.zsh-theme"
 
 # Source zsh-syntax-highlighting
