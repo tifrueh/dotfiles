@@ -102,16 +102,19 @@ elif input_contains '--nvim'; then
 	ln -s $script_dirname/nvim $HOME/.config/nvim
 fi
 
-# install oh-my-zsh if not already installed
-if ! [ -d $HOME/.oh-my-zsh ]; then
-	echo "DOT-INSTALL: Installing OH-MY-ZSH ..."
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+# create .zsh directory
+if ! [ -d $HOME/.zsh ]; then
+	echo "DOT-INSTALL: Creating .ZSH DIRECTORY ..."
+	mkdir -p $HOME/.zsh/plugins $HOME/.zsh/themes
 
-	# remove the .zshrc the OH-MY-ZSH installer created
-	echo "DOT-INSTALL: Removing .zshrc (which was added by the OH-MY-ZSH installer) ..."
-	rm $HOME/.zshrc
+	if [ -f $HOME/.zsh_history ]; then
+		mv $HOME/.zsh_history $HOME/.zsh/
+	else
+		touch $HOME/.zsh/.zsh_history
+	fi
+
 else
-	echo "DOT-INSTALL: SKIP: OH-MY-ZSH already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: .ZSH DIRECTORY already created, skipping ..."
 fi
 
 # install vim if on macOS or a Debian based Linux, ask for manual installation if not
@@ -133,20 +136,27 @@ else
 	echo "DOT-INSTALL: SKIP: VIM-PLUG already installed, skipping ..."
 fi
 
-# install powerlevel10k if not already installed
-if ! [ -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-	echo "DOT-INSTALL: Installing P10K ..."
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# install spaceship-prompt if not already installed
+if ! [ -d $HOME/.zsh/themes/spaceship-prompt ]; then
+	echo "DOT-INSTALL: Installing SPACESHIP ..."
+	git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/themes/spaceship-prompt"
 else
-	echo "DOT-INSTALL: SKIP: P10K already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: SPACESHIP already installed, skipping ..."
 fi
 
 # install zsh-syntax-highlighting if not already installed
-if ! [ -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+if ! [ -d $HOME/.zsh/plugins/zsh-syntax-highlighting ]; then
 	echo "DOT-INSTALL: Installing ZSH-SYNTAX-HIGHLIGHTING ..."
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/plugins/zsh-syntax-highlighting"
 else
 	echo "DOT-INSTALL: SKIP: ZSH-SYNTAX-HIGHLIGHTING already installed, skipping ..."
+fi
+
+if ! [ -d $HOME/.zsh/plugins/zsh-completions ]; then
+	echo "DOT-INSTALL: Installing ZSH-COMPLETIONS ..."
+	git clone https://github.com/zsh-users/zsh-completions.git "$HOME/.zsh/plugins/zsh-completions"
+else
+	echo "DOT-INSTALL: SKIP: ZSH-COMPLETIONS already installed, skipping ..."
 fi
 
 # add symlinks if they do not exist already and overwrite them if requested
