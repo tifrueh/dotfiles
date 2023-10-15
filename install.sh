@@ -144,6 +144,14 @@ else
 	echo "DOT-INSTALL: SKIP: SPACESHIP already installed, skipping ..."
 fi
 
+# install p10k if not already installed
+if ! [ -d $HOME/.zsh/themes/p10k ]; then
+	echo "DOT-INSTALL: Installing P10K ..."
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.zsh/themes/p10k"
+else
+	echo "DOT-INSTALL: SKIP: P10K already installed, skipping ..."
+fi
+
 # install zsh-syntax-highlighting if not already installed
 if ! [ -d $HOME/.zsh/plugins/zsh-syntax-highlighting ]; then
 	echo "DOT-INSTALL: Installing ZSH-SYNTAX-HIGHLIGHTING ..."
