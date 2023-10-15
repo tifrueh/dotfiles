@@ -12,14 +12,14 @@ setopt HIST_FIND_NO_DUPS
 THEMES_DIR="$HOME/.zsh/themes"
 PLUGINS_DIR="$HOME/.zsh/plugins"
 
-# Source theme
-source "$THEMES_DIR/spaceship-prompt/spaceship.zsh-theme"
+# Add pure theme
+fpath+=($THEMES_DIR/pure)
 
 # Source zsh-syntax-highlighting
 source "$PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Enable zsh-completions
-FPATH="$PLUGINS_DIR/zsh-completions/src:$FPATH"
+fpath+=($PLUGINS_DIR/zsh-completions/src)
 
 
 # source alias file if it exists
@@ -40,5 +40,10 @@ then
 
 fi
 
-autoload -Uz compinit
-compinit
+# Initialise and configure prompt system
+zstyle :prompt:pure:prompt:success color green
+zstyle :prompt:pure:git:dirty color red
+autoload -U promptinit; promptinit
+prompt pure
+
+autoload -Uz compinit; compinit

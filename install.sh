@@ -136,12 +136,12 @@ else
 	echo "DOT-INSTALL: SKIP: VIM-PLUG already installed, skipping ..."
 fi
 
-# install spaceship-prompt if not already installed
-if ! [ -d $HOME/.zsh/themes/spaceship-prompt ]; then
-	echo "DOT-INSTALL: Installing SPACESHIP ..."
-	git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/themes/spaceship-prompt"
+# install pure if not already installed
+if ! [ -d $HOME/.zsh/themes/pure ]; then
+	echo "DOT-INSTALL: Installing PURE ..."
+	git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/themes/pure"
 else
-	echo "DOT-INSTALL: SKIP: SPACESHIP already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: PURE already installed, skipping ..."
 fi
 
 # install p10k if not already installed
