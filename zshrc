@@ -36,10 +36,17 @@ if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plug
 fi
 
 # Enable Homebrew shell-completion if available
-
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# Enable MacPorts shell-completion if available
+if [ -d /opt/ports/share/zsh/site-functions ]; then
+  FPATH="/opt/ports/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
   compinit
