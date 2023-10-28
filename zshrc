@@ -18,7 +18,6 @@ fpath+=($THEMES_DIR/pure)
 # Enable zsh-completions
 fpath+=($PLUGINS_DIR/zsh-completions/src)
 
-
 # source alias file if it exists
 if [[ -f ~/.zshaliases ]]; then
 	source ~/.zshaliases;
