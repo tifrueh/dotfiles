@@ -15,9 +15,6 @@ PLUGINS_DIR="$HOME/.zsh/plugins"
 # Add pure theme
 fpath+=($THEMES_DIR/pure)
 
-# Source zsh-syntax-highlighting
-source "$PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 # Enable zsh-completions
 fpath+=($PLUGINS_DIR/zsh-completions/src)
 
@@ -47,3 +44,5 @@ autoload -U promptinit; promptinit
 prompt pure
 
 autoload -Uz compinit; compinit
+
+source "$PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
