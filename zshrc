@@ -20,13 +20,17 @@ fpath+=($PLUGINS_DIR/zsh-completions/src)
 
 # source alias file if it exists
 if [[ -f ~/.zshaliases ]]; then
-	source ~/.zshaliases;
+  source ~/.zshaliases;
 fi
 
 # Pyenv configuration
 if [ -d $HOME/.pyenv ]; then eval "$(pyenv init -)"; fi
+
 if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plugins/pyenv-virtualenv ]; then
+  TMP_PATH=$PATH
   eval "$(pyenv virtualenv-init -)";
+  export PATH=$TMP_PATH
+  unset TMP_PATH
 fi
 
 # Enable Homebrew shell-completion if available
