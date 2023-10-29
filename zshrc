@@ -42,7 +42,7 @@ fi
 # Initialise and configure prompt system
 zstyle :prompt:pure:prompt:success color green
 zstyle :prompt:pure:git:dirty color red
-autoload -U promptinit; promptinit
+autoload -Uz promptinit; promptinit
 prompt pure
 
 autoload -Uz compinit; compinit
