@@ -9,8 +9,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
 # Some useful variables
-THEMES_DIR="$HOME/.zsh/themes"
-PLUGINS_DIR="$HOME/.zsh/plugins"
+THEMES_DIR="${ZSH}/themes"
+PLUGINS_DIR="${ZSH}/plugins"
 
 # Add pure theme
 fpath+=("${THEMES_DIR}/pure")
