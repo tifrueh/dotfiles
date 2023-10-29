@@ -1,8 +1,8 @@
 # Path to the zsh directory
-export ZSH="$HOME/.zsh"
+export ZSH="${HOME}/.zsh"
 
 # Configure history
-export HISTFILE="$HOME/.zsh/.zsh_history"
+export HISTFILE="${HOME}/.zsh/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
@@ -40,9 +40,9 @@ then
 fi
 
 # Initialise and configure prompt system
-zstyle :prompt:pure:prompt:success color green
-zstyle :prompt:pure:git:dirty color red
 autoload -Uz promptinit; promptinit
+zstyle :prompt:pure:git:dirty color red
+zstyle :prompt:pure:prompt:success color green
 prompt pure
 
 autoload -Uz compinit; compinit
