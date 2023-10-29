@@ -1,6 +1,7 @@
 # custom environment variables
-export PATH="/opt/custom/bin:$PATH"
+typeset -U path
+path=("/opt/custom/bin" $path)
 if [ -d /opt/homebrew ]; then eval $(/opt/homebrew/bin/brew shellenv zsh); fi
-if [ -d /opt/local ]; then export PATH="/opt/local/bin:/opt/local/sbin:$PATH" && export MANPATH="/opt/local/share/man:$MANPATH"; fi
-if [ -d ~/.pyenv ]; then export PYENV_ROOT="$HOME/.pyenv" && eval $(pyenv init --path); fi
+if [ -d /opt/local ]; then path=("/opt/local/bin" "/opt/local/bin" $path) && manpath=("/opt/local/share/man" $manpath); fi
+if [ -d ~/.pyenv ]; then export PYENV_ROOT="$HOME/.pyenv" && path=("${HOME}/.pyenv/shims" $path); fi
 export EDITOR=vim
