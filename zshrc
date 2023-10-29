@@ -13,10 +13,10 @@ THEMES_DIR="$HOME/.zsh/themes"
 PLUGINS_DIR="$HOME/.zsh/plugins"
 
 # Add pure theme
-fpath+=($THEMES_DIR/pure)
+fpath+=("${THEMES_DIR}/pure")
 
 # Enable zsh-completions
-fpath+=($PLUGINS_DIR/zsh-completions/src)
+fpath+=("${PLUGINS_DIR}/zsh-completions/src")
 
 # source alias file if it exists
 if [[ -f ~/.zshaliases ]]; then
@@ -24,9 +24,9 @@ if [[ -f ~/.zshaliases ]]; then
 fi
 
 # Pyenv configuration
-if [ -d $HOME/.pyenv ]; then eval "$(pyenv init -)"; fi
+if [ -d "${HOME}/.pyenv" ]; then eval "$(pyenv init -)"; fi
 
-if type pyenv-virtualenv-init > /dev/null 2> /dev/null || [ -d $HOME/.pyenv/plugins/pyenv-virtualenv ]; then
+if [ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]; then
   TMP_PATH=$PATH
   eval "$(pyenv virtualenv-init -)";
   export PATH=$TMP_PATH
@@ -36,8 +36,7 @@ fi
 # Enable Homebrew shell-completion if available
 if type brew &>/dev/null
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
 
 # Initialise and configure prompt system
@@ -48,4 +47,4 @@ prompt pure
 
 autoload -Uz compinit; compinit
 
-source "$PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

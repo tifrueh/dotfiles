@@ -54,9 +54,6 @@ fi
 if ! type zsh > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install ZSH before executing this script ..."
 	exit 1
-elif ! [ $SHELL = '/bin/zsh' ]; then
-	echo "DOT-INSTALL: ERROR: Please set ZSH as default shell before executing this script ..."
-	exit 1
 fi
 
 if ! type curl > /dev/null 2> /dev/null; then
@@ -179,5 +176,5 @@ if input_contains '--pyenv'; then
 fi
 
 if input_contains '--exec-zsh'; then
-	exec /bin/zsh
+	exec zsh
 fi
