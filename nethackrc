@@ -24,14 +24,14 @@ OPTIONS=pickup_thrown
 OPTIONS=msg_window:reversed
 
 # *** Options just for curses windowport ***
-OPTIONS=windowtype=curses
-OPTIONS=statuslines:3
-OPTIONS=perm_invent
-OPTIONS=align_status=top
-OPTIONS=align_message=bottom
-OPTIONS=!guicolor
-OPTIONS=petattr:u
-OPTIONS=!force_invmenu
+#OPTIONS=windowtype=curses
+#OPTIONS=statuslines:3
+#OPTIONS=perm_invent
+#OPTIONS=align_status=top
+#OPTIONS=align_message=bottom
+#OPTIONS=!guicolor
+#OPTIONS=petattr:u
+#OPTIONS=!force_invmenu
 
 # *** Custom symbols ***
 SYMBOLS=S_corr=#
