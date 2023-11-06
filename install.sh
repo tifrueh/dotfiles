@@ -164,6 +164,13 @@ else
 	echo "DOT-INSTALL: SKIP: ZSH-COMPLETIONS already installed, skipping ..."
 fi
 
+if ! [ -d $HOME/.zsh/plugins/zsh-history-substring-search ]; then
+	echo "DOT-INSTALL: Installing ZSH-HISTORY-SUBSTRING-SEARCH ..."
+	git clone https://github.com/zsh-users/zsh-history-substring-search.git "${HOME}/.zsh/plugins/zsh-history-substring-search"
+else
+	echo "DOT-INSTALL: SKIP: ZSH-HISTORY-SUBSTRING-SEARCH already installed, skipping ..."
+fi
+
 # add symlinks if they do not exist already and overwrite them if requested
 link "zshrc"
 link "zprofile"
