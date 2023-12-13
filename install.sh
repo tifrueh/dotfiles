@@ -50,6 +50,9 @@ if input_contains '-h' || input_contains '--help'; then
 	exit 0
 fi
 
+# store nvim config location in variable
+nvim_rc="${HOME}/.config/nvim/init.vim"
+
 # enforce requirements
 if ! type zsh > /dev/null 2> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install ZSH before executing this script ..."
@@ -90,8 +93,20 @@ elif input_contains '--pyenv' && ! [ -d $HOME/.pyenv ]; then
 fi
 
 # link nvim config if requested and no config is present
-if input_contains '--nvim'; then
-	echo "DOT-INSTALL: Link NVIM config (does not do anything currently)"
+if input_contains '--nvim' && [ ! -e $nvim_rc ]; then
+	mkdir -p $HOME/.config/nvim
+	ln -s $script_dirname/nvimrc $nvim_rc
+elif input_contains '--force-links'; then
+	echo -n "Do you really want to overwrite your existing nvim config? [y|n] "
+	read confirm
+	if [ $confirm = "y" ]; then
+		echo "DOT-INSTALL: Removing existing nvim config ..."
+		rm $nvim_rc
+		echo "DOT-INSTALL: Linking nvim config ..."
+		ln -s $script_dirname/nvimrc $nvim_rc
+	else
+		echo "DOT-INSTALL: SKIP: Not overwriting nvim config, skipping ..."
+	fi
 fi
 
 # create .zsh directory
