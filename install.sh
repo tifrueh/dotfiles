@@ -90,13 +90,8 @@ elif input_contains '--pyenv' && ! [ -d $HOME/.pyenv ]; then
 fi
 
 # link nvim config if requested and no config is present
-if input_contains '--nvim' && [ -d $HOME/.config/nvim ]; then
-	echo "DOT-INSTALL: ERROR: NVIM configuration already present, remove first ..."
-	exit 1
-elif input_contains '--nvim'; then
-	echo "DOT-INSTALL: Linking NVIM config"
-	mkdir -p $HOME/.config
-	ln -s $script_dirname/nvim $HOME/.config/nvim
+if input_contains '--nvim'; then
+	echo "DOT-INSTALL: Link NVIM config (does not do anything currently)"
 fi
 
 # create .zsh directory
