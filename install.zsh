@@ -170,6 +170,9 @@ fi
 # configure nvim if requested
 if input_contains "--configure-nvim"; then
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
+	echo "DOT-INSTALL: Copying VIM colorschemes to NVIM"
+	mkdir -p "${HOME}/.config/nvim/colors"
+	cp "${HOME}/.vim/colors/"* "${HOME}/.config/nvim/colors"
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
