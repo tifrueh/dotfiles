@@ -101,14 +101,6 @@ else
 	echo "DOT-INSTALL: SKIP: .ZSH DIRECTORY already created, skipping ..."
 fi
 
-# install vim-plug if not already installed
-if ! [[ -f "${HOME}/.vim/autoload/plug.vim" ]]; then
-	echo "DOT-INSTALL: Installing VIM-PLUG"
-	curl -fLo "${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-else
-	echo "DOT-INSTALL: SKIP: VIM-PLUG already installed, skipping ..."
-fi
-
 # install pure if not already installed
 if ! [[ -d "${HOME}/.zsh/themes/pure" ]]; then
 	echo "DOT-INSTALL: Installing PURE"
