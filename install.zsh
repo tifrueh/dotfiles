@@ -198,12 +198,12 @@ elif input_contains "--install-pyenv"; then
 fi
 
 # link all dotfiles
-link_dot "zshrc"
+link_dot "gitconfig"
+link_dot "nethackrc"
+link_dot "vimrc"
 link_dot "zprofile"
 link_dot "zshaliases"
-link_dot "vimrc"
-link_dot "nethackrc"
-link_dot "gitconfig"
+link_dot "zshrc"
 
 if input_contains '--exec-zsh'; then
 	exec zsh
