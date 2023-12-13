@@ -1,0 +1,9 @@
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = timo.frueh@icloud.com
+	name = Timo Früh
+[core]
+	editor = vim

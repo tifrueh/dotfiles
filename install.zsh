@@ -203,6 +203,7 @@ link_dot "zprofile"
 link_dot "zshaliases"
 link_dot "vimrc"
 link_dot "nethackrc"
+link_dot "gitconfig"
 
 if input_contains '--exec-zsh'; then
 	exec zsh
