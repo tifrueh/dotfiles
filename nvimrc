@@ -13,3 +13,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" use lualine
+lua << EOF
+require('lualine').setup()
+EOF

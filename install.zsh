@@ -168,11 +168,20 @@ else
 fi
 
 # configure nvim if requested
+## link nvimrc and copy vim colors
 if input_contains "--configure-nvim"; then
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
 	echo "DOT-INSTALL: Copying VIM colorschemes to NVIM"
 	mkdir -p "${HOME}/.config/nvim/colors"
 	cp "${HOME}/.vim/colors/"* "${HOME}/.config/nvim/colors"
+fi
+
+## install the lualine plugin for nvim
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/lualine" ]]; then
+	echo "DOT-INSTALL: Installing LUALINE for NVIM"
+	git clone https://github.com/nvim-lualine/lualine.nvim.git "${HOME}/.config/nvim/pack/plugins/start/lualine"
+elif input_contains "--configure-nvim"; then
+	echo "DOT-INSTALL: LUALINE for NVIM already installed, skipping ..."
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
