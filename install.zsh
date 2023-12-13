@@ -42,7 +42,7 @@ link () {
 	elif [[ -h "${2}" || -f "${2}" ]]; then
 		echo "DOT-INSTALL: ${2} exists, skipping (override with '--force-links') ..."
 	elif [[ -e "${2}" ]]; then
-		echo "DOT-INSTALL: ${2} exists and is not a symbolic link or regular file, skipping ..."
+		echo "DOT-INSTALL: SKIP: ${2} exists and is not a symbolic link or regular file, skipping ..."
 	else
 		echo "DOT-INSTALL: Linking ${1} -> ${2}"
 		ln -s "${dirpath}/${1}" "${2}"
@@ -147,7 +147,7 @@ if ! [[ -f "${HOME}/.vim/colors/onehalfdark.vim" ]]; then
 	mkdir -p "${HOME}/.vim/colors"
 	curl -sSL https://github.com/sonph/onehalf/raw/master/vim/colors/onehalfdark.vim -o "${HOME}/.vim/colors/onehalfdark.vim"
 else
-	echo "DOT-INSTALL: ONEHALFDARK for VIM already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: ONEHALFDARK for VIM already installed, skipping ..."
 fi
 
 if ! [[ -f "${HOME}/.vim/colors/onehalflight.vim" ]]; then
@@ -155,7 +155,7 @@ if ! [[ -f "${HOME}/.vim/colors/onehalflight.vim" ]]; then
 	mkdir -p "${HOME}/.vim/colors"
 	curl -sSL https://github.com/sonph/onehalf/raw/master/vim/colors/onehalflight.vim -o "${HOME}/.vim/colors/onehalflight.vim"
 else
-	echo "DOT-INSTALL: ONEHALFDARK for VIM already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: ONEHALFLIGHT for VIM already installed, skipping ..."
 fi
 
 # install the lightline plugin for vim
@@ -164,7 +164,7 @@ if ! [[ -d "${HOME}/.vim/pack/plugins/start/lightline" ]]; then
 	mkdir -p "${HOME}/.vim/pack/plugins/start"
 	git clone https://github.com/itchyny/lightline.vim "${HOME}/vim/pack/plugins/start/lightline"
 else
-	echo "DOT-INSTALL: LIGHTLINE for VIM already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: LIGHTLINE for VIM already installed, skipping ..."
 fi
 
 # configure nvim if requested
@@ -181,7 +181,7 @@ if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugi
 	echo "DOT-INSTALL: Installing LUALINE for NVIM"
 	git clone https://github.com/nvim-lualine/lualine.nvim.git "${HOME}/.config/nvim/pack/plugins/start/lualine"
 elif input_contains "--configure-nvim"; then
-	echo "DOT-INSTALL: LUALINE for NVIM already installed, skipping ..."
+	echo "DOT-INSTALL: SKIP: LUALINE for NVIM already installed, skipping ..."
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
