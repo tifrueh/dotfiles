@@ -167,6 +167,14 @@ else
 	echo "DOT-INSTALL: SKIP: LIGHTLINE for VIM already installed, skipping ..."
 fi
 
+# link all dotfiles
+link_dot "gitconfig"
+link_dot "nethackrc"
+link_dot "vimrc"
+link_dot "zprofile"
+link_dot "zshaliases"
+link_dot "zshrc"
+
 # configure nvim if requested
 ## link nvimrc and copy vim colors
 if input_contains "--configure-nvim"; then
@@ -196,14 +204,6 @@ elif input_contains "--install-pyenv"; then
 	git clone https://github.com/pyenv/pyenv-virtualenv.git "${HOME}/.pyenv/plugins/pyenv-virtualenv"
 	echo "DOT-INSTALL: NOTIFICATION: PYENV was installed, but please install all Python dependencies before installing Python ..."
 fi
-
-# link all dotfiles
-link_dot "gitconfig"
-link_dot "nethackrc"
-link_dot "vimrc"
-link_dot "zprofile"
-link_dot "zshaliases"
-link_dot "zshrc"
 
 if input_contains '--exec-zsh'; then
 	exec zsh
