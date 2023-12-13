@@ -38,7 +38,7 @@ if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
 fi
 
 # Enable Homebrew shell-completion if available
-if type brew &>/dev/null
+if type brew --version &>/dev/null
 then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
