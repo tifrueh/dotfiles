@@ -64,7 +64,7 @@ link_dot () {
 if input_contains '-h' || input_contains '--help'; then
 	echo "Possible options:"
 	echo "  --force-links:      Overwrite existing dotfiles"
-	echo "  --link-nvim:        Link NVIM config"
+	echo "  --configure-nvim:   Configure NVIM"
 	echo "  --install-pyenv:    Install PYENV"
 	echo "  --exec-zsh:         Execute ZSH after completion"
 	exit 0
@@ -168,7 +168,7 @@ else
 fi
 
 # link nvim config if requested
-if input_contains "--link_nvim"; then
+if input_contains "--configure-nvim"; then
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
 fi
 
