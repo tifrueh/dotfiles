@@ -167,7 +167,7 @@ else
 	echo "DOT-INSTALL: LIGHTLINE for VIM already installed, skipping ..."
 fi
 
-# link nvim config if requested
+# configure nvim if requested
 if input_contains "--configure-nvim"; then
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
 fi
