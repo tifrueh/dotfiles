@@ -162,7 +162,7 @@ fi
 if ! [[ -d "${HOME}/.vim/pack/plugins/start/lightline" ]]; then
 	echo "DOT-INSTALL: Installing LIGHTLINE for VIM"
 	mkdir -p "${HOME}/.vim/pack/plugins/start"
-	git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
+	git clone https://github.com/itchyny/lightline.vim "${HOME}/vim/pack/plugins/start/lightline"
 else
 	echo "DOT-INSTALL: LIGHTLINE for VIM already installed, skipping ..."
 fi
