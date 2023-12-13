@@ -52,5 +52,8 @@ source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
