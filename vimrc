@@ -13,6 +13,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" set textwidth to 72 for git commit
+autocmd FileType gitcommit set textwidth=72
+
 " enable lightline
 set laststatus=2
 set noshowmode
