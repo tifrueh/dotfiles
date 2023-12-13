@@ -141,6 +141,32 @@ else
 	echo "DOT-INSTALL: SKIP: ZSH-HISTORY-SUBSTRING-SEARCH already installed, skipping ..."
 fi
 
+# install the onehalf colorscheme for vim
+if ! [[ -f "${HOME}/.vim/colors/onehalfdark.vim" ]]; then
+	echo "DOT-INSTALL: Installing ONEHALFDARK for VIM"
+	mkdir -p "${HOME}/.vim/colors"
+	curl -sSL https://github.com/sonph/onehalf/raw/master/vim/colors/onehalfdark.vim -o "${HOME}/.vim/colors/onehalfdark.vim"
+else
+	echo "DOT-INSTALL: ONEHALFDARK for VIM already installed, skipping ..."
+fi
+
+if ! [[ -f "${HOME}/.vim/colors/onehalflight.vim" ]]; then
+	echo "DOT-INSTALL: Installing ONEHALFLIGHT for VIM"
+	mkdir -p "${HOME}/.vim/colors"
+	curl -sSL https://github.com/sonph/onehalf/raw/master/vim/colors/onehalflight.vim -o "${HOME}/.vim/colors/onehalflight.vim"
+else
+	echo "DOT-INSTALL: ONEHALFDARK for VIM already installed, skipping ..."
+fi
+
+# install the lightline plugin for vim
+if ! [[ -d "${HOME}/.vim/pack/plugins/start/lightline" ]]; then
+	echo "DOT-INSTALL: Installing LIGHTLINE for VIM"
+	mkdir -p "${HOME}/.vim/pack/plugins/start"
+	git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
+else
+	echo "DOT-INSTALL: LIGHTLINE for VIM already installed, skipping ..."
+fi
+
 # link nvim config if requested
 if input_contains "--link_nvim"; then
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
