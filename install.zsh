@@ -170,6 +170,7 @@ fi
 # configure nvim if requested
 ## link nvimrc and copy vim colors
 if input_contains "--configure-nvim"; then
+	mkdir -p "${HOME}/.config/nvim"
 	link "nvimrc" "${HOME}/.config/nvim/init.vim"
 	echo "DOT-INSTALL: Copying VIM colorschemes to NVIM"
 	mkdir -p "${HOME}/.config/nvim/colors"
