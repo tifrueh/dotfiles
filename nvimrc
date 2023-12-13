@@ -14,6 +14,7 @@ if exists('+termguicolors')
 endif
 
 " use lualine
+set noshowmode
 lua << EOF
 require('lualine').setup()
 EOF
