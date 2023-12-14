@@ -185,6 +185,14 @@ if input_contains "--configure-nvim"; then
 	cp "${HOME}/.vim/colors/"* "${HOME}/.config/nvim/colors"
 fi
 
+## install the nvim-web-devicon plugin for nvim
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/nvim-web-devicons" ]]; then
+	echo "DOT-INSTALL: Installing NVIM-WEB-DEVICONS for NVIM"
+	git clone https://github.com/nvim-tree/nvim-web-devicons "${HOME}/.config/nvim/pack/plugins/start/nvim-web-devicons"
+elif input_contains "--configure-nvim"; then
+	echo "DOT-INSTALL: SKIP: NVIM-WEB-DEVICONS for NVIM already installed, skipping ..."
+fi
+
 ## install the lualine plugin for nvim
 if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/lualine" ]]; then
 	echo "DOT-INSTALL: Installing LUALINE for NVIM"

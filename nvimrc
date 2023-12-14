@@ -16,6 +16,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" use nvim-web-devicons (required for lualine)
+lua require('nvim-web-devicons').setup()
+
 " use lualine
 set noshowmode
 lua require('lualine').setup()
