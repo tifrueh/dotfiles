@@ -15,9 +15,7 @@ endif
 
 " use lualine
 set noshowmode
-lua << EOF
-require('lualine').setup()
-EOF
+lua require('lualine').setup()
 
 " use nvim surround
 lua require('nvim-surround').setup()
