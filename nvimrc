@@ -2,6 +2,9 @@
 set number
 syntax on
 
+" enable cursorline
+set cursorline
+
 " use onehalfdark color scheme
 set t_Co=256
 colorscheme onehalfdark
