@@ -71,17 +71,17 @@ if input_contains '-h' || input_contains '--help'; then
 fi
 
 # enforce requirements zsh curl and git
-if ! type zsh > /dev/null 2> /dev/null; then
+if ! type zsh &> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install ZSH before executing this script ..."
 	exit 1
 fi
 
-if ! type curl > /dev/null 2> /dev/null; then
+if ! type curl &> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install CURL before executing this script ..."
 	exit 1
 fi
 
-if ! type git > /dev/null 2> /dev/null; then
+if ! type git &> /dev/null; then
 	echo "DOT-INSTALL: ERROR: Please install GIT before executing this script ..."
 	exit 1
 fi
