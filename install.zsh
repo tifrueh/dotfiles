@@ -193,6 +193,15 @@ elif input_contains "--configure-nvim"; then
 	echo "DOT-INSTALL: SKIP: LUALINE for NVIM already installed, skipping ..."
 fi
 
+## install the nvim-surround plugin for nvim
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/nvim-surround" ]]; then
+	echo "DOT-INSTALL: Installing NVIM-SURROUND for NVIM"
+	git clone https://github.com/kylechui/nvim-surround.git "${HOME}/.config/nvim/pack/plugins/start/nvim-surround"
+elif input_contains "--configure-nvim"; then
+	echo "DOT-INSTALL: SKIP: NVIM-SURROUND for NVIM already installed, skipping ..."
+fi
+
+
 # install pyenv if requested, if on macOS and if not already installed
 if input_contains "--install-pyenv" && [[ -d "${HOME}/.pyenv" ]]; then
 	echo "DOT-INSTALL: ERROR: PYENV already installed ..."

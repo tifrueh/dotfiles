@@ -18,3 +18,6 @@ set noshowmode
 lua << EOF
 require('lualine').setup()
 EOF
+
+" use nvim surround
+lua require('nvim-surround').setup()
