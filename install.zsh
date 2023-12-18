@@ -168,7 +168,6 @@ else
 fi
 
 # link all dotfiles
-link_dot "gitconfig"
 link_dot "nethackrc"
 link_dot "vimrc"
 link_dot "zprofile"
