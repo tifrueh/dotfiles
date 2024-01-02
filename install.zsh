@@ -1,7 +1,12 @@
 #!/bin/zsh
 
 # store input arguments in variable
-input_args=$*
+zparseopts -E -D -a input_args -- \
+	-force-links \
+	-configure-nvim \
+	-configure-kitty \
+	-install-pyenv \
+	-exec-zsh
 
 # always execute script in its directory
 dirpath="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
@@ -9,15 +14,13 @@ cd "${dirpath}"
 
 # function for checking whether input argument was given
 input_contains () {
-	seeking=${1}
-	in=1
-	for element in "${input_args}"; do
+	seeking="${1}"
+	for element in $input_args; do
 		if [[ "${element}" = "${seeking}" ]]; then
-			in=0
-			break
+			return 0
 		fi
 	done
-	return $in
+	return 1
 }
 
 # function for protected symlinking
