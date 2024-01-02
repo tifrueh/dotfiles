@@ -65,6 +65,7 @@ if input_contains '-h' || input_contains '--help'; then
 	echo "Possible options:"
 	echo "  --force-links:      Overwrite existing dotfiles"
 	echo "  --configure-nvim:   Configure NVIM"
+	echo "  --configure-kitty:  Configure KITTY"
 	echo "  --install-pyenv:    Install PYENV"
 	echo "  --exec-zsh:         Execute ZSH after completion"
 	exit 0
@@ -208,6 +209,27 @@ elif input_contains "--configure-nvim"; then
 	echo "DOT-INSTALL: SKIP: NVIM-SURROUND for NVIM already installed, skipping ..."
 fi
 
+# configure kitty if requested
+## link kitty config
+if input_contains "--configure-kitty"; then
+	mkdir -p "${HOME}/.config/kitty"
+	link "kitty.conf" "${HOME}/.config/kitty/kitty.conf"
+fi
+
+## install onehalfdark for kitty
+if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/onehalfdark.conf" ]]; then
+	echo "DOT-INSTALL: Installing ONEHALFDARK for KITTY"
+	curl -fsSL "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-dark.conf" -o "${HOME}/.config/kitty/onehalfdark.conf"
+elif input_contains "--configure-kitty"; then
+	echo "DOT-INSTALL: SKIP: ONEHALFDARK for KITTY already installed, skipping ..."
+fi
+
+if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/onehalflight.conf" ]]; then
+	echo "DOT-INSTALL: Installing ONEHALFLIGHT for KITTY"
+	curl -fsSL "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-light.conf" -o "${HOME}/.config/kitty/onehalflight.conf"
+elif input_contains "--configure-kitty"; then
+	echo "DOT-INSTALL: SKIP: ONEHALFLIGHT for KITTY already installed, skipping ..."
+fi
 
 # install pyenv if requested, if on macOS and if not already installed
 if input_contains "--install-pyenv" && [[ -d "${HOME}/.pyenv" ]]; then
