@@ -2,6 +2,8 @@
 
 # store input arguments in variable
 zparseopts -E -D -a input_args -- \
+	h \
+	-help \
 	-force-links \
 	-configure-nvim \
 	-configure-kitty \
