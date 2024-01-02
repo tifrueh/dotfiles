@@ -236,6 +236,13 @@ elif input_contains "--configure-kitty"; then
 	echo "DOT-INSTALL: SKIP: ONEHALFLIGHT for KITTY already installed, skipping ..."
 fi
 
+if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/kitty-fontconfig.conf" ]]; then
+	echo "DOT-INSTALL: Installing default font configuration for KITTY"
+	cp "${dirpath}/kitty-fontconfig.conf" "${HOME}/.config/kitty/kitty-fontconfig.conf"
+elif input_contains "--configure-kitty"; then
+	echo "DOT-INSTALL: SKIP: Font configuration file for KITTY found, skipping ..."
+fi
+
 # install pyenv if requested, if on macOS and if not already installed
 if input_contains "--install-pyenv" && [[ -d "${HOME}/.pyenv" ]]; then
 	echo "DOT-INSTALL: ERROR: PYENV already installed ..."
