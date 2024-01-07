@@ -229,6 +229,7 @@ elif input_contains "--configure-kitty"; then
 	echo "DOT-INSTALL: SKIP: ONEHALFDARK for KITTY already installed, skipping ..."
 fi
 
+## install onehalfdark for kitty
 if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/onehalflight.conf" ]]; then
 	echo "DOT-INSTALL: Installing ONEHALFLIGHT for KITTY"
 	curl -fsSL "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-light.conf" -o "${HOME}/.config/kitty/onehalflight.conf"
@@ -236,6 +237,7 @@ elif input_contains "--configure-kitty"; then
 	echo "DOT-INSTALL: SKIP: ONEHALFLIGHT for KITTY already installed, skipping ..."
 fi
 
+## install font configuration for kitty
 if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/kitty-fontconfig.conf" ]]; then
 	echo "DOT-INSTALL: Installing default font configuration for KITTY"
 	cp "${dirpath}/kitty-fontconfig.conf" "${HOME}/.config/kitty/kitty-fontconfig.conf"
