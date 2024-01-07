@@ -21,7 +21,7 @@ lua require('nvim-web-devicons').setup()
 
 " use lualine
 set noshowmode
-lua require('lualine').setup()
+lua require('lualine').setup{ options = { theme = 'onedark' } }
 
 " use nvim surround
 lua require('nvim-surround').setup()
