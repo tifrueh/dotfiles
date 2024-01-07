@@ -238,9 +238,9 @@ elif input_contains "--configure-kitty"; then
 fi
 
 ## install font configuration for kitty
-if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/kitty-fontconfig.conf" ]]; then
+if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/fontconfig.conf" ]]; then
 	echo "DOT-INSTALL: Installing default font configuration for KITTY"
-	cp "${dirpath}/kitty-fontconfig.conf" "${HOME}/.config/kitty/kitty-fontconfig.conf"
+	cp "${dirpath}/kitty-fontconfig.conf" "${HOME}/.config/kitty/fontconfig.conf"
 elif input_contains "--configure-kitty"; then
 	echo "DOT-INSTALL: SKIP: Font configuration file for KITTY found, skipping ..."
 fi
