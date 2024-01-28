@@ -219,6 +219,7 @@ fi
 if input_contains "--configure-kitty"; then
 	mkdir -p "${HOME}/.config/kitty"
 	link "kitty.conf" "${HOME}/.config/kitty/kitty.conf"
+	link "kitty-if.conf" "${HOME}/.config/kitty/if.conf"
 fi
 
 ## install onehalfdark for kitty
