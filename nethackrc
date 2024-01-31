@@ -34,12 +34,12 @@ OPTIONS=msg_window:reversed
 #OPTIONS=!force_invmenu
 
 # *** Custom symbols ***
-SYMBOLS=S_corr=#
-SYMBOLS=S_litcorr=#
-SYMBOLS=S_hcdoor=+
-SYMBOLS=S_vcdoor=+
-SYMBOLS=S_hodoor=|
-SYMBOLS=S_vodoor=-
+#SYMBOLS=S_corr=#
+#SYMBOLS=S_litcorr=#
+#SYMBOLS=S_hcdoor=+
+#SYMBOLS=S_vcdoor=+
+#SYMBOLS=S_hodoor=|
+#SYMBOLS=S_vodoor=-
 
 # *** Menucolors ***
 OPTIONS=menucolors
