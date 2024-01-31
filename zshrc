@@ -37,11 +37,6 @@ if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
   unset TMP_PATH
 fi
 
-# Enable Homebrew shell-completion if available
-if [[ -d "/opt/homebrew" ]]; then
-  fpath+=("/opt/homebrew/share/zsh/site-functions")
-fi
-
 # Initialise and configure prompt system
 autoload -Uz compinit; compinit
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
