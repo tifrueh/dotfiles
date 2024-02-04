@@ -191,7 +191,7 @@ OPTIONS=hilite_status:gold/always/yellow
 # Percentage cutoffs for hitpoints.
 OPTIONS=hilite_status:hitpoints/100%/green
 OPTIONS=hilite_status:hitpoints/<100%/green
-OPTIONS=hilite_status:hitpoints/<60%/orange
+OPTIONS=hilite_status:hitpoints/<60%/yellow
 OPTIONS=hilite_status:hitpoints/<40%/red
 
 # Percentage cutoffs for power.
@@ -217,7 +217,7 @@ OPTIONS=hilite_status:carrying-capacity/overloaded/red&inverse
 
 # Show hunger status in color.
 OPTIONS=hilite_status:hunger/satiated/yellow
-OPTIONS=hilite_status:hunger/hungry/orange
+OPTIONS=hilite_status:hunger/hungry/yellow
 OPTIONS=hilite_status:hunger/weak/red
 OPTIONS=hilite_status:hunger/fainting/red&inverse
 OPTIONS=hilite_status:hunger/fainted/red&inverse
