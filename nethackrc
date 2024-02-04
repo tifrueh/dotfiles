@@ -164,6 +164,17 @@ MENUCOLOR="corroded"=brown
 # configure the display colors of status indicators and conditions. (Note that,
 # despite the name, the option changes the font color of the status indicator
 # text; it does not highlight the text.)
-OPTIONS=statushilites:100,hitpointbar
+
+# Keep statushilites for 100 turns.
+OPTIONS=statushilites:100
+
+# Enable the hitpointsbar
+OPTIONS=hitpointbar
+
+# Percentage cutoffs for hitpoints.
+OPTIONS=hilite_status:hitpoints/100%/green
+OPTIONS=hilite_status:hitpoints/<100%/green
+OPTIONS=hilite_status:hitpoints/<60%/orange
+OPTIONS=hilite_status:hitpoints/<40%/red
 
 # ==============================================================================
