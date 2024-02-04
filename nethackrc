@@ -1,97 +1,159 @@
 ## See https://nethackwiki.com/wiki/Options
 
-# *** Some reasonable defaults ***
-OPTIONS=showexp,showscore,time,color
-OPTIONS=autodig,fruit:slime mold,boulder:0
-
-# *** My personal changes ***
-OPTIONS=name:player
-OPTIONS=horsename:/mnt,dogname:Hachi,catname:/usr/bin/cat
-OPTIONS=extmenu
-OPTIONS=number_pad:-1
-OPTIONS=map_mode:fit_to_screen
-OPTIONS=fullscreen
-OPTIONS=ascii_map
-OPTIONS=dark_room
-OPTIONS=!implicit_uncursed
-OPTIONS=force_invmenu
-OPTIONS=hilite_pet
-OPTIONS=symset:DECgraphics
-OPTIONS=lit_corridor
+# Automatically pick up things onto which you move. See also pickup_types,
+# pickup_burden, pickup_thrown, and Autopickup_exceptions. Boolean option,
+# defaults to TRUE. Can be set in-game.
 OPTIONS=autopickup
-OPTIONS=pickup_types:$
+
+# If this option is on and autopickup is also on, try to pick up things that
+# you threw, even if they aren't in pickup_types or match an autopickup
+# exception. Boolean option, defaults to TRUE. Persistent.
 OPTIONS=pickup_thrown
-OPTIONS=msg_window:reversed
 
-# *** Options just for curses windowport ***
-#OPTIONS=windowtype=curses
-#OPTIONS=statuslines:3
-#OPTIONS=perm_invent
-#OPTIONS=align_status=top
-#OPTIONS=align_message=bottom
-#OPTIONS=!guicolor
-#OPTIONS=petattr:u
-#OPTIONS=!force_invmenu
+# Specify the object types to be picked up when autopickup is on. Default is
+# all to pick up all types. For example "pickup_types:?!/" would pick up all
+# scrolls, potions and wands. Persistent.
+OPTIONS=pickup_types:$
 
-# *** Custom symbols ***
-#SYMBOLS=S_corr=#
-#SYMBOLS=S_litcorr=#
-#SYMBOLS=S_hcdoor=+
-#SYMBOLS=S_vcdoor=+
-#SYMBOLS=S_hodoor=|
-#SYMBOLS=S_vodoor=-
+# Set the symbol used to display boulders. For example boulder:0 Compound
+# option with default value of `. Can be set in-game.
+OPTIONS=boulder:0
 
-# *** Menucolors ***
-OPTIONS=menucolors
-MENUCOLOR="(being worn)"=gray&underline
-MENUCOLOR="(.* hand)"=gray&underline
+# Draw unseen (line-of-sight blocked) areas of lit rooms as if they were unlit.
+# Boolean value, defaults to FALSE. Persistent.
+OPTIONS=dark_room
 
-MENUCOLOR="uncursed"=green
-MENUCOLOR="uncursed.*((being worn)|(.* hand))"=green&underline
+# Controls the prompts at the end of the game. Possible values are
+#
+# * i - disclose your inventory
+# * a - disclose your attributes
+# * v - summarize monsters you've killed
+# * g - list genocided monsters
+# * c - display conduct
+# * o - display dungeon overview
+#
+# Each of those values can be preceded with a value that tells how it behaves.
+# The possible values are
+#
+# * y - prompt, defaults to yes
+# * n - prompt, defaults to no
+# * + - disclose without prompting
+# * - - don't disclose, don't prompt
+#
+# The listing of killed monsters can be sorted, so there are two additional
+# choices for v:
+#
+# * ? - prompt you and default to ask on the prompt;
+# * # - disclose it without prompting, ask for sort order.
+OPTIONS=disclose: ni na nv ng nc no
 
-MENUCOLOR="(blessed|holy)"=bright magenta
-MENUCOLOR="(blessed|holy).*((being worn)|(.* hand))"=bright magenta&underline
+# Does extended commands interface pop up a menu? Boolean option, defaults to
+# FALSE. Only implemented for the TTY windowport.
+OPTIONS=extmenu
 
-MENUCOLOR="( cursed|unholy)"=orange
-MENUCOLOR="( cursed|unholy).*((being worn)|(.* hand))"=red&underline
+# Commands asking for an inventory item will show a menu instead of a text
+# query with possible menu letters. Boolean option, default is FALSE.
+OPTIONS=force_invmenu
 
-MENUCOLOR="(rusty|corroded)"=brown
-MENUCOLOR="(rusty|corroded).*((being worn)|(.* hand))"=brown&underline
+# Omit "uncursed" from inventory lists, if possible. Boolean option, defaults
+# to TRUE.
+OPTIONS=!implicit_uncursed
 
+# Distinguish visually between lit and unlit corridors. Boolean option,
+# defaults to FALSE. Can be set in-game. Persistent.
+OPTIONS=lit_corridor
+
+# Visually distinguish piles of objects from individual objects. Boolean
+# option, defaults to FALSE.
+OPTIONS=hilite_pile
+
+# How to show the latest messages recalled with ^P. Compound option, with the
+# following possible values:
+#
+# +-------------+--------------------------------------+
+# | OPTION      | DESCRIPTION                          |
+# |-------------|--------------------------------------|
+# | single      | show single message                  |
+# | combination | two messages as single, then as full |
+# | full        | full window, oldest message first    |
+# | reversed    | full window, newest message first    |
+# +-------------+--------------------------------------+
+#
+# You can use the first letter of an option to specify that option. For
+# backwards compatibility, no value needs to be given; in that case defaults to
+# 'full', or it can be negated like a boolean option, in which case defaults to
+# 'single'. Can be set in-game only if playing the TTY windowport.
+OPTIONS=msg_window:full
+
+# The name of your character. Compound option, defaults to your user name. If
+# set to player, then NetHack will ask for the user name, even on systems where
+# it normally wouldn't. If suffixed with dash and character role letter (one of
+# -A -B -C -H -K -M -P -Ra -Ro -S -T -V -W), then also defines the character
+# role, or if suffixed with -@, then selects a random role. Cannot be set
+# in-game.
+OPTIONS=name:player
+
+# Use the number keys to move instead of hjklyubn. Valid options are:
+#
+# +--------+-----------------------------------------------------------------+
+# | OPTION | DESCRIPTION                                                     |
+# |--------|-----------------------------------------------------------------|
+# | 0      | move by letters; 'yuhjklbn'                                     |
+# | 1      | move by numbers; digit '5' acts as 'G' movement prefix          |
+# | 2      | like 1 but '5' works as 'g' prefix instead of as 'G'            |
+# | 3      | by numbers using phone key layout 123 above, 789 below          |
+# | 4      | combines 3 with 2; phone layout plus MSDOS compatibility, where |
+# |        | '5' means 'g', 'alt' + '5' means 'G' and 'alt' + '0' means 'I'  |
+# | -1     | by letters but use 'z' to go northwest, 'y' to zap wands        |
+# +--------+-----------------------------------------------------------------|
+OPTIONS=number_pad:-1
+
+# Select the symbols used to display the game. Replaces the DECgraphics,
+# IBMgraphics, and MACgraphics options.
+#
+# * NHAccess (Recommended for blind players)
+# * MACgraphics
+# * IBMGraphics_2
+# * IBMGraphics_1
+# * IBMgraphics
+# * DECgraphics
+OPTIONS=symset:DECgraphics
+
+# Displays elapsed game time, in turns, on the status line. Very useful for
+# estimating prayer timeouts, spell lifespan, and more. Boolean option,
+# defaults to FALSE. Can be set in-game. Persistent.
+OPTIONS=time
+
+# Select which windowing system to use, such as 'tty' or 'X11' (default depends on version).
+OPTIONS=windowtype:tty
+
+# Use mouse for moving around. A boolean, defaults to FALSE. Is displayed, but
+# cannot be set in-game.
+OPTIONS=!mouse_support
+
+# -=== MENUCOLORS ===- (https://nethackwiki.com/wiki/Menucolors)
+# Menucolors is a feature in NetHack 3.6 and above that allows you to colorize
+# individual rows on a menu based on what regular expressions match its text.
+# You can color the inventory menu, the spellcasting menu, the enhance menu,
+# the options menu, and more.
+# 
+# For example, you could color all blessed items bright cyan, all cursed items
+# bright orange, and all uncursed items dim green. From there you could underline
+# dangerous items (loadstone, wand of cancellation, etc.), make the Amulet of
+# Yendor magenta, all gold yellow, and so on, until you're satisfied.
+OPTIONS=color,menucolors
 MENUCOLOR="gold piece"=yellow
+MENUCOLOR="blessed"=cyan
+MENUCOLOR="holy"=cyan
+MENUCOLOR=" cursed"=red
+MENUCOLOR="unholy"=red
+MENUCOLOR="!c"=green
+MENUCOLOR="rusty"=brown
+MENUCOLOR="corroded"=brown
 
-MENUCOLOR="Excalibur"=cyan
-MENUCOLOR="Excalibur.*(.* hand)"=cyan&underline
-
-# *** Statushilites ***
-OPTIONS=statushilites
-# HP
-OPTIONS=hitpointbar
-OPTIONS=hilite_status:hitpoints/100%/green&normal
-OPTIONS=hilite_status:hitpoints/<100%/green&normal
-OPTIONS=hilite_status:hitpoints/<66%/yellow&normal
-OPTIONS=hilite_status:hitpoints/<50%/orange&normal
-OPTIONS=hilite_status:hitpoints/<33%/red&bold
-OPTIONS=hilite_status:hitpoints/<15%/red&inverse
-# Pw
-OPTIONS=hilite_status:power/100%/grey&normal
-OPTIONS=hilite_status:power/<100%/green&normal
-OPTIONS=hilite_status:power/<66%/yellow&normal
-OPTIONS=hilite_status:power/<50%/orange&normal
-OPTIONS=hilite_status:power/<33%/red&bold
-# Carry
-OPTIONS=hilite_status:cap/burdened/yellow/stressed/orange/strained/red&bold/overtaxed/red&inverse/overloaded/red&inverse&blink
-# Hunger
-OPTIONS=hilite_status:hunger/satiated/yellow/hungry/orange/weak/red&bold/fainting/red&inverse/fainted/red&inverse&blink
-# Mental
-OPTIONS=hilite_status:condition/hallu/yellow&bold
-OPTIONS=hilite_status:condition/conf/orange&bold
-OPTIONS=hilite_status:condition/stun/red&bold
-# Health
-OPTIONS=hilite_status:condition/termill/red&inverse
-OPTIONS=hilite_status:condition/foodpois/red&inverse
-OPTIONS=hilite_status:condition/slime/red&inverse
-# Str, Con, Dex, Int, Wis, Cha
-OPTIONS=hilite_status:characteristics/up/green/down/red
-# gold
-OPTIONS=hilite_status:gold/always/yellow
+# -=== STATUS HILITES ===- (https://nethackwiki.com/wiki/Status_hilites)
+# Status hilites are a feature added in NetHack 3.6 that allows the player to
+# configure the display colors of status indicators and conditions. (Note that,
+# despite the name, the option changes the font color of the status indicator
+# text; it does not highlight the text.)
+OPTIONS=statushilites:100,hitpointbar
