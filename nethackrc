@@ -213,13 +213,13 @@ OPTIONS=hilite_status:carrying-capacity/burdened/yellow
 OPTIONS=hilite_status:carrying-capacity/stressed/brown
 OPTIONS=hilite_status:carrying-capacity/strained/orange
 OPTIONS=hilite_status:carrying-capacity/overtaxed/red
-OPTIONS=hilite_status:carrying-capacity/overloaded/red
+OPTIONS=hilite_status:carrying-capacity/overloaded/red&inverse
 
 # Show hunger status in color.
 OPTIONS=hilite_status:hunger/satiated/yellow
 OPTIONS=hilite_status:hunger/hungry/orange
 OPTIONS=hilite_status:hunger/weak/red
-OPTIONS=hilite_status:hunger/fainting/red
-OPTIONS=hilite_status:hunger/fainted/red
+OPTIONS=hilite_status:hunger/fainting/red&inverse
+OPTIONS=hilite_status:hunger/fainted/red&inverse
 
 # ==============================================================================
