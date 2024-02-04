@@ -228,4 +228,13 @@ OPTIONS=hilite_status:hunger/weak/red
 OPTIONS=hilite_status:hunger/fainting/red&inverse
 OPTIONS=hilite_status:hunger/fainted/red&inverse
 
+# Show movement conditions in blue.
+OPTIONS=hilite_status:condition/movement/blue
+
+# Show minor troubles in yellow.
+OPTIONS=hilite_status:condition/minor_troubles/yellow
+
+# Show major troubles in inverse red.
+OPTIONS=hilite_status:condition/major_troubles/red&inverse
+
 # ==============================================================================
