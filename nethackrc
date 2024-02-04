@@ -110,7 +110,7 @@ OPTIONS=name:player
 # | 4      | combines 3 with 2; phone layout plus MSDOS compatibility, where |
 # |        | '5' means 'g', 'alt' + '5' means 'G' and 'alt' + '0' means 'I'  |
 # | -1     | by letters but use 'z' to go northwest, 'y' to zap wands        |
-# +--------+-----------------------------------------------------------------|
+# +--------+-----------------------------------------------------------------+
 OPTIONS=number_pad:-1
 
 # Select the symbols used to display the game. Replaces the DECgraphics,
@@ -129,7 +129,8 @@ OPTIONS=symset:DECgraphics
 # defaults to FALSE. Can be set in-game. Persistent.
 OPTIONS=time
 
-# Select which windowing system to use, such as 'tty' or 'X11' (default depends on version).
+# Select which windowing system to use, such as 'tty' or 'X11' (default depends
+# on version).
 OPTIONS=windowtype:tty
 
 # Use mouse for moving around. A boolean, defaults to FALSE. Is displayed, but
