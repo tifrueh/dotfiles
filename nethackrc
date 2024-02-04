@@ -185,10 +185,41 @@ OPTIONS=statushilites:100
 # Enable the hitpointsbar
 OPTIONS=hitpointbar
 
+# Always show gold as yellow.
+OPTIONS=hilite_status:gold/always/yellow
+
 # Percentage cutoffs for hitpoints.
 OPTIONS=hilite_status:hitpoints/100%/green
 OPTIONS=hilite_status:hitpoints/<100%/green
 OPTIONS=hilite_status:hitpoints/<60%/orange
 OPTIONS=hilite_status:hitpoints/<40%/red
+
+# Percentage cutoffs for power.
+OPTIONS=hilite_status:power/100%/cyan
+OPTIONS=hilite_status:power/<100%/cyan
+OPTIONS=hilite_status:power/<60%/blue
+OPTIONS=hilite_status:power/<40%/red
+
+# Color characteristics on change.
+OPTIONS=hilite_status:characteristics/up/green
+OPTIONS=hilite_status:characteristics/down/red
+
+# Color armor class on change.
+OPTIONS=hilite_status:armor-class/down/green
+OPTIONS=hilite_status:armor-class/up/red
+
+# Show encumbrance status in color.
+OPTIONS=hilite_status:carrying-capacity/burdened/yellow
+OPTIONS=hilite_status:carrying-capacity/stressed/brown
+OPTIONS=hilite_status:carrying-capacity/strained/orange
+OPTIONS=hilite_status:carrying-capacity/overtaxed/red
+OPTIONS=hilite_status:carrying-capacity/overloaded/red
+
+# Show hunger status in color.
+OPTIONS=hilite_status:hunger/satiated/yellow
+OPTIONS=hilite_status:hunger/hungry/orange
+OPTIONS=hilite_status:hunger/weak/red
+OPTIONS=hilite_status:hunger/fainting/red
+OPTIONS=hilite_status:hunger/fainted/red
 
 # ==============================================================================
