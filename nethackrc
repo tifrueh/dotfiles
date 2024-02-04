@@ -213,8 +213,8 @@ OPTIONS=hilite_status:armor-class/10/red
 OPTIONS=hilite_status:armor-class/<10/orange
 OPTIONS=hilite_status:armor-class/<6/yellow
 OPTIONS=hilite_status:armor-class/<1/green
-OPTIONS=hilite_status:armor-class/<-4/cyan
-OPTIONS=hilite_status:armor-class/<-9/blue
+OPTIONS=hilite_status:armor-class/<-4/blue
+OPTIONS=hilite_status:armor-class/<-9/cyan
 
 # Show encumbrance status in color.
 OPTIONS=hilite_status:carrying-capacity/burdened/yellow
