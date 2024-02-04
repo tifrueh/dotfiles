@@ -1,4 +1,3 @@
-
 ## See https://nethackwiki.com/wiki/Options
 
 # *** Some reasonable defaults ***
@@ -8,6 +7,7 @@ OPTIONS=autodig,fruit:slime mold,boulder:0
 # *** My personal changes ***
 OPTIONS=name:player
 OPTIONS=horsename:/mnt,dogname:Hachi,catname:/usr/bin/cat
+OPTIONS=extmenu
 OPTIONS=number_pad:-1
 OPTIONS=map_mode:fit_to_screen
 OPTIONS=fullscreen
