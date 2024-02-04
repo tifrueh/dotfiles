@@ -201,14 +201,12 @@ OPTIONS=hilite_status:power/<60%/blue
 OPTIONS=hilite_status:power/<40%/red
 
 # Color characteristics.
-OPTIONS=hilite_status:characteristics/<5/red
-OPTIONS=hilite_status:characteristics/5/red
-OPTIONS=hilite_status:characteristics/>5/orange
-OPTIONS=hilite_status:characteristics/>7/brown
-OPTIONS=hilite_status:characteristics/>10/yellow
-OPTIONS=hilite_status:characteristics/>12/green
-OPTIONS=hilite_status:characteristics/>15/blue
-OPTIONS=hilite_status:characteristics/>17/cyan
+OPTIONS=hilite_status:characteristics/18/cyan
+OPTIONS=hilite_status:characteristics/<18/blue
+OPTIONS=hilite_status:characteristics/<16/green
+OPTIONS=hilite_status:characteristics/<11/yellow
+OPTIONS=hilite_status:characteristics/<9/orange
+OPTIONS=hilite_status:characteristics/<6/red
 
 # Color armor class.
 OPTIONS=hilite_status:armor-class/10/red
