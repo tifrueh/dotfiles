@@ -63,6 +63,11 @@ OPTIONS=!implicit_uncursed
 # defaults to FALSE. Can be set in-game. Persistent.
 OPTIONS=lit_corridor
 
+# Visually distinguish pets from similar animals (This includes both your
+# starting pet and any monsters you happen to tame along the way). Boolean
+# option, defaults to FALSE. Can be set in-game.
+OPTIONS=hilite_pet
+
 # Visually distinguish piles of objects from individual objects. Boolean
 # option, defaults to FALSE.
 OPTIONS=hilite_pile
