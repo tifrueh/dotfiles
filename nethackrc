@@ -131,16 +131,18 @@ OPTIONS=windowtype:tty
 # cannot be set in-game.
 OPTIONS=!mouse_support
 
-# -=== MENUCOLORS ===- (https://nethackwiki.com/wiki/Menucolors)
+# MENUCOLORS ===================================================================
+# (https://nethackwiki.com/wiki/Menucolors)
+#
 # Menucolors is a feature in NetHack 3.6 and above that allows you to colorize
 # individual rows on a menu based on what regular expressions match its text.
 # You can color the inventory menu, the spellcasting menu, the enhance menu,
 # the options menu, and more.
 # 
 # For example, you could color all blessed items bright cyan, all cursed items
-# bright orange, and all uncursed items dim green. From there you could underline
-# dangerous items (loadstone, wand of cancellation, etc.), make the Amulet of
-# Yendor magenta, all gold yellow, and so on, until you're satisfied.
+# bright orange, and all uncursed items dim green. From there you could
+# underline dangerous items (loadstone, wand of cancellation, etc.), make the
+# Amulet of Yendor magenta, all gold yellow, and so on, until you're satisfied.
 OPTIONS=color,menucolors
 MENUCOLOR="gold piece"=yellow
 MENUCOLOR="blessed"=cyan
@@ -151,9 +153,15 @@ MENUCOLOR="!c"=green
 MENUCOLOR="rusty"=brown
 MENUCOLOR="corroded"=brown
 
-# -=== STATUS HILITES ===- (https://nethackwiki.com/wiki/Status_hilites)
+# ==============================================================================
+
+# STATUS HILITES =============================================================== 
+# (https://nethackwiki.com/wiki/Status_hilites)
+#
 # Status hilites are a feature added in NetHack 3.6 that allows the player to
 # configure the display colors of status indicators and conditions. (Note that,
 # despite the name, the option changes the font color of the status indicator
 # text; it does not highlight the text.)
 OPTIONS=statushilites:100,hitpointbar
+
+# ==============================================================================
