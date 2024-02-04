@@ -144,13 +144,27 @@ OPTIONS=!mouse_support
 # bright orange, and all uncursed items dim green. From there you could
 # underline dangerous items (loadstone, wand of cancellation, etc.), make the
 # Amulet of Yendor magenta, all gold yellow, and so on, until you're satisfied.
+
+# Enable menucolors.
 OPTIONS=color,menucolors
+
+# Show gold pieces in yellow.
 MENUCOLOR="gold piece"=yellow
+
+# Show blessed items in cyan.
 MENUCOLOR="blessed"=cyan
 MENUCOLOR="holy"=cyan
+
+# Show cursed items in red.
 MENUCOLOR=" cursed"=red
 MENUCOLOR="unholy"=red
+
+# Show items with !c in their name in green.
+# This can be used to mark items as uncused when they have not yet been
+# identified by the game itself.
 MENUCOLOR="!c"=green
+
+# Show rusty items in brown.
 MENUCOLOR="rusty"=brown
 MENUCOLOR="corroded"=brown
 
