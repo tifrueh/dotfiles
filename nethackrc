@@ -131,6 +131,7 @@ OPTIONS=windowtype:tty
 # cannot be set in-game.
 OPTIONS=!mouse_support
 
+
 # MENUCOLORS ===================================================================
 # (https://nethackwiki.com/wiki/Menucolors)
 #
@@ -154,6 +155,7 @@ MENUCOLOR="rusty"=brown
 MENUCOLOR="corroded"=brown
 
 # ==============================================================================
+
 
 # STATUS HILITES =============================================================== 
 # (https://nethackwiki.com/wiki/Status_hilites)
