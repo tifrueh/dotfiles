@@ -161,6 +161,9 @@ MENUCOLOR="gold piece"=yellow
 MENUCOLOR="blessed"=cyan
 MENUCOLOR="holy"=cyan
 
+# Show uncursed items in green.
+MENUCOLOR="uncursed"=green
+
 # Show cursed items in red.
 MENUCOLOR=" cursed"=red
 MENUCOLOR="unholy"=red
