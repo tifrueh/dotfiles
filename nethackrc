@@ -159,9 +159,6 @@ MENUCOLOR="(B|b)lessed|(H|h)oly"=cyan
 # Show cursed items in red.
 MENUCOLOR="\W(C|c)ursed|(U|u)nholy"=red
 
-# Show uncursed items in white.
-MENUCOLOR="(U|u)ncursed"=white
-
 # Show rusty items in brown.
 MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
 
