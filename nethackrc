@@ -154,15 +154,13 @@ OPTIONS=color,menucolors
 MENUCOLOR="gold piece"=yellow
 
 # Show blessed items in cyan.
-MENUCOLOR="blessed"=cyan
-MENUCOLOR="holy"=cyan
-
-# Show uncursed items in green.
-MENUCOLOR="uncursed"=green
+MENUCOLOR="(B|b)lessed|(H|h)oly"=cyan
 
 # Show cursed items in red.
-MENUCOLOR=" cursed"=red
-MENUCOLOR="unholy"=red
+MENUCOLOR="(C|c)ursed|(U|u)nholy"=red
+
+# Show uncursed items in green.
+MENUCOLOR="(U|u)ncursed"=green
 
 # Show items with !c in their name in green.
 # This can be used to mark items as uncused when they have not yet been
@@ -170,8 +168,7 @@ MENUCOLOR="unholy"=red
 MENUCOLOR="!c"=green
 
 # Show rusty items in brown.
-MENUCOLOR="rusty"=brown
-MENUCOLOR="corroded"=brown
+MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
 
 # ==============================================================================
 
