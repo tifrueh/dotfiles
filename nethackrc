@@ -133,10 +133,6 @@ OPTIONS=time
 # on version).
 OPTIONS=windowtype:tty
 
-# Use mouse for moving around. A boolean, defaults to FALSE. Is displayed, but
-# cannot be set in-game.
-OPTIONS=!mouse_support
-
 
 # MENUCOLORS ===================================================================
 # (https://nethackwiki.com/wiki/Menucolors)
