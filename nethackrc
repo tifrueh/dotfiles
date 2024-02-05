@@ -201,12 +201,14 @@ OPTIONS=hitpointbar
 OPTIONS=hilite_status:gold/always/yellow
 
 # Percentage cutoffs for hitpoints.
+OPTIONS=hilite_status:hitpoints_max/always/green
 OPTIONS=hilite_status:hitpoints/100%/green
 OPTIONS=hilite_status:hitpoints/<100%/green
 OPTIONS=hilite_status:hitpoints/<60%/yellow
 OPTIONS=hilite_status:hitpoints/<40%/red
 
 # Percentage cutoffs for power.
+OPTIONS=hilite_status:power_max/always/cyan
 OPTIONS=hilite_status:power/100%/cyan
 OPTIONS=hilite_status:power/<100%/cyan
 OPTIONS=hilite_status:power/<60%/blue
