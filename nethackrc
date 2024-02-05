@@ -170,6 +170,17 @@ MENUCOLOR="!c"=green
 # Show rusty items in brown.
 MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
 
+# Color spells depending on their failure rate.
+MENUCOLOR=" 0% "=cyan
+MENUCOLOR=" [1-9]% "=blue
+MENUCOLOR=" 1[0-9]% "=blue
+MENUCOLOR=" 2[0-9]% "=green
+MENUCOLOR=" 3[0-9]% "=yellow
+MENUCOLOR=" 4[0-9]% "=orange
+MENUCOLOR=" 5[0-9]% "=red
+MENUCOLOR=" [6-9][0-9]% "=red
+MENUCOLOR=" 100% "=red&inverse
+
 # ==============================================================================
 
 
