@@ -170,7 +170,7 @@ MENUCOLOR="(U|u)ncursed"=green
 # Show items with !c in their name in green.
 # This can be used to mark items as uncused when they have not yet been
 # identified by the game itself.
-MENUCOLOR="!c"=green
+MENUCOLOR="\W!c$"=green
 
 # Show rusty items in brown.
 MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
@@ -187,11 +187,11 @@ MENUCOLOR=" [6-9][0-9]% "=red
 MENUCOLOR=" 100% "=red&inverse
 
 # Color skills based on the level of said skill.
-MENUCOLOR="Basic"=yellow
-MENUCOLOR="Skilled"=green
-MENUCOLOR="Expert"=green
-MENUCOLOR="Master"=blue
-MENUCOLOR="Grand Master"=cyan
+MENUCOLOR="\[Basic\]"=yellow
+MENUCOLOR="\[Skilled\]"=green
+MENUCOLOR="\[Expert\]"=green
+MENUCOLOR="\[Master\]"=blue
+MENUCOLOR="\[Grand Master\]"=cyan
 
 # ==============================================================================
 
