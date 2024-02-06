@@ -159,6 +159,11 @@ MENUCOLOR="(B|b)lessed|(H|h)oly"=cyan
 # Show cursed items in red.
 MENUCOLOR="(C|c)ursed|(U|u)nholy"=red
 
+# Show items called 'c' in red.
+# This can be used to mark items as cursed when they have not yet been
+# itentified by the game itself.
+MENUCOLOR="\Wc$"=red
+
 # Show uncursed items in green.
 MENUCOLOR="(U|u)ncursed"=green
 
