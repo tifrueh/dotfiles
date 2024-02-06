@@ -159,21 +159,21 @@ MENUCOLOR="(B|b)lessed|(H|h)oly"=cyan
 # Show cursed items in red.
 MENUCOLOR="(C|c)ursed|(U|u)nholy"=red
 
+# Show uncursed items in green.
+MENUCOLOR="(U|u)ncursed"=green
+
+# Show rusty items in brown.
+MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
+
 # Show items called 'c' in red.
 # This can be used to mark items as cursed when they have not yet been
 # itentified by the game itself.
 MENUCOLOR="(\s|^)[^!]c(\s|$)"=red
 
-# Show uncursed items in green.
-MENUCOLOR="(U|u)ncursed"=green
-
 # Show items with !c in their name in green.
 # This can be used to mark items as uncused when they have not yet been
 # identified by the game itself.
 MENUCOLOR="(\s|^)!c(\s|$)"=green
-
-# Show rusty items in brown.
-MENUCOLOR="(R|r)usty|(C|c)orroded"=brown
 
 # Color spells depending on their failure rate.
 MENUCOLOR=" 0% "=cyan
