@@ -176,8 +176,8 @@ fi
 # link all dotfiles
 link_dot "nethackrc"
 link_dot "vimrc"
-link_dot "zprofile"
 link_dot "zshaliases"
+link_dot "zshenv"
 link_dot "zshrc"
 
 # configure nvim if requested
