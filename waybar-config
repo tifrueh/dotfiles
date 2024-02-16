@@ -1,0 +1,21 @@
+{
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "custom/prompt", "hyprland/window"],
+    "modules-right": ["clock", "tray"],
+    "custom/prompt": {
+	"exec": "echo '❯'"
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"interval": 1,
+	"format": "{:%Y-%m-%d · %H:%M:%S}",
+        "format-alt": "{:%A %d %B %Y · %H:%M:%S}"
+    }
+}
+

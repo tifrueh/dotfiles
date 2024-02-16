@@ -7,6 +7,8 @@ zparseopts -E -D -a input_args -- \
 	-force-links \
 	-configure-nvim \
 	-configure-kitty \
+	-configure-hyprland \
+	-configure-waybar \
 	-install-pyenv \
 	-exec-zsh
 
@@ -68,11 +70,13 @@ link_dot () {
 # provide help if requested
 if input_contains '-h' || input_contains '--help'; then
 	echo "Possible options:"
-	echo "  --force-links:      Overwrite existing dotfiles"
-	echo "  --configure-nvim:   Configure NVIM"
-	echo "  --configure-kitty:  Configure KITTY"
-	echo "  --install-pyenv:    Install PYENV"
-	echo "  --exec-zsh:         Execute ZSH after completion"
+	echo "  --force-links:        Overwrite existing dotfiles"
+	echo "  --configure-nvim:     Configure NVIM"
+	echo "  --configure-kitty:    Configure KITTY"
+	echo "  --configure-hyprland: Configure HYPRLAND" 
+	echo "  --configure-waybar:   Configure WAYBAR"
+	echo "  --install-pyenv:      Install PYENV"
+	echo "  --exec-zsh:           Execute ZSH after completion"
 	exit 0
 fi
 
@@ -244,6 +248,19 @@ if input_contains "--configure-kitty" && [[ ! -f "${HOME}/.config/kitty/fontconf
 	cp "${dirpath}/kitty-fontconfig.conf" "${HOME}/.config/kitty/fontconfig.conf"
 elif input_contains "--configure-kitty"; then
 	echo "DOT-INSTALL: SKIP: Font configuration file for KITTY found, skipping ..."
+fi
+
+# install hyprland configuration if requested
+if input_contains "--configure-hyprland"; then
+	mkdir -p "${HOME}/.config/hypr"
+	link "hyprland.conf" "${HOME}/.config/hypr/hyprland.conf"
+fi
+
+# install waybar configuration if requested
+if input_contains "--configure-waybar"; then
+	mkdir -p "${HOME}/.config/waybar"
+	link "waybar-config" "${HOME}/.config/waybar/config"
+	link "waybar-style.css" "${HOME}/.config/waybar/style.css"
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
