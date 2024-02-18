@@ -28,7 +28,7 @@ if [[ -f ~/.zshaliases ]]; then
 fi
 
 # Pyenv configuration
-if [[ -d "${HOME}/.pyenv" ]]; then eval "$(pyenv init -)"; fi
+if [[ -d "${HOME}/.pyenv" ]]; then eval "$(pyenv init --path)"; fi
 
 if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
   TMP_PATH=$PATH
