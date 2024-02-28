@@ -38,6 +38,7 @@ if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
 fi
 
 # Initialise and configure prompt system
+autoload -Uz compinit; compinit
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${PLUGINS_DIR}/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
