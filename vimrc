@@ -2,6 +2,12 @@
 set number
 syntax on
 
+" configure spaces for intentation
+set tabstop=8 softtabstop=0
+set shiftwidth=4
+set smarttab
+set expandtab
+
 " enable cursorline
 set cursorline
 
