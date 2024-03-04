@@ -31,3 +31,6 @@ lua require('lualine').setup{ options = { theme = 'onedark' } }
 
 " use nvim surround
 lua require('nvim-surround').setup()
+
+" use nvim-tree
+lua require('nvim-tree').setup()
