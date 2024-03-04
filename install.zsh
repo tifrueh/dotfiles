@@ -219,7 +219,7 @@ elif input_contains "--configure-nvim"; then
 fi
 
 ## install the nvim-tree plugin for nvim
-if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/nvim.tree" ]]; then
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/nvim-tree" ]]; then
 	echo "DOT-INSTALL: Installing NVIM-TREE for NVIM"
 	git clone https://github.com/nvim-tree/nvim-tree.lua.git "${HOME}/.config/nvim/pack/plugins/start/nvim-tree"
 elif input_contains "--configure-nvim"; then
