@@ -226,6 +226,14 @@ elif input_contains "--configure-nvim"; then
 	echo "DOT-INSTALL: SKIP: NVIM-TREE for NVIM already installed, skipping ..."
 fi
 
+## install the nvim-lspconfig plugin for nvim
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/nvim-lspconfig" ]]; then
+	echo "DOT-INSTALL: Installing NVIM-LSPCONFIG for NVIM"
+	git clone https://github.com/neovim/nvim-lspconfig.git "${HOME}/.config/nvim/pack/plugins/start/nvim-lspconfig"
+elif input_contains "--configure-nvim"; then
+	echo "DOT-INSTALL: SKIP: NVIM-LSPCONFIG for NVIM already installed, skipping ..."
+fi
+
 # configure kitty if requested
 ## link kitty config
 if input_contains "--configure-kitty"; then

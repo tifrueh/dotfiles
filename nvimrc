@@ -34,3 +34,6 @@ lua require('nvim-surround').setup()
 
 " use nvim-tree
 lua require('nvim-tree').setup()
+
+" use nvim-lspconfig for ccls
+lua require('lspconfig').ccls.setup { init_options = { compilationDatabaseDirectory = 'build'; } }
