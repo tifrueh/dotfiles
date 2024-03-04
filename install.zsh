@@ -188,7 +188,7 @@ link_dot "zshrc"
 ## link nvimrc and copy vim colors
 if input_contains "--configure-nvim"; then
 	mkdir -p "${HOME}/.config/nvim"
-	link "nvimrc" "${HOME}/.config/nvim/init.vim"
+	link "nvimrc" "${HOME}/.config/nvim/init.lua"
 	echo "DOT-INSTALL: Copying VIM colorschemes to NVIM"
 	mkdir -p "${HOME}/.config/nvim/colors"
 	cp "${HOME}/.vim/colors/"* "${HOME}/.config/nvim/colors"
