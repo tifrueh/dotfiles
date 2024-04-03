@@ -19,9 +19,6 @@ setopt HIST_FIND_NO_DUPS
 THEMES_DIR="${ZSH}/themes"
 PLUGINS_DIR="${ZSH}/plugins"
 
-# Enable zsh-completions
-fpath+=("${PLUGINS_DIR}/zsh-completions/src")
-
 # source alias file if it exists
 if [[ -f ~/.zshaliases ]]; then
   source ~/.zshaliases;

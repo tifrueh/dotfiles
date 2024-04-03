@@ -135,14 +135,6 @@ else
 	echo "DOT-INSTALL: SKIP: ZSH-SYNTAX-HIGHLIGHTING already installed, skipping ..."
 fi
 
-# install zsh-completions if not already installed
-if ! [[ -d "${HOME}/.zsh/plugins/zsh-completions" ]]; then
-	echo "DOT-INSTALL: Installing ZSH-COMPLETIONS"
-	git clone https://github.com/zsh-users/zsh-completions.git "${HOME}/.zsh/plugins/zsh-completions"
-else
-	echo "DOT-INSTALL: SKIP: ZSH-COMPLETIONS already installed, skipping ..."
-fi
-
 # install zsh-history-substring-search if not already installed
 if ! [[ -d "${HOME}/.zsh/plugins/zsh-history-substring-search" ]]; then
 	echo "DOT-INSTALL: Installing ZSH-HISTORY-SUBSTRING-SEARCH"
