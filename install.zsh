@@ -9,6 +9,7 @@ zparseopts -E -D -a input_args -- \
     -configure-kitty \
     -configure-hyprland \
     -configure-waybar \
+    -configure-yabai \
     -install-pyenv \
     -exec-zsh
 
@@ -269,6 +270,12 @@ if input_contains "--configure-waybar"; then
     mkdir -p "${HOME}/.config/waybar"
     link "waybar-config" "${HOME}/.config/waybar/config"
     link "waybar-style.css" "${HOME}/.config/waybar/style.css"
+fi
+
+# install yabai configuration if requested
+if input_contains "--configure-yabai"; then
+    mkdir -p "${HOME}/.config/yabai"
+    link "yabairc" "${HOME}/.config/yabai/yabairc"
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
