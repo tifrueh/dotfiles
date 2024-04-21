@@ -10,6 +10,7 @@ zparseopts -E -D -a input_args -- \
     -configure-hyprland \
     -configure-waybar \
     -configure-yabai \
+    -configure-skhd \
     -install-pyenv \
     -exec-zsh
 
@@ -276,6 +277,12 @@ fi
 if input_contains "--configure-yabai"; then
     mkdir -p "${HOME}/.config/yabai"
     link "yabairc" "${HOME}/.config/yabai/yabairc"
+fi
+
+# install skhd configuration if requested
+if input_contains "--configure-skhd"; then
+    mkdir -p "${HOME}/.config/skhd"
+    link "skhdrc" "${HOME}/.config/skhd/skhdrc"
 fi
 
 # install pyenv if requested, if on macOS and if not already installed
