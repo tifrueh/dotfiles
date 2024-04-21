@@ -1,0 +1,24 @@
+# bsp or float (default: float)
+yabai -m config layout bsp
+
+# set all padding and gaps to 10pt (default: 0)
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     10
+
+# set mouse interaction modifier key (default: fn)
+yabai -m config mouse_modifier cmd
+
+# set modifier + left-click drag to move window (default: move)
+yabai -m config mouse_action1 move
+
+# set modifier + right-click drag to resize window (default: resize)
+yabai -m config mouse_action2 resize
+
+# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config focus_follows_mouse autoraise
+
+# float system preferences
+yabai -m rule --add app="^System Settings$" manage=off
