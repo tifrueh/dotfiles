@@ -22,3 +22,6 @@ yabai -m config focus_follows_mouse autoraise
 
 # float system preferences
 yabai -m rule --add app="^System Settings$" manage=off
+
+# set insert color
+yabai -m config insert_feedback_color 0xFF61AFEF
