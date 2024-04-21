@@ -33,7 +33,7 @@ input_contains () {
 #   link FILENAME DESTINATION_PATH
 #
 # Description
-#   FILENAME        The file's name in the dotfile directory
+#   FILENAME            The file's name in the dotfile directory
 #   DESTINATION_PATH    The file's destination path
 link () {
     if [[ -h "${2}" || -f "${2}" ]] && input_contains "--force-links"; then
@@ -62,7 +62,7 @@ link () {
 #   link_dot FILENAME
 # 
 # Description
-#   FILENAME        The file's name in the dotfile directory
+#   FILENAME            The file's name in the dotfile directory
 link_dot () {
     link "${1}" "${HOME}/.${1}"
 }
