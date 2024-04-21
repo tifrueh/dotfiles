@@ -6,3 +6,4 @@ cmd - up : yabai -m window --focus north
 cmd - right : yabai -m window --focus east
 cmd - down : yabai -m window --focus south
 cmd - left : yabai -m window --focus west
+cmd + alt - up : yabai -m window --focus first
