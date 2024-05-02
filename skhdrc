@@ -1,9 +1,12 @@
 # open terminal
-cmd - return : open -a kitty ~ --args --single-instance
+ctrl + alt - return : open -a kitty ~ --args --single-instance
 
 # configure yabai focus movement
-cmd - up : yabai -m window --focus north
-cmd - right : yabai -m window --focus east
-cmd - down : yabai -m window --focus south
-cmd - left : yabai -m window --focus west
-cmd + alt - up : yabai -m window --focus first
+ctrl + alt - up : yabai -m window --focus north
+ctrl + alt - right : yabai -m window --focus east
+ctrl + alt - down : yabai -m window --focus south
+ctrl + alt - left : yabai -m window --focus west
+ctrl + alt + shift - up : yabai -m window --focus first
+
+# toggle float
+ctrl + alt - v : yabai -m window --toggle float
