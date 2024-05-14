@@ -228,6 +228,14 @@ elif input_contains "--configure-nvim"; then
     echo "DOT-INSTALL: SKIP: NVIM-LSPCONFIG for NVIM already installed, skipping ..."
 fi
 
+## install the nvim-treesitter plugin for neovim
+if input_contains "--configure-nvim" && [[ ! -d "${HOME}/.config/nvim/pack/plugins/start/nvim-treesitter" ]]; then
+    echo "DOT-INSTALL: Installing NVIM-TREESITTER for NVIM"
+    git clone https://github.com/nvim-treesitter/nvim-treesitter.git "${HOME}/.config/nvim/pack/plugins/start/nvim-treesitter"
+elif input_contains "--configure-nvim"; then
+    echo "DOT-INSTALL: SKIP: NVIM-TREESITTER for NVIM already installed, skipping ..."
+fi
+
 # configure kitty if requested
 ## link kitty config
 if input_contains "--configure-kitty"; then

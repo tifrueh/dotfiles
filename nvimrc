@@ -52,3 +52,8 @@ lspconfig.ccls.setup{
         compilationDatabaseDirectory = 'build';
     }
 }
+
+-- use nvim-treesitter
+require('nvim-treesitter.configs').setup {
+    highlight = { enable = true }
+}
