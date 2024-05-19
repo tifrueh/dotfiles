@@ -1,0 +1,23 @@
+{
+    "modules" : [
+        "kernel",
+        "cpu",
+        "gpu",
+        "memory",
+        "swap",
+        "disk",
+        "separator",
+        "os",
+        "packages",
+        "lm",
+        "de",
+        "wm",
+        "terminal",
+        "shell",
+        "separator",
+        "localip",
+        "uptime",
+        "break",
+        "colors"
+    ]
+}

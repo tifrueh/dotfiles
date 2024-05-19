@@ -12,6 +12,7 @@ nvim_dir="${config_dir}/nvim"
 nvim_colors_dir="${nvim_dir}/colors"
 nvim_plugins_dir="${nvim_dir}/pack/plugins/start"
 kitty_dir="${config_dir}/kitty"
+fastfetch_dir="${config_dir}/fastfetch"
 
 # store input arguments in variable
 zparseopts -E -D -a input_args -- \
@@ -182,6 +183,15 @@ if ! [[ -d "${vim_plugins_dir}/lightline" ]]; then
     git clone "https://github.com/itchyny/lightline.vim" "${vim_plugins_dir}/lightline"
 else
     echo "DOT-INSTALL: SKIP: LIGHTLINE for VIM already installed, skipping ..."
+fi
+
+# install the fastfetch config
+
+if [[ -d "${fastfetch_dir}" ]]; then
+    echo "DOT-INSTALL: SKIP: FASTFETCH config already installed, skipping ..."
+else
+    mkdir -p "${fastfetch_dir}"
+    link "fastfetch.jsonc" "${fastfetch_dir}/config.jsonc"
 fi
 
 # link all dotfiles
