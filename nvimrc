@@ -45,14 +45,6 @@ require('nvim-surround').setup()
 -- use nvim-tree
 require('nvim-tree').setup()
 
--- use nvim-lspconfig for ccls
-local lspconfig = require('lspconfig')
-lspconfig.ccls.setup{
-    init_options = {
-        compilationDatabaseDirectory = 'build';
-    }
-}
-
 -- use nvim-treesitter
 require('nvim-treesitter.configs').setup {
     highlight = { enable = true }
