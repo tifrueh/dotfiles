@@ -47,5 +47,12 @@ require('nvim-tree').setup()
 
 -- use nvim-treesitter
 require('nvim-treesitter.configs').setup {
+    -- a list of parser names, or "all" (the five listed parsers should always be installed)
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+
+    -- install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    -- enable highlighting
     highlight = { enable = true }
 }
