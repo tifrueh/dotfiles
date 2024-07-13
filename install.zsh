@@ -305,6 +305,14 @@ if input_contains "--configure-hyprland"; then
     link "hyprland.conf" "${config_dir}/hypr/hyprland.conf"
 fi
 
+## install override-hook for hyprland
+if input_contains "--configure-hyprland" && [[ ! -f "${config_dir}/hypr/override-hook.conf" ]]; then
+    echo "DOT-INSTALL: Installing override hook for HYPRLAND"
+    touch "${config_dir}/hypr/override-hook.conf"
+elif input_contains "--configure-hyprland"; then
+    echo "DOT-INSTALL: SKIP: Override hook for HYPRLAND found, skipping ..."
+fi
+
 # install waybar configuration if requested
 if input_contains "--configure-waybar"; then
     mkdir -p "${config_dir}/waybar"
