@@ -12,8 +12,6 @@ nvim_dir="${config_dir}/nvim"
 nvim_colors_dir="${nvim_dir}/colors"
 nvim_plugins_dir="${nvim_dir}/pack/plugins/start"
 kitty_dir="${config_dir}/kitty"
-i3_dir="${config_dir}/i3"
-i3status_dir="${config_dir}/i3status"
 fastfetch_dir="${config_dir}/fastfetch"
 
 # store input arguments in variable
@@ -25,7 +23,6 @@ zparseopts -E -D -a input_args -- \
     -configure-kitty \
     -configure-hyprland \
     -configure-waybar \
-    -configure-i3 \
     -configure-yabai \
     -configure-skhd \
     -install-pyenv \
@@ -305,14 +302,6 @@ if input_contains "--configure-waybar"; then
     mkdir -p "${config_dir}/waybar"
     link "waybar-config" "${config_dir}/waybar/config"
     link "waybar-style.css" "${config_dir}/waybar/style.css"
-fi
-
-# install i3 configuration if requested
-if input_contains "--configure-i3"; then
-    mkdir -p "${i3_dir}"
-    mkdir -p "${i3status_dir}"
-    link "i3-config" "${i3_dir}/config"
-    link "i3status-config" "${i3status_dir}/config"
 fi
 
 # install yabai configuration if requested
