@@ -291,6 +291,14 @@ elif input_contains "--configure-kitty"; then
     echo "DOT-INSTALL: SKIP: Font configuration file for KITTY found, skipping ..."
 fi
 
+## install override-hook for kitty
+if input_contains "--configure-kitty" && [[ ! -f "${kitty_dir}/override-hook.conf" ]]; then
+    echo "DOT-INSTALL: Installing override hook for KITTY"
+    touch "${kitty_dir}/override-hook.conf"
+elif input_contains "--configure-kitty"; then
+    echo "DOT-INSTALL: SKIP: Override hook for KITTY found, skipping ..."
+fi
+
 # install hyprland configuration if requested
 if input_contains "--configure-hyprland"; then
     mkdir -p "${config_dir}/hypr"
