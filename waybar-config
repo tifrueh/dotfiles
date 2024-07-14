@@ -1,21 +1,43 @@
 {
     "height": 30,
-    "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "custom/prompt", "hyprland/window"],
-    "modules-right": ["clock", "tray"],
-    "custom/prompt": {
-	"exec": "echo '❯'"
+    "spacing": 10,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["cpu", "memory", "memory#swap", "disk", "network", "clock", "tray"],
+    "hyprland/window": {
+	"format": "{title}"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}%  ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{percentage}%  ",
+        "max-length": 10
+    },
+    "memory#swap": {
+        "interval": 10,
+        "format": "{swapPercentage}% 󰾴",
+        "max-length": 10
+    },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}%  ",
+        "max-length": 10
+    },
+    "network": {
+        "interval": 10,
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "format-wifi": "{essid} {signalBm} dBm  "
+    },
+    "clock": {
+	"interval": 1,
+	"format": "{:%FT%T%z}  "
     },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        // "timezone": "America/New_York",
-        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	"interval": 1,
-	"format": "{:%Y-%m-%d · %H:%M:%S}",
-        "format-alt": "{:%A %d %B %Y · %H:%M:%S}"
-    }
 }
 
