@@ -33,7 +33,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%FT%T%z}  "
+        "format": "{:%F %T %z}  "
     },
     "tray": {
         // "icon-size": 21,
