@@ -5,7 +5,8 @@
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
-        "format": "{title}"
+        "format": "{title}",
+        "max-length": 40
     },
     "cpu": {
         "interval": 10,
