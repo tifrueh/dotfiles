@@ -15,8 +15,7 @@
     },
     "mpris": {
         "interval": 1,
-        "format": "{status_icon} {dynamic} ",
-        "dynamic-len": 40,
+        "format": " {status_icon}  ",
         "dynamic-importance-order": [
             "title",
             "position",
