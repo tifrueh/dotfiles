@@ -3,7 +3,7 @@
     "spacing": 10,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "memory#swap", "disk", "network", "tray"],
+    "modules-right": ["mpris", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
@@ -11,6 +11,23 @@
     "clock": {
         "interval": 1,
         "format": "{:%F %T %z}"
+    },
+    "mpris": {
+        "interval": 1,
+        "format": "{status_icon} {dynamic}",
+        "dynamic-len": 40,
+        "dynamic-importance-order": [
+            "title",
+            "position",
+            "length",
+            "artist",
+            "album"
+        ],
+        "status-icons": {
+            "paused": " ",
+            "playing": " ",
+            "stopped": " "
+        }
     },
     "cpu": {
         "interval": 10,
