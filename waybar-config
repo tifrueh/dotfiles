@@ -3,7 +3,7 @@
     "spacing": 10,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["mpris", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
+    "modules-right": ["mpris", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
@@ -28,6 +28,11 @@
             "playing": " ",
             "stopped": " "
         }
+    },
+    "wireplumber": {
+        "interval": 1,
+        "format": "{volume}%   ",
+        "format-muted": "  "
     },
     "cpu": {
         "interval": 10,
