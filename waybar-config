@@ -32,7 +32,8 @@
     "wireplumber": {
         "interval": 1,
         "format": "{volume}%   ",
-        "format-muted": "  "
+        "format-muted": "  ",
+        "max-length": 10
     },
     "cpu": {
         "interval": 10,
