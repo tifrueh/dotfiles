@@ -10,7 +10,8 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%F %T %z}"
+        "format": "{:%F %T %z}",
+        "tooltip": false
     },
     "mpris": {
         "interval": 1,
@@ -27,38 +28,52 @@
             "paused": " ",
             "playing": " ",
             "stopped": " "
-        }
+        },
+        "tooltip": true,
+        "tooltip-format": "{player}: {dynamic}"
     },
     "wireplumber": {
         "interval": 1,
         "format": "{volume}%   ",
         "format-muted": "  ",
-        "max-length": 10
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "{node_name}: {volume}%"
     },
     "cpu": {
         "interval": 10,
         "format": "{usage}%   ",
-        "max-length": 10
+        "max-length": 10,
+        "tooltip": true
     },
     "memory": {
         "interval": 10,
         "format": "{percentage}%   ",
-        "max-length": 10
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "{used} GiB / {total} GiB used"
     },
     "memory#swap": {
         "interval": 10,
         "format": "{swapPercentage}% 󰾴 ",
-        "max-length": 10
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "{swapUsed} GiB / {swapTotal} GiB used"
     },
     "disk": {
         "interval": 60,
         "format": "{percentage_used}%   ",
-        "max-length": 10
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "{used} GiB / {total} GiB used on {path}"
     },
     "network": {
         "interval": 10,
         "format-ethernet": "{ipaddr}/{cidr}   ",
-        "format-wifi": "{essid} {signalBm} dBm   "
+        "format-wifi": "{essid} {signalBm} dBm   ",
+        "tooltip": true,
+        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
+        "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}\nSignal: {signaldBm} dBm"
     },
     "tray": {
         "icon-size": 16,
