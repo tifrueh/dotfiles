@@ -69,9 +69,11 @@
     },
     "network": {
         "interval": 10,
+        "format": "󰅛  ",
         "format-ethernet": "{ipaddr}/{cidr}   ",
-        "format-wifi": "{essid} {signalBm} dBm   ",
+        "format-wifi": "{essid} {signaldBm} dBm   ",
         "tooltip": true,
+        "tooltip-format": "󰅛  ",
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
         "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}\nSignal: {signaldBm} dBm"
     },
