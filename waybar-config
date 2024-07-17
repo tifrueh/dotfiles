@@ -1,6 +1,6 @@
 {
     "height": 30,
-    "spacing": 10,
+    "spacing": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": ["mpris", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
@@ -14,7 +14,7 @@
     },
     "mpris": {
         "interval": 1,
-        "format": "{status_icon} {dynamic}",
+        "format": "{status_icon} {dynamic} ",
         "dynamic-len": 40,
         "dynamic-importance-order": [
             "title",
@@ -36,28 +36,28 @@
     },
     "cpu": {
         "interval": 10,
-        "format": "{usage}%  ",
+        "format": "{usage}%   ",
         "max-length": 10
     },
     "memory": {
         "interval": 10,
-        "format": "{percentage}%  ",
+        "format": "{percentage}%   ",
         "max-length": 10
     },
     "memory#swap": {
         "interval": 10,
-        "format": "{swapPercentage}% 󰾴",
+        "format": "{swapPercentage}% 󰾴 ",
         "max-length": 10
     },
     "disk": {
         "interval": 60,
-        "format": "{percentage_used}%  ",
+        "format": "{percentage_used}%   ",
         "max-length": 10
     },
     "network": {
         "interval": 10,
-        "format-ethernet": "{ipaddr}/{cidr}  ",
-        "format-wifi": "{essid} {signalBm} dBm  "
+        "format-ethernet": "{ipaddr}/{cidr}   ",
+        "format-wifi": "{essid} {signalBm} dBm   "
     },
     "tray": {
         "icon-size": 16,
