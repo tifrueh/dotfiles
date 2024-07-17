@@ -2,7 +2,8 @@
     "height": 30,
     "spacing": 10,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["cpu", "memory", "memory#swap", "disk", "network", "clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
         "format": "{title}"
     },
@@ -33,7 +34,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%F %T %z}  "
+        "format": "{:%F %T %z}"
     },
     "tray": {
         // "icon-size": 21,
