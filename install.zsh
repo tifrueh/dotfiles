@@ -91,6 +91,8 @@ if input_contains '-h' || input_contains '--help'; then
     echo "  --configure-kitty:    Configure KITTY"
     echo "  --configure-hyprland: Configure HYPRLAND" 
     echo "  --configure-waybar:   Configure WAYBAR"
+    echo "  --configure-yabai:    Configure YABAI"
+    echo "  --configure-skhd:     Configure SKHD"
     echo "  --install-pyenv:      Install PYENV"
     echo "  --exec-zsh:           Execute ZSH after completion"
     exit 0
