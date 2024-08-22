@@ -7,3 +7,4 @@ if [ -d ~/.pyenv ]; then export PYENV_ROOT="${HOME}/.pyenv" && path=("${HOME}/.p
 if [ -d ~/.pyenv/plugins/pyenv-virtualenv ]; then path=("${HOME}/.pyenv/plugins/pyenv-virtualenv/bin" $path); fi
 export PATH
 export EDITOR=vim
+export MANWIDTH=80
