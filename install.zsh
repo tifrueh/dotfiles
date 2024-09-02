@@ -129,6 +129,17 @@ else
     echo "DOT-INSTALL: SKIP: .ZSH DIRECTORY already created, skipping ..."
 fi
 
+# link custom plugins
+if ! [[ -d "${zsh_plugin_dir}/custom/" ]]; then
+    echo "DOT-INSTALL: Linking CUSTOM PLUGINS ..."
+
+    mkdir -p "${zsh_plugin_dir}/custom/"
+
+    link "zfunctions.zsh" "${zsh_plugin_dir}/custom/zfunctions.zsh"
+else
+    echo "DOT-INSTALL: SKIP: CUSTOM PLUGINS already linked, skipping ..."
+fi
+
 # install pure if not already installed
 if ! [[ -d "${zsh_themes_dir}/pure" ]]; then
     echo "DOT-INSTALL: Installing PURE"

@@ -40,6 +40,9 @@ source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${PLUGINS_DIR}/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
 
+# Source custom functions
+source "${PLUGINS_DIR}/custom/zfunctions.zsh"
+
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
