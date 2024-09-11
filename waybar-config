@@ -2,16 +2,16 @@
     "height": 30,
     "spacing": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
+    "modules-center": ["custom/clock"],
     "modules-right": ["mpris", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
     },
-    "clock": {
+    "custom/clock": {
         "interval": 1,
-        "format": "{:%F %T %z}",
-        "tooltip": false
+        "format": "{}",
+        "exec": "date +'%F %T %z'"
     },
     "mpris": {
         "interval": 1,
