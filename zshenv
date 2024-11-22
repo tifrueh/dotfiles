@@ -8,3 +8,4 @@ if [ -d ~/.pyenv/plugins/pyenv-virtualenv ]; then path=("${HOME}/.pyenv/plugins/
 export PATH
 export EDITOR=vim
 export MANWIDTH=80
+export GPG_TTY="$(tty)"
