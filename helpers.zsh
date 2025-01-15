@@ -51,6 +51,43 @@ link () {
     fi
 }
 
+# Copy a file (including some protections).
+#
+# Synopsis
+#   copy FILENAME DESTINATION
+#
+# Description
+#   FILENAME            The file to copy.
+#   DESTINATION_PATH    The file's destination path.
+
+copy () {
+    if [[ -e "${2}" ]]; then
+        echo "DOT-INSTALL: SKIP: ${1} exists, skipping ..."
+    else
+        echo "DOT-INSTALL: Copying ${1} -> ${2}"
+        mkdir -p "${2:h}"
+        cp "${1}" "${2}"
+    fi
+}
+
+# Create a file (including some protections).
+#
+# Synopsis
+#   create FILENAME
+#
+# Description
+#   FILENAME            The file to create.
+
+create () {
+    if [[ -e "${1}" ]]; then
+        echo "DOT-INSTALL: SKIP: ${1} exists, skipping ..."
+    else
+        echo "DOT-INSTALL: Creating ${1}"
+        mkdir -p "${1:h}"
+        touch "${1}"
+    fi
+}
+
 # Enforce the installation of a specific piece of software.
 #
 # Synopsis
