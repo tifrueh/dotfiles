@@ -35,7 +35,7 @@ fi
 
 # Enforce the installation of a few essentials.
 enforce 'yabai'
-enforce 'skhdrc'
+enforce 'skhd'
 enforce 'curl'
 enforce 'git'
 
