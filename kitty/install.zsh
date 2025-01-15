@@ -38,8 +38,8 @@ enforce 'curl'
 enforce 'git'
 
 # Link main kitty config.
-link "${scriptdir}/kitty.conf" "${kitty_dir}/kitty.conf"
-link "${scriptdir}/kitty-if.conf" "${kitty_dir}/if.conf"
+link "${scriptdir}/kitty.conf" "${kitty_dir}/kitty.conf" ${force}
+link "${scriptdir}/kitty-if.conf" "${kitty_dir}/if.conf" ${force}
 
 # Install color schemes.
 curl_fetch 'onehalfdark' "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-dark.conf" "${kitty_dir}/onehalfdark.conf"

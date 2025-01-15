@@ -57,5 +57,5 @@ copy "${scriptdir}/hyprlock.conf" "${hypr_dir}/hyprlock.conf"
 create "${hypr_dir}/override-hook.conf"
 
 # Link waybar configuration.
-link "${scriptdir}/waybar-config" "${waybar_dir}/config"
-link "${scriptdir}/waybar-style.css" "${waybar_dir}/style.css"
+link "${scriptdir}/waybar-config" "${waybar_dir}/config" ${force}
+link "${scriptdir}/waybar-style.css" "${waybar_dir}/style.css" ${force}
