@@ -71,7 +71,7 @@ link "${scriptdir}/vimrc" "${HOME}/.vimrc" ${force}
 link "${scriptdir}/nethackrc" "${HOME}/.nethackrc" ${force}
 
 # Link fastfetch config.
-link "${scriptdir}/fastfetch.jsonc" "${config_dir}/fastfetch/fastfetch.jsonc" ${force}
+link "${scriptdir}/fastfetch.jsonc" "${config_dir}/fastfetch/config.jsonc" ${force}
 
 # Install some themes.
 git_clone 'pure' 'https://github.com/sindresorhus/pure.git' "${zsh_themes_dir}/pure"
