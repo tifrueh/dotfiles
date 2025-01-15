@@ -114,7 +114,7 @@ enforce () {
 #   DESTINATION         The destination file to download to.
 
 curl_fetch () {
-    if [[ -f "${3}" ]]; then
+    if [[ -e "${3}" ]]; then
         echo "DOT-INSTALL: SKIP: ${1:u} already installed, skipping ..."
     else
         echo "DOT-INSTALL: Installing ${1:u}"
@@ -134,7 +134,7 @@ curl_fetch () {
 #  DIRECTORY            The directory to clone to.
 
 git_clone () {
-    if [[ -d "${3}" ]]; then
+    if [[ -e "${3}" ]]; then
         echo "DOT-INSTALL: SKIP: ${1:u} already installed, skipping ..."
     else
         mkdir -p "${3}"
