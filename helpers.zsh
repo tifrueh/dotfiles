@@ -1,5 +1,18 @@
 #!/bin/zsh
 
+# Produce a log message.
+#
+# Synopsis
+#   lecho LEVEL MESSAGE
+#
+# Description
+#   LEVEL               The log level the message is at.
+#   MESSAGE             The actual log message.
+
+lecho () {
+    printf "DOTFILES: %s: %s\n" "${1:u}" "${2}"
+}
+
 # Check whether a list contains a string.
 #
 # Synopsis
@@ -34,18 +47,18 @@ link () {
         echo -n "Do you really want to overwrite ${2}? [y|N] "
         read confirm
         if [[ "${confirm}" != "y" ]]; then
-            echo "DOT-INSTALL: SKIP: Not overwriting ${2}, skipping ..."
+            lecho 'skip' "Not overwriting ${2}, skipping ..."
         else
-            echo "DOT-INSTALL: Overwriting ${2} <- ${1}"
+            lecho 'info' "Overwriting ${2} <- ${1}"
             rm "${2}"
             ln -s "${1}" "${2}"
         fi
     elif [[ -h "${2}" || -f "${2}" ]]; then
-        echo "DOT-INSTALL: ${2} exists, skipping ..."
+        lecho 'skip' "${2} exists, skipping ..."
     elif [[ -e "${2}" ]]; then
-        echo "DOT-INSTALL: SKIP: ${2} exists and is not a symbolic link or regular file, skipping ..."
+        lecho 'skip' "${2} exists and is not a symbolic link or regular file, skipping ..."
     else
-        echo "DOT-INSTALL: Linking ${1} -> ${2}"
+        lecho 'info' "Linking ${1} -> ${2}"
         mkdir -p "${2:h}"
         ln -s "${1}" "${2}"
     fi
@@ -62,9 +75,9 @@ link () {
 
 copy () {
     if [[ -e "${2}" ]]; then
-        echo "DOT-INSTALL: SKIP: ${1} exists, skipping ..."
+        lecho 'skip' "${1} exists, skipping ..."
     else
-        echo "DOT-INSTALL: Copying ${1} -> ${2}"
+        lecho 'info' "Copying ${1} -> ${2}"
         mkdir -p "${2:h}"
         cp "${1}" "${2}"
     fi
@@ -80,9 +93,9 @@ copy () {
 
 create () {
     if [[ -e "${1}" ]]; then
-        echo "DOT-INSTALL: SKIP: ${1} exists, skipping ..."
+        lecho 'skip' "${1} exists, skipping ..."
     else
-        echo "DOT-INSTALL: Creating ${1}"
+        lecho 'info' "Creating ${1}"
         mkdir -p "${1:h}"
         touch "${1}"
     fi
@@ -98,7 +111,7 @@ create () {
 
 enforce () {
     if ! type "${1}" &> /dev/null; then
-        echo "DOT-INSTALL: ERROR: Please install ${1:u} before executing this script ..."
+        lecho 'critical' "Please install ${1:u} before executing this script ..."
         exit 1
     fi
 }
@@ -115,9 +128,9 @@ enforce () {
 
 curl_fetch () {
     if [[ -e "${3}" ]]; then
-        echo "DOT-INSTALL: SKIP: ${1:u} already installed, skipping ..."
+        lecho 'skip' "${1:u} already installed, skipping ..."
     else
-        echo "DOT-INSTALL: Installing ${1:u}"
+        lecho 'info' "Installing ${1:u}"
         mkdir -p "${3:h}"
         curl -fL "${2}" -o "${3}"
     fi
@@ -135,10 +148,10 @@ curl_fetch () {
 
 git_clone () {
     if [[ -e "${3}" ]]; then
-        echo "DOT-INSTALL: SKIP: ${1:u} already installed, skipping ..."
+        lecho 'skip' "${1:u} already installed, skipping ..."
     else
         mkdir -p "${3}"
-        echo "DOT-INSTALL: Installing ${1:u}"
+        lecho 'info' "Installing ${1:u}"
         git clone "${2}" "${3}"
     fi
 }
