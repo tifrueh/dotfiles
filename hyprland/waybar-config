@@ -1,9 +1,9 @@
 {
     "height": 30,
-    "spacing": 5,
+    "spacing": 0,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/clock"],
-    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
+    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray", "custom/suspend"],
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
@@ -40,35 +40,35 @@
     },
     "wireplumber": {
         "interval": 1,
-        "format": "{volume}%   ",
-        "format-muted": "  ",
+        "format": "{volume}%    ",
+        "format-muted": "   ",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "{node_name}: {volume}%"
     },
     "cpu": {
         "interval": 10,
-        "format": "{usage}%   ",
+        "format": "{usage}%    ",
         "max-length": 10,
         "tooltip": true
     },
     "memory": {
         "interval": 10,
-        "format": "{percentage}%   ",
+        "format": "{percentage}%    ",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "{used} GiB / {total} GiB used"
     },
     "memory#swap": {
         "interval": 10,
-        "format": "{swapPercentage}% 󰾴 ",
+        "format": "{swapPercentage}% 󰾴  ",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "{swapUsed} GiB / {swapTotal} GiB used"
     },
     "disk": {
         "interval": 60,
-        "format": "{percentage_used}%   ",
+        "format": "{percentage_used}%    ",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "{used} GiB / {total} GiB used on {path}"
@@ -76,8 +76,8 @@
     "network": {
         "interval": 10,
         "format": "󰅛  ",
-        "format-ethernet": "{ipaddr}/{cidr}   ",
-        "format-wifi": "{essid} {signaldBm} dBm   ",
+        "format-ethernet": "{ipaddr}/{cidr}    ",
+        "format-wifi": "{essid} {signaldBm} dBm    ",
         "tooltip": true,
         "tooltip-format": "󰅛  ",
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
@@ -86,6 +86,11 @@
     "tray": {
         "icon-size": 16,
         "spacing": 10
+    },
+    "custom/suspend": {
+        "format": "󰤁",
+        "on-click": "systemctl suspend",
+        "tooltip": true,
+        "tooltip-format": "Suspend system"
     }
 }
-

@@ -91,3 +91,9 @@ label:focus {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
+
+#custom-suspend {
+    padding: 0 14px 0 10px;
+    font-size: 20px;
+    background-color: #98c379;
+}
