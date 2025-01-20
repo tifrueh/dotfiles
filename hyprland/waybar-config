@@ -3,7 +3,7 @@
     "spacing": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/clock"],
-    "modules-right": ["mpris", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
+    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray"],
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
@@ -30,6 +30,13 @@
         },
         "tooltip": true,
         "tooltip-format": "{player}: {dynamic}"
+    },
+    "idle_inhibitor": {
+        "format": " {icon} ",
+        "format-icons": {
+            "activated": "󰅶 ",
+            "deactivated": "󰾪 "
+        }
     },
     "wireplumber": {
         "interval": 1,
