@@ -28,6 +28,14 @@ if exists('+termguicolors')
 endif
 ]])
 
+-- whitespace highlighting
+vim.cmd([[
+set listchars=trail:·,tab:→\ ,lead:·
+highlight Whitespace ctermfg=241 ctermbg=NONE guifg=#5c6370 guibg=NONE
+highlight Trail ctermfg=168 ctermbg=NONE guifg=#e06c75 guibg=NONE
+match Trail /\s\+$/
+]])
+
 -- use nvim-web-devicons (required for lualine)
 require('nvim-web-devicons').setup()
 
