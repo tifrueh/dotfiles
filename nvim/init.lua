@@ -30,7 +30,7 @@ endif
 
 -- whitespace highlighting
 vim.cmd([[
-set listchars=trail:·,tab:→\ ,lead:·
+set listchars=trail:·,tab:→\ ,lead:·,nbsp:◦
 highlight Whitespace ctermfg=241 ctermbg=NONE guifg=#5c6370 guibg=NONE
 highlight Trail ctermfg=168 ctermbg=NONE guifg=#e06c75 guibg=NONE
 match Trail /\s\+$/
