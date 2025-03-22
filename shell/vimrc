@@ -20,9 +20,9 @@ colorscheme onehalfdark
 
 " use true colors in the color scheme if possible
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 
 " whitespace highlighting
@@ -40,6 +40,6 @@ set noshowmode
 
 " use onehalfdark as lightline color scheme
 let g:lightline = {
-	\ 'colorscheme': 'one',
-	\ 'background': 'dark'
+    \ 'colorscheme': 'one',
+    \ 'background': 'dark'
 \}
