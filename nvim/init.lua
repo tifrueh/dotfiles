@@ -32,7 +32,7 @@ endif
 vim.cmd([[
 set listchars=trail:·,tab:→\ ,lead:·,nbsp:◦
 highlight Whitespace ctermfg=241 ctermbg=NONE guifg=#5c6370 guibg=NONE
-highlight Trail ctermfg=168 ctermbg=NONE guifg=#e06c75 guibg=NONE
+highlight Trail ctermfg=NONE ctermbg=168 guifg=NONE guibg=#e06c75
 autocmd InsertEnter * match Trail //
 autocmd VimEnter,WinEnter,InsertLeave * match Trail /\s\+$/
 ]])
