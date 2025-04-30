@@ -6,7 +6,8 @@ if [ -d /opt/local ]; then path=("/opt/local/bin" "/opt/local/sbin" $path); fi
 if [ -d ~/.pyenv ]; then export PYENV_ROOT="${HOME}/.pyenv" && path=("${HOME}/.pyenv/bin" $path); fi
 if [ -d ~/.pyenv/plugins/pyenv-virtualenv ]; then path=("${HOME}/.pyenv/plugins/pyenv-virtualenv/bin" $path); fi
 export PATH
-export EDITOR=vim
+export EDITOR="vi -e"
+export VISUAL="vim"
 export MANWIDTH=80
 export GPG_TTY="$(tty)"
 export NNN_TRASH="trash"
