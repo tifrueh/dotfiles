@@ -9,4 +9,4 @@ export PATH
 export EDITOR=vim
 export MANWIDTH=80
 export GPG_TTY="$(tty)"
-export NNN_TRASH=1
+export NNN_TRASH="trash"
