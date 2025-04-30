@@ -10,4 +10,3 @@ export EDITOR="vi -e"
 export VISUAL="vim"
 export MANWIDTH=80
 export GPG_TTY="$(tty)"
-export NNN_TRASH="trash"
