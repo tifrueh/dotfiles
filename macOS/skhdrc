@@ -1,5 +1,5 @@
 # open terminal
-ctrl + alt - return : open -a kitty ~ --args --single-instance
+ctrl + alt - return : kitty --single-instance --instance-group "skhd" --directory "~"
 
 # configure yabai focus movement
 ctrl + alt - up : yabai -m window --focus north
