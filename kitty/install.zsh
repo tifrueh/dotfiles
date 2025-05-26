@@ -40,10 +40,7 @@ enforce 'git'
 # Link main kitty config.
 link "${scriptdir}/kitty.conf" "${kitty_dir}/kitty.conf" ${force}
 link "${scriptdir}/if.conf" "${kitty_dir}/if.conf" ${force}
-
-# Install color schemes.
-curl_fetch 'onehalfdark' "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-dark.conf" "${kitty_dir}/onehalfdark.conf"
-curl_fetch 'onehalflight' "https://github.com/sonph/onehalf/raw/master/kitty/onehalf-light.conf" "${kitty_dir}/onehalflight.conf"
+link "${scriptdir}/onehalfdark.conf" "${kitty_dir}/onehalfdark.conf" ${force}
 
 # Copy fontconfig template.
 copy "${scriptdir}/fontconfig.conf" "${kitty_dir}/fontconfig.conf"
