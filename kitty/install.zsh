@@ -1,10 +1,7 @@
 #!/bin/zsh
 
-# Always execute script in its directory.
-cd "${0:A:h}"
-
 # Perform script setup.
-source "../helpers.zsh"
+source "${0:A:h}/../helpers.zsh"
 setup $0 $@
 
 # Define path variables.
@@ -24,5 +21,5 @@ link "${scriptdir}/onehalfdark.conf" "${kitty_dir}/onehalfdark.conf" ${force}
 # Copy fontconfig template.
 copy "${scriptdir}/fontconfig.conf" "${kitty_dir}/fontconfig.conf"
 
-# Create override-hook for kitty. 
+# Create override-hook for kitty.
 create "${kitty_dir}/override-hook.conf"
