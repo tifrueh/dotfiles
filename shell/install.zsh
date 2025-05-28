@@ -37,9 +37,6 @@ link "${scriptdir}/zshrc" "${HOME}/.zshrc" ${force}
 # Link custom functions.
 link "${scriptdir}/zfunctions.zsh" "${zsh_plugin_dir}/custom/zfunctions.zsh" ${force}
 
-# Link nethack config.
-link "${scriptdir}/nethackrc" "${HOME}/.nethackrc" ${force}
-
 # Link fastfetch config.
 link "${scriptdir}/fastfetch.jsonc" "${config_dir}/fastfetch/config.jsonc" ${force}
 
