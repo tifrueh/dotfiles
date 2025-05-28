@@ -1,0 +1,11 @@
+#!/bin/sh
+
+printf "jcd to: "
+
+read -r jdesc
+
+path="$(jdfs path $jdesc)"
+
+[ ! -d "$path" ] && exit 1
+
+printf "0c%s" "$path" > "$NNN_PIPE"

@@ -33,9 +33,6 @@ link "${scriptdir}/zshaliases" "${HOME}/.zshaliases" ${force}
 link "${scriptdir}/zshenv" "${HOME}/.zshenv" ${force}
 link "${scriptdir}/zshrc" "${HOME}/.zshrc" ${force}
 
-# Link custom functions.
-link "${scriptdir}/zfunctions.zsh" "${zsh_plugin_dir}/custom/zfunctions.zsh" ${force}
-
 # Install some themes.
 git_clone 'pure' 'https://github.com/sindresorhus/pure.git' "${zsh_themes_dir}/pure"
 git_clone 'p10k' 'https://github.com/romkatv/powerlevel10k.git' "${zsh_themes_dir}/p10k"

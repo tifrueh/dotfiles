@@ -39,8 +39,9 @@ autoload -Uz compinit; compinit
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
 
-# Source custom functions
-source "${PLUGINS_DIR}/custom/zfunctions.zsh"
+# Source custom plugins if they exist
+[[ -f "${PLUGINS_DIR}/jdfs/jdfs.zsh" ]] && source "${PLUGINS_DIR}/jdfs/jdfs.zsh"
+[[ -f "${PLUGINS_DIR}/nnn/nnn.zsh" ]] && source "${PLUGINS_DIR}/nnn/nnn.zsh"
 
 bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
