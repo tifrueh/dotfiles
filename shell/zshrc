@@ -37,14 +37,13 @@ fi
 # Initialise and configure prompt system
 autoload -Uz compinit; compinit
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "${PLUGINS_DIR}/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
 
 # Source custom functions
 source "${PLUGINS_DIR}/custom/zfunctions.zsh"
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
 
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false

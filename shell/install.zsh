@@ -79,7 +79,6 @@ git_clone 'p10k' 'https://github.com/romkatv/powerlevel10k.git' "${zsh_themes_di
 
 # Install some plugins.
 git_clone 'syntax-highlighting' 'https://github.com/zsh-users/zsh-syntax-highlighting.git' "${zsh_plugin_dir}/zsh-syntax-highlighting"
-git_clone 'history-search' 'https://github.com/zsh-users/zsh-history-substring-search.git' "${zsh_plugin_dir}/zsh-history-substring-search"
 
 # Install vim color schemes.
 curl_fetch 'vim-onehalfdark' 'https://github.com/sonph/onehalf/raw/master/vim/colors/onehalfdark.vim' "${vim_colors_dir}/onehalfdark.vim"
