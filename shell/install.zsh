@@ -26,9 +26,9 @@ else
     mkdir -p "${zsh_plugin_dir}" "${zsh_themes_dir}"
 
     if [[ -f "${HOME}/.zsh_history" ]]; then
-        mv "${HOME}/.zsh_history" "${HOME}/.zsh/"
+        mv "${HOME}/.zsh_history" "${zsh_dir}/"
     else
-        touch "${HOME}/.zsh/.zsh_history"
+        touch "${zsh_dir}/.zsh_history"
     fi
 fi
 
