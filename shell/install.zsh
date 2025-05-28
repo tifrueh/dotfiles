@@ -8,7 +8,6 @@ setup $0 $@
 zsh_dir="${HOME}/.zsh"
 zsh_plugin_dir="${zsh_dir}/plugins"
 zsh_themes_dir="${zsh_dir}/themes"
-config_dir="${HOME}/.config"
 
 # Enforce the installation of a few essentials.
 enforce 'zsh'
@@ -36,9 +35,6 @@ link "${scriptdir}/zshrc" "${HOME}/.zshrc" ${force}
 
 # Link custom functions.
 link "${scriptdir}/zfunctions.zsh" "${zsh_plugin_dir}/custom/zfunctions.zsh" ${force}
-
-# Link fastfetch config.
-link "${scriptdir}/fastfetch.jsonc" "${config_dir}/fastfetch/config.jsonc" ${force}
 
 # Install some themes.
 git_clone 'pure' 'https://github.com/sindresorhus/pure.git' "${zsh_themes_dir}/pure"
