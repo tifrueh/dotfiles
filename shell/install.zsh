@@ -8,9 +8,6 @@ setup $0 $@
 zsh_dir="${HOME}/.zsh"
 zsh_plugin_dir="${zsh_dir}/plugins"
 zsh_themes_dir="${zsh_dir}/themes"
-vim_dir="${HOME}/.vim"
-vim_colors_dir="${vim_dir}/colors"
-vim_plugins_dir="${vim_dir}/pack/plugins/start"
 config_dir="${HOME}/.config"
 
 # Enforce the installation of a few essentials.
@@ -40,9 +37,6 @@ link "${scriptdir}/zshrc" "${HOME}/.zshrc" ${force}
 # Link custom functions.
 link "${scriptdir}/zfunctions.zsh" "${zsh_plugin_dir}/custom/zfunctions.zsh" ${force}
 
-# Link vim config.
-link "${scriptdir}/vimrc" "${HOME}/.vimrc" ${force}
-
 # Link nethack config.
 link "${scriptdir}/nethackrc" "${HOME}/.nethackrc" ${force}
 
@@ -55,10 +49,3 @@ git_clone 'p10k' 'https://github.com/romkatv/powerlevel10k.git' "${zsh_themes_di
 
 # Install some plugins.
 git_clone 'syntax-highlighting' 'https://github.com/zsh-users/zsh-syntax-highlighting.git' "${zsh_plugin_dir}/zsh-syntax-highlighting"
-
-# Install vim color schemes.
-curl_fetch 'vim-onehalfdark' 'https://github.com/sonph/onehalf/raw/master/vim/colors/onehalfdark.vim' "${vim_colors_dir}/onehalfdark.vim"
-curl_fetch 'vim-onehalfdark' 'https://github.com/sonph/onehalf/raw/master/vim/colors/onehalflight.vim' "${vim_colors_dir}/onehalflight.vim"
-
-# Install the lightline plugin for vim.
-git_clone 'vim-lightline' 'https://github.com/itchyny/lightline.vim' "${vim_plugins_dir}/lightline"
