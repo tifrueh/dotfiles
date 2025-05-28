@@ -1,5 +1,53 @@
 #!/bin/zsh
 
+# Setup operations common to all installation scripts: It parses and validates
+# the options passed to the script and sets the scriptname, scriptdir and force
+# variables.
+#
+# Synopsis
+#   setup ARGV_0 ARGV_@...
+#
+# Description
+#   ARGV_0              $0 of the calling script.
+#   ARGV_@...           All elements of $@ of the calling script (simply pass
+#                       $@).
+
+setup () {
+    scriptname="${1:A:t}"
+    scriptdir="${1:A:h}"
+    force=false
+    if [[ ${#} -gt 2 ]]; then
+        print_help "${scriptname}"
+        exit 1
+    fi
+    if [[ ${#} -eq 1 ]]; then
+        return
+    fi
+    if [[ ${2} == "-h" || ${2} == "--help" ]]; then
+        print_help "${scriptname}"
+        exit 0
+    fi
+    if [[ ${2} == "-f" || ${2} == "--force-links" ]]; then
+        force=true
+    fi
+}
+
+# Print help message.
+#
+# Synopsis
+#   print_help SCRIPTNAME
+#
+# Description
+#   SCRIPTNAME          The name of the script.
+
+print_help () {
+    printf "usage: %s [ -h | -f ]\n" "$1"
+    printf "\n"
+    printf "options:\n"
+    printf "-f, --force-links       Overwrite existing dotfiles.\n"
+    printf "-h, --help              Print this help message.\n"
+}
+
 # Produce a log message.
 #
 # Synopsis
