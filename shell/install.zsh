@@ -20,9 +20,9 @@ enforce 'git'
 
 # Create the .zsh directory.
 if [[ -d "${HOME}/.zsh" ]]; then
-    echo "DOT-INSTALL: SKIP: .ZSH DIRECTORY already created, skipping ..."
+    lecho "skip" ".ZSH DIRECTORY already created, skipping ..."
 else
-    echo "DOT-INSTALL: Creating .ZSH DIRECTORY"
+    lecho "info" "Creating .ZSH DIRECTORY"
     mkdir -p "${zsh_plugin_dir}" "${zsh_themes_dir}"
 
     if [[ -f "${HOME}/.zsh_history" ]]; then
