@@ -1,61 +1,24 @@
 * {
+    border: none;
+    border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, SauceCodePro Nerd Font, Cantarell, sans-serif;
     font-size: 14px;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background: #282c34;
+    color: #dcdfe4;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+tooltip {
+    background: #282c34;
+    border: 1px solid #61afef;
 }
 
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
-}
-
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.active {
-    box-shadow: inset 0 -3px #98c379;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+tooltip label {
+    color: #dcdfe4;
 }
 
 #window,
@@ -63,24 +26,29 @@ button:hover {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+#workspaces {
+    margin-left: 0px;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #dcdfe4;
+    border-bottom: 3px solid #3d4148;
 }
 
-label:focus {
-    background-color: #000000;
+#workspaces button.active {
+    border-bottom: 3px solid #61afef;
+}
+
+#workspaces button.urgent {
+    border-bottom: 3px solid #eb4d4b;
 }
 
 #tray {
     padding: 0 10px;
-    color: #ffffff;
-    background-color: #2980b9;
+    color: #dcdfe4;
+    background-color: #61afef;
 }
 
 #tray > .passive {
