@@ -8,6 +8,7 @@ setup $0 $@
 config_dir="${HOME}/.config"
 hypr_dir="${config_dir}/hypr"
 waybar_dir="${config_dir}/waybar"
+tofi_dir="${config_dir}/tofi"
 
 # Enforce the installation of a few essentials.
 enforce 'hyprland'
@@ -16,7 +17,7 @@ enforce 'hyprlock'
 enforce 'waybar'
 enforce 'kitty'
 enforce 'nnn'
-enforce 'wofi'
+enforce 'tofi-run'
 enforce 'curl'
 enforce 'git'
 
@@ -35,3 +36,6 @@ create "${hypr_dir}/override-hook.conf"
 # Link waybar configuration.
 link "${scriptdir}/waybar-config" "${waybar_dir}/config" ${force}
 link "${scriptdir}/waybar-style.css" "${waybar_dir}/style.css" ${force}
+
+# Link tofi configuration.
+link "${scriptdir}/tofi-config" "${tofi_dir}/config" ${force}
