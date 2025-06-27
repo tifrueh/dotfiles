@@ -1,0 +1,39 @@
+[global]
+    offset = (10, 10)
+    icon_corner_radius = 0
+    icon_corners = all
+    gap_size = 10
+    separator_color = auto
+    sort = yes
+    font = Inter 11
+    enable_recursive_icon_lookup = true
+    icon_theme = Tela-blue-dark
+    mouse_left_click = open_url
+    mouse_right_click = close_current
+    dmenu = tofi --prompt-text=dunst
+
+[urgency_low]
+    background = "#282c34"
+    foreground = "#dcdfe4"
+    frame_color = "#3d4148"
+    timeout = 10
+    # Icon for notifications with low urgency
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#282c34"
+    foreground = "#dcdfe4"
+    frame_color = "#61afef"
+    timeout = 10
+    override_pause_level = 30
+    # Icon for notifications with normal urgency
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#e06c75"
+    foreground = "#dcdfe4"
+    frame_color = "#e37a82"
+    timeout = 0
+    override_pause_level = 60
+    # Icon for notifications with critical urgency
+    default_icon = dialog-warning

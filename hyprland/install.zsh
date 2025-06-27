@@ -9,6 +9,7 @@ config_dir="${HOME}/.config"
 hypr_dir="${config_dir}/hypr"
 waybar_dir="${config_dir}/waybar"
 tofi_dir="${config_dir}/tofi"
+dunst_dir="${config_dir}/dunst"
 
 # Enforce the installation of a few essentials.
 enforce 'hyprland'
@@ -18,6 +19,7 @@ enforce 'waybar'
 enforce 'kitty'
 enforce 'nnn'
 enforce 'tofi-run'
+enforce 'dunst'
 enforce 'curl'
 enforce 'git'
 
@@ -39,3 +41,6 @@ link "${scriptdir}/waybar-style.css" "${waybar_dir}/style.css" ${force}
 
 # Link tofi configuration.
 link "${scriptdir}/tofi-config" "${tofi_dir}/config" ${force}
+
+# Link dunst configuration.
+link "${scriptdir}/dunstrc" "${dunst_dir}/dunstrc" ${force}
