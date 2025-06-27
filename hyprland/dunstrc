@@ -7,7 +7,8 @@
     sort = yes
     font = Inter 11
     enable_recursive_icon_lookup = true
-    icon_theme = Tela-blue-dark
+    icon_theme = Tela-blue-dark, Adwaita
+    min_icon_size = 64
     mouse_left_click = open_url
     mouse_right_click = close_current
     dmenu = tofi --prompt-text=dunst
