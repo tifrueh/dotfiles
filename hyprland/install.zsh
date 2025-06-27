@@ -15,6 +15,7 @@ dunst_dir="${config_dir}/dunst"
 enforce 'hyprland'
 enforce 'hypridle'
 enforce 'hyprlock'
+enforce 'hyprsunset'
 enforce 'waybar'
 enforce 'kitty'
 enforce 'nnn'
