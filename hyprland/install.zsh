@@ -21,6 +21,7 @@ enforce 'kitty'
 enforce 'nnn'
 enforce 'tofi-run'
 enforce 'dunst'
+enforce 'wpctl'
 enforce 'curl'
 enforce 'git'
 
