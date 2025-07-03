@@ -108,12 +108,12 @@ contains () {
 
 link () {
     if [[ -h "${2}" || -f "${2}" ]] && [[ ${3} = true ]]; then
-        echo -n "Do you really want to overwrite ${2}? [y|N] "
+        echo -n "Do you really want to force the linking of ${2}? [y|N] "
         read confirm
         if [[ "${confirm}" != "y" ]]; then
-            lecho 'skip' "Not overwriting ${2}, skipping ..."
+            lecho 'skip' "Not linking ${2}, skipping ..."
         else
-            lecho 'info' "Overwriting ${2} <- ${1}"
+            lecho 'info' "Linking (forced) ${2} <- ${1}"
             rm "${2}"
             ln -s "${1}" "${2}"
         fi
@@ -122,7 +122,7 @@ link () {
     elif [[ -e "${2}" ]]; then
         lecho 'skip' "${2} exists and is not a symbolic link or regular file, skipping ..."
     else
-        lecho 'info' "Linking ${1} -> ${2}"
+        lecho 'info' "Linking ${2} <- ${1}"
         mkdir -p "${2:h}"
         ln -s "${1}" "${2}"
     fi
