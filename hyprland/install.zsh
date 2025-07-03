@@ -4,13 +4,6 @@
 source "${0:A:h}/../helpers.zsh"
 setup $0 $@
 
-# Define path variables.
-config_dir="${HOME}/.config"
-hypr_dir="${config_dir}/hypr"
-waybar_dir="${config_dir}/waybar"
-tofi_dir="${config_dir}/tofi"
-dunst_dir="${config_dir}/dunst"
-
 # Enforce the installation of a few essentials.
 enforce 'hyprland'
 enforce 'hypridle'

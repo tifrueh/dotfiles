@@ -4,10 +4,6 @@
 source "${0:A:h}/../helpers.zsh"
 setup $0 $@
 
-# Define path variables.
-config_dir="${HOME}/.config"
-kitty_dir="${config_dir}/kitty"
-
 # Enforce the installation of a few essentials.
 enforce 'kitty'
 enforce 'curl'

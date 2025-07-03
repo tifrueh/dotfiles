@@ -4,12 +4,6 @@
 source "${0:A:h}/../helpers.zsh"
 setup $0 $@
 
-# Define path variables.
-config_dir="${HOME}/.config"
-nvim_dir="${config_dir}/nvim"
-nvim_colors_dir="${nvim_dir}/colors"
-nvim_plugins_dir="${nvim_dir}/pack/plugins/start"
-
 # Enforce the installation of a few essentials.
 enforce 'curl'
 enforce 'nvim'

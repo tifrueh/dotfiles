@@ -1,5 +1,21 @@
 #!/bin/zsh
 
+# Set path variables.
+config_dir="${HOME}/.config"
+dunst_dir="${config_dir}/dunst"
+hypr_dir="${config_dir}/hypr"
+kitty_dir="${config_dir}/kitty"
+nvim_colors_dir="${nvim_dir}/colors"
+nvim_dir="${config_dir}/nvim"
+nvim_plugins_dir="${nvim_dir}/pack/plugins/start"
+skhd_dir="${config_dir}/skhd"
+tofi_dir="${config_dir}/tofi"
+waybar_dir="${config_dir}/waybar"
+yabai_dir="${config_dir}/yabai"
+zsh_dir="${HOME}/.zsh"
+zsh_plugin_dir="${zsh_dir}/plugins"
+zsh_themes_dir="${zsh_dir}/themes"
+
 # Setup operations common to all installation scripts: It parses and validates
 # the options passed to the script and sets the scriptname, scriptdir and force
 # variables.
