@@ -19,3 +19,6 @@ copy "${scriptdir}/fontconfig.conf" "${kitty_dir}/fontconfig.conf"
 
 # Create override-hook for kitty.
 create "${kitty_dir}/override-hook.conf"
+
+# Install 'kedit'.
+link "${scriptdir}/kedit" "${bin_dir}/kedit" ${force}

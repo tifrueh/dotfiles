@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 # Set path variables.
+bin_dir="${HOME}/.local/bin"
 config_dir="${HOME}/.config"
 dunst_dir="${config_dir}/dunst"
 hypr_dir="${config_dir}/hypr"

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+kitten @ launch \
+    --password 'kedit' \
+    --type window \
+    --title kedit \
+    --no-response \
+    --cwd current \
+    ${VISUAL} $@

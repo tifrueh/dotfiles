@@ -30,9 +30,23 @@ n () {
     # stty lwrap undef
     # stty lnext undef
 
-    # The command builtin allows one to alias nnn to n, if desired, without
-    # making an infinitely recursive alias
-    command nnn "$@"
+    # Use kedit script as text editor if possible.
+    if type "kedit" &> /dev/null; then
+
+        old_editor=$EDITOR
+        old_visual=$VISUAL
+        EDITOR=$VISUAL
+        VISUAL="env VISUAL=${VISUAL} kedit"
+
+        kitten @ goto-layout --password 'kedit' tall:bias=20
+        command nnn -eE "$@"
+
+        EDITOR=$old_editor
+        VISUAL=$old_visual
+
+    else
+        command nnn -eE "$@"
+    fi
 
     [ ! -f "$NNN_TMPFILE" ] || {
         . "$NNN_TMPFILE"
