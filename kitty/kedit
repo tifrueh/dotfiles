@@ -2,6 +2,7 @@
 
 kitten @ launch \
     --password 'kedit' \
+    --copy-env \
     --type window \
     --title kedit \
     --no-response \
