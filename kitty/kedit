@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "${VISUAL}" "$@" >> /tmp/kedit.log
+
 kitten @ launch \
     --password 'kedit' \
     --copy-env \
@@ -7,4 +9,4 @@ kitten @ launch \
     --title kedit \
     --no-response \
     --cwd current \
-    ${VISUAL} $@
+    "${VISUAL}" "$@"
