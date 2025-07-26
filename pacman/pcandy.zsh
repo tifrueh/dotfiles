@@ -40,13 +40,20 @@ finstalled () {
 }
 
 aur () {
+
+    if type pygmentize &> /dev/null; then
+        pyg_cmd=' | pygmentize -l shell -P style=one-dark'
+    else
+        pyg_cmd=''
+    fi
+
     if [[ $# -lt 1 ]]; then
         printf '%s\n' 'error: need search term for auracle'
         exit 1
     else
         q="$1"
         display \
-            'printf '"'"'%s\n\n'"'"' "$(auracle --color=always info {})" "$(auracle --color=always show {})"' \
+            'printf '"'"'%s\n\n'"'"' "$(auracle --color=always info {})" "$(auracle --color=always show {}'"${pyg_cmd}"')"' \
             "$(auracle -q search -- "$q")"
     fi
 }
