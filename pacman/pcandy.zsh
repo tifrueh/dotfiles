@@ -4,9 +4,9 @@ hmsg="usage:
     pcandy [ -h ] [ -i | -f | -a ] search_term
 
 options:
-    -i                  list only installed packages
-    -f                  list only installed and foreign packages
-    -a                  use auracle for search and info
+    -i, --installed     list only installed packages
+    -f, --finstalled    list only installed and foreign packages
+    -a, --aur           use auracle for search and info
     search_term         the term to search for
 "
 
