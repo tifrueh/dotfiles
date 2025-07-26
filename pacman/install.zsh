@@ -7,6 +7,7 @@ setup $0 $@
 # Enforce the installation of fastfetch.
 enforce 'less'
 enforce 'pacman'
+enforce 'auracle'
 enforce 'fzf'
 
 # Link scripts.
