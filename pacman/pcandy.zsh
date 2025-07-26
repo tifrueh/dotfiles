@@ -24,7 +24,7 @@ installed () {
         pkgs="$(pacman -Qq)"
     else
         q="$1"
-        pkgs="$(pacman -Qsq "$q")"
+        pkgs="$(pacman -Qsq -- "$q")"
     fi
     display 'pacman --color=always -Qil {}' "$pkgs"
 }
@@ -47,7 +47,7 @@ aur () {
         q="$1"
         display \
             'printf '"'"'%s\n\n'"'"' "$(auracle --color=always info {})" "$(auracle --color=always show {})"' \
-            "$(auracle -q search "$q")"
+            "$(auracle -q search -- "$q")"
     fi
 }
 
@@ -56,7 +56,7 @@ default () {
         pkgs="$(pacman -Slq)"
     else
         q="$1"
-        pkgs="$(pacman -Ssq "$q")"
+        pkgs="$(pacman -Ssq -- "$q")"
     fi
     display 'pacman --color=always -Si {}' "$pkgs"
 }
