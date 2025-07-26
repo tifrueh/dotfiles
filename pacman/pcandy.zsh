@@ -61,16 +61,16 @@ default () {
     display 'pacman --color=always -Si {}' "$pkgs"
 }
 
-if [[ "$1" == "-i" ]]; then
+if [[ "$1" = "-i" || "$1" = "--installed" ]]; then
     shift
     installed $@
-elif [[ "$1" == "-f" ]]; then
+elif [[ "$1" = "-f" || "$1" = "--finstalled" ]]; then
     shift
     finstalled $@
-elif [[ "$1" == "-a" ]]; then
+elif [[ "$1" = "-a" || "$1" = "--aur" ]]; then
     shift
     aur $@
-elif [[ "$1" == "-h" ]]; then
+elif [[ "$1" = "-h" || "$1" = "--help" ]]; then
     help
 else
     default $@
