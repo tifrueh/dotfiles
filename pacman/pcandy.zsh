@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 hmsg="usage:
-    pcandy [ -h ] [ -i | -f | -a ] search_term
+    pcandy [ -h ] [ -i | -f | -a ] <search_term>
 
 options:
     -i, --installed     list only installed packages
