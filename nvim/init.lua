@@ -12,6 +12,11 @@ vim.cmd.set('shiftwidth=4')
 vim.cmd.set('smarttab')
 vim.cmd.set('expandtab')
 
+
+-- break at words
+vim.cmd.set('linebreak')
+
+
 -- enable cursorline
 vim.cmd.set('cursorline')
 
