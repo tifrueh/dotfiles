@@ -38,7 +38,6 @@ n () {
         EDITOR=$VISUAL
         VISUAL="env VISUAL=${VISUAL} kedit"
 
-        kitten @ goto-layout --password 'kedit' tall:bias=20
         command nnn -eE "$@"
 
         EDITOR=$old_editor
