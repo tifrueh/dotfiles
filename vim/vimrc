@@ -27,5 +27,9 @@ highlight Trail ctermfg=NONE ctermbg=168 guifg=NONE guibg=#e06c75
 autocmd InsertEnter * match Trail //
 autocmd VimEnter,WinEnter,InsertLeave * match Trail /\s\+$/
 
+" "TODO" highlighting
+highlight Todo cterm=underline ctermfg=73 ctermbg=NONE gui=underline guifg=#56b6c2 guibg=NONE
+autocmd VimEnter,WinEnter * match Todo /TODO/
+
 " set textwidth to 72 for git commit
 autocmd FileType gitcommit set textwidth=72
