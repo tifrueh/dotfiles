@@ -44,8 +44,7 @@ autocmd VimEnter,WinEnter,InsertLeave * match Trail /\s\+$/
 
 -- "TODO" highlighting
 vim.cmd([[
-highlight Todo cterm=underline ctermfg=73 ctermbg=NONE gui=underline guifg=#56b6c2 guibg=NONE
-autocmd VimEnter,WinEnter * match Todo /TODO/
+autocmd VimEnter,WinEnter * 2match Todo /TODO/
 ]])
 
 -- use nvim-web-devicons (required for lualine)
