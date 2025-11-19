@@ -32,17 +32,27 @@ prompt_mu_setup () {
     ps2_pchar="%_ $ps1_pchar"
     ps3_pchar="%F{$prompt_mu_col_c}?#%f"
 
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' enable git cvs svn
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' stagedstr '/+'
+    zstyle ':vcs_info:*' unstagedstr '/*'
+    zstyle ':vcs_info:*' formats ' %s:%b%c%u'
+    zstyle ':vcs_info:*' actionformats ' %s:%b%c%u|%a'
+
     add-zsh-hook precmd prompt_mu_precmd
 }
 
 prompt_mu_precmd () {
+    vcs_info
     uh_exp="$(print -P $uh)"
+    vcs_exp="$vcs_info_msg_0_"
     t_exp="$(print -P $t)"
-    wd_cols=$(($COLUMNS-(${#uh_exp}+2+${#t_exp})-2))
+    wd_cols=$(($COLUMNS-(${#uh_exp}+1+${#vcs_exp}+1+${#t_exp})-2))
     wd="%$wd_cols<..<%~"
     wd_exp="$(print -P $wd)"
-    space_cols=$(($COLUMNS-(${#uh_exp}+1+${#wd_exp}+1+${#t_exp})))
-    lpn="%F{$prompt_mu_col_uh}${uh}%f %F{$prompt_mu_col_wd}${wd_exp}%f"
+    space_cols=$(($COLUMNS-(${#uh_exp}+1+${#vcs_exp}+1+${#wd_exp}+1+${#t_exp})))
+    lpn="%F{$prompt_mu_col_uh}${uh}%f%F{$prompt_mu_col_vcs}${vcs_exp}%f %F{$prompt_mu_col_wd}${wd_exp}%f"
     rpn="%F{$prompt_mu_col_t}${t}%f"
     base_prompt="${lpn}${(l:$space_cols:: :)}${rpn}"
     PS1="${prompt_newline}${base_prompt}${prompt_newline}${ps1_pchar} "
