@@ -25,7 +25,7 @@ prompt_mu_setup () {
     prompt_mu_col_c=${7:-'green'}
     prompt_newline=$'\n'
 
-    uh="[%n@%m]"
+    uh="%n@%m"
     e="%?"
     t="%*"
     ps1_pchar="%(0?/%F{$prompt_mu_col_c}/%F{red})%(!/$prompt_mu_char_p/$prompt_mu_char_n)%f"
@@ -37,8 +37,8 @@ prompt_mu_setup () {
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '/+'
     zstyle ':vcs_info:*' unstagedstr '/*'
-    zstyle ':vcs_info:*' formats '%s:%b%c%u '
-    zstyle ':vcs_info:*' actionformats '%s:%b%c%u|%a '
+    zstyle ':vcs_info:*' formats '[%s]-[%b%c%u] '
+    zstyle ':vcs_info:*' actionformats '[%s]:[%b%c%u|%a] '
 
     add-zsh-hook precmd prompt_mu_precmd
 }
