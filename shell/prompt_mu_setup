@@ -18,9 +18,9 @@ EOF
 prompt_mu_setup () {
     prompt_mu_char_n=${1:-'>'}
     prompt_mu_char_p=${2:-'#'}
-    prompt_mu_col_uh=${3:-'white'}
+    prompt_mu_col_uh=${3:-'yellow'}
     prompt_mu_col_wd=${4:-'blue'}
-    prompt_mu_col_vcs=${5:-'green'}
+    prompt_mu_col_vcs=${5:-'cyan'}
     prompt_mu_col_t=${6:-'cyan'}
     prompt_mu_col_c=${7:-'green'}
     prompt_newline=$'\n'
