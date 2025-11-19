@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Path to the zsh directory
 export ZSH="${HOME}/.zsh"
 
@@ -35,9 +28,11 @@ if [[ -d "${HOME}/.pyenv/plugins/pyenv-virtualenv" ]]; then
 fi
 
 # Initialise and configure prompt system
+fpath+=("$THEMES_DIR/mu/")
 autoload -Uz compinit; compinit
+autoload -Uz promptinit; promptinit
+prompt mu
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "${THEMES_DIR}/p10k/powerlevel10k.zsh-theme"
 
 # Source custom plugins if they exist
 [[ -f "${PLUGINS_DIR}/jdfs/jdfs.zsh" ]] && source "${PLUGINS_DIR}/jdfs/jdfs.zsh"
@@ -51,6 +46,3 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 
 # Source override hook
 [[ -f ~/.zoverride ]] && source ~/.zoverride
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

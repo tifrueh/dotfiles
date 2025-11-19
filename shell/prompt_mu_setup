@@ -1,0 +1,53 @@
+# Mu Prompt Theme
+
+prompt_mu_help () {
+    cat <<'EOF'
+usage: prompt mu <args>
+
+options:
+    argument 1          Prompt character for normal mode.
+    argument 2          Prompt character for privileged mode.
+    argument 3          Font color of [user@host]
+    argument 4          Font color of the working directory.
+    argument 5          Font color of the VCS status.
+    argument 6          Font color of the time.
+    argument 7          Font color of the prompt character.
+EOF
+}
+
+prompt_mu_setup () {
+    prompt_mu_char_n=${1:-'>'}
+    prompt_mu_char_p=${2:-'#'}
+    prompt_mu_col_uh=${3:-'white'}
+    prompt_mu_col_wd=${4:-'blue'}
+    prompt_mu_col_vcs=${5:-'green'}
+    prompt_mu_col_t=${6:-'cyan'}
+    prompt_mu_col_c=${7:-'green'}
+    prompt_newline=$'\n'
+
+    uh="[%n@%m]"
+    e="%?"
+    t="%*"
+    ps1_pchar="%(0?/%F{$prompt_mu_col_c}/%F{red})%(!/$prompt_mu_char_p/$prompt_mu_char_n)%f"
+    ps2_pchar="%_ $ps1_pchar"
+    ps3_pchar="%F{$prompt_mu_col_c}?#%f"
+
+    add-zsh-hook precmd prompt_mu_precmd
+}
+
+prompt_mu_precmd () {
+    uh_exp="$(print -P $uh)"
+    t_exp="$(print -P $t)"
+    wd_cols=$(($COLUMNS-(${#uh_exp}+2+${#t_exp})-2))
+    wd="%$wd_cols<..<%~"
+    wd_exp="$(print -P $wd)"
+    space_cols=$(($COLUMNS-(${#uh_exp}+1+${#wd_exp}+1+${#t_exp})))
+    lpn="%F{$prompt_mu_col_uh}${uh}%f %F{$prompt_mu_col_wd}${wd_exp}%f"
+    rpn="%F{$prompt_mu_col_t}${t}%f"
+    base_prompt="${lpn}${(l:$space_cols:: :)}${rpn}"
+    PS1="${prompt_newline}${base_prompt}${prompt_newline}${ps1_pchar} "
+    PS2="${ps2_pchar} "
+    PS3="${prompt_newline}${base_prompt}${prompt_newline}${ps3_pchar} "
+}
+
+prompt_mu_setup "$@"

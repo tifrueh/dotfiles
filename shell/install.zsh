@@ -28,9 +28,9 @@ link "${scriptdir}/zshaliases" "${HOME}/.zshaliases" ${force}
 link "${scriptdir}/zshenv" "${HOME}/.zshenv" ${force}
 link "${scriptdir}/zshrc" "${HOME}/.zshrc" ${force}
 
-# Install some themes.
-git_clone 'pure' 'https://github.com/sindresorhus/pure.git' "${zsh_themes_dir}/pure"
-git_clone 'p10k' 'https://github.com/romkatv/powerlevel10k.git' "${zsh_themes_dir}/p10k"
+# Install mu theme.
+mkdir -p "${zsh_themes_dir}/mu/"
+link "${scriptdir}/prompt_mu_setup" "${zsh_themes_dir}/mu/prompt_mu_setup" ${force}
 
 # Install some plugins.
 git_clone 'syntax-highlighting' 'https://github.com/zsh-users/zsh-syntax-highlighting.git' "${zsh_plugin_dir}/zsh-syntax-highlighting"
