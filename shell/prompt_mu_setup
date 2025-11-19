@@ -37,8 +37,8 @@ prompt_mu_setup () {
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '/+'
     zstyle ':vcs_info:*' unstagedstr '/*'
-    zstyle ':vcs_info:*' formats ' %s:%b%c%u'
-    zstyle ':vcs_info:*' actionformats ' %s:%b%c%u|%a'
+    zstyle ':vcs_info:*' formats '%s:%b%c%u '
+    zstyle ':vcs_info:*' actionformats '%s:%b%c%u|%a '
 
     add-zsh-hook precmd prompt_mu_precmd
 }
@@ -52,8 +52,8 @@ prompt_mu_precmd () {
     wd="%$wd_cols<..<%~"
     wd_exp="$(print -P $wd)"
     space_cols=$(($COLUMNS-(${#uh_exp}+1+${#vcs_exp}+1+${#wd_exp}+1+${#t_exp})))
-    lpn="%F{$prompt_mu_col_uh}${uh}%f%F{$prompt_mu_col_vcs}${vcs_exp}%f %F{$prompt_mu_col_wd}${wd_exp}%f"
-    rpn="%F{$prompt_mu_col_t}${t}%f"
+    lpn="%F{$prompt_mu_col_vcs}${vcs_exp}%f%F{$prompt_mu_col_wd}${wd_exp}%f"
+    rpn="%F{$prompt_mu_col_uh}${uh}%f %F{$prompt_mu_col_t}${t}%f"
     base_prompt="${lpn}${(l:$space_cols:: :)}${rpn}"
     PS1="${prompt_newline}${base_prompt}${prompt_newline}${ps1_pchar} "
     PS2="${ps2_pchar} "
