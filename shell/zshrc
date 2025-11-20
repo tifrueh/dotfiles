@@ -35,7 +35,12 @@ prompt mu
 source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source custom plugins if they exist
-[[ -f "${PLUGINS_DIR}/jdfs/jdfs.zsh" ]] && source "${PLUGINS_DIR}/jdfs/jdfs.zsh"
+if [[ -d "${PLUGINS_DIR}/jdfs/" ]]; then
+    fpath+=("${PLUGINS_DIR}/jdfs/")
+    autoload -Uz jcd
+    autoload -Uz jls
+fi
+
 [[ -f "${PLUGINS_DIR}/nnn/nnn.zsh" ]] && source "${PLUGINS_DIR}/nnn/nnn.zsh"
 
 # Activate zle vi emulation.
