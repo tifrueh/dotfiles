@@ -38,8 +38,28 @@ source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [[ -f "${PLUGINS_DIR}/jdfs/jdfs.zsh" ]] && source "${PLUGINS_DIR}/jdfs/jdfs.zsh"
 [[ -f "${PLUGINS_DIR}/nnn/nnn.zsh" ]] && source "${PLUGINS_DIR}/nnn/nnn.zsh"
 
-bindkey -M vicmd 'k' history-beginning-search-backward
-bindkey -M vicmd 'j' history-beginning-search-forward
+# Activate zle vi emulation.
+bindkey -a 'k' history-beginning-search-backward
+bindkey -a 'j' history-beginning-search-forward
+bindkey -a '/' history-incremental-search-backward
+bindkey -a -r ':'
+
+zle-line-init () {
+    if [[ "${KEYMAP}" == "vicmd" ]]; then
+        export MU_MODE=">"
+    else
+        unset MU_MODE
+    fi
+    prompt_mu_precmd
+    zle reset-prompt
+}
+
+zle-keymap-select () {
+    zle-line-init
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
 
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
