@@ -40,7 +40,7 @@ prompt_mu_setup () {
     zstyle ':vcs_info:*' stagedstr '/+'
     zstyle ':vcs_info:*' unstagedstr '/*'
     zstyle ':vcs_info:*' formats '[%s]-[%b%c%u] '
-    zstyle ':vcs_info:*' actionformats '[%s]:[%b%c%u|%a] '
+    zstyle ':vcs_info:*' actionformats '[%s]-[%b%c%u|%a] '
 
     add-zsh-hook precmd prompt_mu_precmd
 }
