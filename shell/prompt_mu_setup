@@ -25,7 +25,7 @@ prompt_mu_setup () {
     prompt_mu_col_c=${7:-'green'}
     prompt_newline=$'\n'
 
-    uh="%n@%m"
+    uh="%n@%M"
     e="%?"
     t="%*"
     ps1_pchar="%(0?/%F{$prompt_mu_col_c}/%F{red})%(!/$prompt_mu_char_p/$prompt_mu_char_n)%f"
