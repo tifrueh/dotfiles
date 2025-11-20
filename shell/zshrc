@@ -41,7 +41,11 @@ if [[ -d "${PLUGINS_DIR}/jdfs/" ]]; then
     autoload -Uz jls
 fi
 
-[[ -f "${PLUGINS_DIR}/nnn/nnn.zsh" ]] && source "${PLUGINS_DIR}/nnn/nnn.zsh"
+if [[ -d "${PLUGINS_DIR}/nnn/" ]]; then
+    fpath+=("${PLUGINS_DIR}/nnn/")
+    source "${PLUGINS_DIR}/nnn/nnn.zsh"
+    autoload -Uz n
+fi
 
 # Activate zle vi emulation.
 bindkey -a 'k' history-beginning-search-backward

@@ -10,6 +10,7 @@ enforce 'nnn'
 
 # Link nnn zsh plugin.
 link "${scriptdir}/nnn.zsh" "${zsh_plugin_dir}/nnn/nnn.zsh" ${force}
+link "${scriptdir}/n" "${zsh_plugin_dir}/nnn/n" ${force}
 
 # Link jdfs plugin.
 link "${scriptdir}/jcd" "${config_dir}/nnn/plugins/jcd" ${force}
