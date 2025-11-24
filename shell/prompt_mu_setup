@@ -7,6 +7,8 @@ usage: prompt mu <args>
 options:
     argument 1          Prompt character for normal mode.
     argument 2          Prompt character for privileged mode.
+    argument 3          Whether or not to enable transient prompt.
+                        ('1' to enable, anything else to disable)
     argument 3          Font color of [user@host]
     argument 4          Font color of the working directory.
     argument 5          Font color of the VCS status.
@@ -19,12 +21,13 @@ EOF
 prompt_mu_setup () {
     prompt_mu_char_n=${1:-'>'}
     prompt_mu_char_p=${2:-'#'}
-    prompt_mu_col_uh=${3:-'yellow'}
-    prompt_mu_col_wd=${4:-'blue'}
-    prompt_mu_col_vcs=${5:-'cyan'}
-    prompt_mu_col_t=${6:-'cyan'}
-    prompt_mu_col_c=${7:-'green'}
-    prompt_mu_col_m=${8:-'magenta'}
+    prompt_mu_transient=${3:-'1'}
+    prompt_mu_col_uh=${4:-'yellow'}
+    prompt_mu_col_wd=${5:-'blue'}
+    prompt_mu_col_vcs=${6:-'cyan'}
+    prompt_mu_col_t=${7:-'cyan'}
+    prompt_mu_col_c=${8:-'green'}
+    prompt_mu_col_m=${9:-'magenta'}
     prompt_newline=$'\n'
 
     uh="%n@%M"
@@ -43,6 +46,11 @@ prompt_mu_setup () {
     zstyle ':vcs_info:*' actionformats '[%s]-[%b%c%u|%a] '
 
     add-zsh-hook precmd prompt_mu_precmd
+
+    if [[ "$prompt_mu_transient" == "1" ]]; then
+        zle -N zle-line-finish prompt_mu_zle_line_finish
+        prompt_cleanup zle -D zle-line-finish
+    fi
 }
 
 prompt_mu_precmd () {
@@ -61,6 +69,11 @@ prompt_mu_precmd () {
     PS1="${prompt_newline}${base_prompt}${prompt_newline}${mode}${ps1_pchar} "
     PS2="${ps2_pchar} "
     PS3="${prompt_newline}${base_prompt}${prompt_newline}${mode}${ps3_pchar} "
+}
+
+prompt_mu_zle_line_finish () {
+    PS1="${mode}${ps1_pchar} "
+    zle reset-prompt
 }
 
 prompt_mu_setup "$@"
