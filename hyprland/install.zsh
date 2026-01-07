@@ -27,6 +27,9 @@ link "${scriptdir}/hypridle.conf" "${hypr_dir}/hypridle.conf" ${force}
 # Link the hyprlock configuration.
 link "${scriptdir}/hyprlock.conf" "${hypr_dir}/hyprlock.conf"
 
+# Link the hyprtoolkit configuration.
+link "${scriptdir}/hyprtoolkit.conf" "${hypr_dir}/hyprtoolkit.conf"
+
 # Create the hyprland override-hook.
 create "${hypr_dir}/override-hook.conf"
 
