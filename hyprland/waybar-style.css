@@ -1,54 +1,114 @@
 * {
-    border: none;
-    border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, SauceCodePro Nerd Font, Cantarell, sans-serif;
+    color: #dcdfe4;
+    font-family: FontAwesome, Inter Display, sans-serif;
     font-size: 14px;
-    min-height: 0;
+    font-weight: bold;
 }
 
 window#waybar {
-    background: #282c34;
-    color: #dcdfe4;
+    background-color: transparent;
 }
 
 tooltip {
-    background: #282c34;
-    border: 1px solid #61afef;
-}
-
-tooltip label {
-    color: #dcdfe4;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
+    background-color: rgba(40, 44, 52, 0.9);
+    border-radius: 10px;
+    border: 1px solid rgba(97, 175, 239, 1);
 }
 
 #workspaces {
-    margin-left: 0px;
+    background-color: rgba(40, 44, 52, 0.8);
+    border-radius: 10px;
+    margin: 5px 10px 0px 10px;
+    padding: 5px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: #dcdfe4;
-    border-bottom: 3px solid #3d4148;
+    background-color: transparent;
+    border-radius: 7.5px;
+    padding: 0px 2px;
 }
 
 #workspaces button.active {
-    border-bottom: 3px solid #61afef;
+    background-color: rgba(97, 175, 239, 1);
 }
 
 #workspaces button.urgent {
-    border-bottom: 3px solid #eb4d4b;
+    background-color: rgba(235, 77, 75, 1);
+}
+
+#window,
+#custom-clock,
+#mpris,
+#idle_inhibitor,
+#wireplumber,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray,
+#custom-suspend {
+    border-radius: 10px;
+    margin: 7px 5px 0px 5px;
+}
+
+#mpris.paused,
+#idle_inhibitor,
+#wireplumber.muted,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray {
+    background-color: rgba(40, 44, 52, 0.8);
+}
+
+#custom-clock {
+    background-color: rgba(40, 44, 52, 0.8);
+    padding: 0px 10px;
+}
+
+#mpris {
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 10px;
+}
+
+#idle_inhibitor {
+    padding: 0px 13px 0px 10px;
+}
+
+#idle_inhibitor.activated {
+    background-color: rgba(97, 175, 239, 0.8);
+}
+
+#wireplumber {
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 9px 0px 10px;
+}
+
+#wireplumber.muted {
+    padding: 0px 15px 0px 10px;
+}
+
+#cpu {
+    padding: 0px 15px 0px 10px;
+}
+
+#memory {
+    padding: 0px 10px 0px 10px;
+}
+
+#disk {
+    padding: 0px 15px 0px 10px;
+}
+
+#network {
+    padding: 0px 17px 0px 10px;
 }
 
 #tray {
-    padding: 0 10px;
-    color: #dcdfe4;
-    background-color: #61afef;
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 10px;
 }
 
 #tray > .passive {
@@ -57,11 +117,11 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: rgba(235, 77, 75, 1);
 }
 
 #custom-suspend {
-    padding: 0 14px 0 10px;
+    background-color: rgba(152, 195, 121, 1);
     font-size: 20px;
-    background-color: #98c379;
+    padding: 0px 14px 0px 10px;
 }

@@ -4,6 +4,9 @@
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/clock"],
     "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray", "custom/suspend"],
+    "hyprland/workspaces": {
+        "format": " {name} "
+    },
     "hyprland/window": {
         "format": "{title}",
         "max-length": 40
@@ -15,7 +18,7 @@
     },
     "mpris": {
         "interval": 1,
-        "format": " {status_icon}  ",
+        "format": "{status_icon}",
         "dynamic-importance-order": [
             "title",
             "position",
@@ -24,62 +27,51 @@
             "album"
         ],
         "status-icons": {
-            "paused": " ",
-            "playing": " ",
-            "stopped": " "
+            "paused": "",
+            "playing": "",
+            "stopped": ""
         },
         "tooltip": true,
         "tooltip-format": "{player}: {dynamic}"
     },
     "idle_inhibitor": {
-        "format": " {icon} ",
+        "format": "{icon}",
         "format-icons": {
-            "activated": "󰅶 ",
-            "deactivated": "󰾪 "
+            "activated": "󰅶",
+            "deactivated": "󰾪"
         }
     },
     "wireplumber": {
         "interval": 1,
-        "format": "{volume}%    ",
-        "format-muted": "   ",
-        "max-length": 10,
+        "format": "{volume}% ",
+        "format-muted": "",
         "tooltip": true,
-        "tooltip-format": "{node_name}: {volume}%"
+        "tooltip-format": "{node_name}: {volume}%",
     },
     "cpu": {
         "interval": 10,
-        "format": "{usage}%    ",
-        "max-length": 10,
+        "format": "{usage}% ",
         "tooltip": true
     },
     "memory": {
         "interval": 10,
-        "format": "{percentage}%    ",
-        "max-length": 10,
+        "format": "{percentage}% / {swapPercentage}% ",
         "tooltip": true,
-        "tooltip-format": "{used} GiB / {total} GiB used"
-    },
-    "memory#swap": {
-        "interval": 10,
-        "format": "{swapPercentage}% 󰾴  ",
-        "max-length": 10,
-        "tooltip": true,
-        "tooltip-format": "{swapUsed} GiB / {swapTotal} GiB used"
+        "tooltip-format": "Memory: {used} GiB / {total} GiB used\nSwap: {swapUsed} GiB / {swapTotal} GiB used"
     },
     "disk": {
         "interval": 60,
-        "format": "{percentage_used}%    ",
-        "max-length": 10,
+        "format": "{percentage_used}% ",
         "tooltip": true,
         "tooltip-format": "{used} GiB / {total} GiB used on {path}"
     },
     "network": {
         "interval": 10,
-        "format": "󰅛  ",
-        "format-ethernet": "{ipaddr}/{cidr}    ",
-        "format-wifi": "{essid} {signaldBm} dBm    ",
+        "format": "󰅛",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid} {signaldBm} dBm ",
         "tooltip": true,
-        "tooltip-format": "󰅛  ",
+        "tooltip-format": "󰅛",
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
         "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}\nSignal: {signaldBm} dBm"
     },
