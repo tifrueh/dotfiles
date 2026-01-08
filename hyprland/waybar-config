@@ -3,7 +3,7 @@
     "spacing": 0,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/clock"],
-    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "memory#swap", "disk", "network", "tray", "custom/suspend"],
+    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "disk", "network", "tray", "custom/suspend"],
     "hyprland/workspaces": {
         "format": " {name} "
     },

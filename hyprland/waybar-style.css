@@ -19,7 +19,7 @@ tooltip {
 #workspaces {
     background-color: rgba(40, 44, 52, 0.8);
     border-radius: 10px;
-    margin: 5px 10px 0px 10px;
+    margin: 5px 10px 0px 16px;
     padding: 5px;
 }
 
@@ -124,4 +124,5 @@ tooltip {
     background-color: rgba(152, 195, 121, 1);
     font-size: 20px;
     padding: 0px 14px 0px 10px;
+    margin-right: 16px;
 }
