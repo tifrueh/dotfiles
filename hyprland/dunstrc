@@ -40,3 +40,6 @@
     override_pause_level = 60
     # Icon for notifications with critical urgency
     default_icon = dialog-error
+
+[play_sound]
+    script = "~/.local/bin/dunst-soundhandler"

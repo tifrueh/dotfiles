@@ -42,3 +42,6 @@ link "${scriptdir}/tofi-config" "${tofi_dir}/config" ${force}
 
 # Link dunst configuration.
 link "${scriptdir}/dunstrc" "${dunst_dir}/dunstrc" ${force}
+
+# Link dunst sound handler.
+link "${scriptdir}/dunst-soundhandler.sh" "${bin_dir}/dunst-soundhandler" ${force}
