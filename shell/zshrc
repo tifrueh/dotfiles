@@ -53,23 +53,6 @@ bindkey -a 'j' history-beginning-search-forward
 bindkey -a '/' history-incremental-search-backward
 bindkey -a -r ':'
 
-zle-line-init () {
-    if [[ "${KEYMAP}" == "vicmd" ]]; then
-        export MU_MODE=">"
-    else
-        unset MU_MODE
-    fi
-    prompt_mu_precmd
-    zle reset-prompt
-}
-
-zle-keymap-select () {
-    zle-line-init
-}
-
-zle -N zle-keymap-select
-zle -N zle-line-init
-
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 
