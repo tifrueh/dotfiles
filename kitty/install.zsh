@@ -13,6 +13,7 @@ enforce 'git'
 link "${scriptdir}/kitty.conf" "${kitty_dir}/kitty.conf" ${force}
 link "${scriptdir}/if.conf" "${kitty_dir}/if.conf" ${force}
 link "${scriptdir}/onehalfdark.conf" "${kitty_dir}/onehalfdark.conf" ${force}
+link "${scriptdir}/tab_bar.py" "${kitty_dir}/tab_bar.py" ${force}
 
 # Copy fontconfig template.
 copy "${scriptdir}/fontconfig.conf" "${kitty_dir}/fontconfig.conf"
