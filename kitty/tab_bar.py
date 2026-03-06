@@ -2,11 +2,8 @@ import re
 
 def draw_title(data):
 
-    # Format index.
-    index = data['index']
-
     # Format title.
-    path = re.compile(r"^~?(\/[^\t\n\/]*)*$")
+    path = re.compile(r"^~?…?(\/[^\t\n\/]*)*$")
     if path.match(data['title']):
         title = "shell"
     else:
