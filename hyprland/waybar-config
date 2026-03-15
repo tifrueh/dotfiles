@@ -66,10 +66,10 @@
         "tooltip-format": "{used} GiB / {total} GiB used on {path}"
     },
     "network": {
-        "interval": 10,
+        "interval": 1,
         "format": "󰅛",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-wifi": "{essid} {signaldBm} dBm ",
+        "format-ethernet": " {bandwidthDownBytes}   {bandwidthUpBytes}  ",
+        "format-wifi": " {bandwidthDownBytes}   {bandwidthUpBytes}  ",
         "tooltip": true,
         "tooltip-format": "󰅛",
         "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
