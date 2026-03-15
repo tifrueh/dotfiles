@@ -4,7 +4,11 @@ def draw_title(data):
 
     # Format title.
     path = re.compile(r"^~?…?(\/[^\t\n\/]*)*$")
-    if path.match(data['title']):
+    ssh = re.compile(r"^.*: .*$")
+
+    if ssh.match(data['title']):
+        title = "ssh"
+    elif path.match(data['title']):
         title = "shell"
     else:
         title = data['title'].split(' ')[0]
