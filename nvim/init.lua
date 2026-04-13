@@ -61,9 +61,6 @@ require('lualine').setup{
 -- use nvim surround
 require('nvim-surround').setup()
 
--- use nvim-tree
-require('nvim-tree').setup()
-
 -- use nvim-treesitter
 require('nvim-treesitter.configs').setup {
     -- a list of parser names, or "all" (the five listed parsers should always be installed)
