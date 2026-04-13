@@ -26,4 +26,3 @@ git_clone 'nvim-web-devicon' 'https://github.com/nvim-tree/nvim-web-devicons.git
 git_clone 'lualine.nvim' 'https://github.com/nvim-lualine/lualine.nvim.git' "${nvim_plugins_dir}/lualine"
 git_clone 'nvim-surround' 'https://github.com/kylechui/nvim-surround.git' "${nvim_plugins_dir}/nvim-surround"
 git_clone 'nvim-lspconfig' 'https://github.com/neovim/nvim-lspconfig.git' "${nvim_plugins_dir}/nvim-lspconfig"
-git_clone 'nvim-treesitter' 'https://github.com/nvim-treesitter/nvim-treesitter.git' "${nvim_plugins_dir}/nvim-treesitter"
