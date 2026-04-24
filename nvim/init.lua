@@ -47,16 +47,7 @@ vim.cmd([[
 autocmd VimEnter,WinEnter * 2match Todo /TODO/
 ]])
 
--- use nvim-web-devicons (required for lualine)
-require('nvim-web-devicons').setup()
-
--- use lualine
-vim.cmd.set('noshowmode')
-require('lualine').setup{
-    options = {
-        theme = 'onedark'
-    }
-}
-
--- use nvim surround
-require('nvim-surround').setup()
+-- set up statusline
+vim.cmd([[
+set statusline=%f\ %<%h%w%m%r%=%a\ \ %n\ ::\ %Y\ @\ %(%l:%c%)\ %P
+]])
