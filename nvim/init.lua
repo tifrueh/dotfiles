@@ -49,5 +49,5 @@ autocmd VimEnter,WinEnter * 2match Todo /TODO/
 
 -- set up statusline
 vim.cmd([[
-set statusline=%f\ %<%h%w%m%r%=%a\ \ %n\ ::\ %Y\ @\ %(%l:%c%)\ %P
+set statusline=%<%f\ %h%w%m%r%=%a\ \ %n\ ::\ %Y\ @\ %(%l:%c%)\ %P
 ]])
