@@ -1,27 +1,24 @@
-" enable line numbers and syntax highlighting
+" Enable line numbers and syntax highlighting.
 set number
-syntax on
+syntax enable
 
-" show list chars
+" Show and configure listchars.
 set list
+set listchars=trail:·,tab:→\ ,lead:·,nbsp:◦
 
-" break at words
-set linebreak
-
-" configure spaces for intentation
+" Configure spaces for intentation.
 set tabstop=8 softtabstop=0
 set shiftwidth=4
 set smarttab
 set expandtab
 
-" enable cursorline
+" Break at words.
+set linebreak
+
+" Enable cursorline.
 set cursorline
 
-" set 256 color mode
-set t_Co=256
-
 " whitespace highlighting
-set listchars=trail:·,tab:→\ ,lead:·,nbsp:◦
 highlight SpecialKey ctermfg=241 ctermbg=NONE guifg=#5c6370 guibg=NONE
 highlight Trail ctermfg=NONE ctermbg=168 guifg=NONE guibg=#e06c75
 autocmd InsertEnter * match Trail //
@@ -29,10 +26,7 @@ autocmd VimEnter,WinEnter,InsertLeave * match Trail /\s\+$/
 
 " "TODO" highlighting
 highlight Todo cterm=underline ctermfg=73 ctermbg=NONE gui=underline guifg=#56b6c2 guibg=NONE
-autocmd VimEnter,WinEnter * match Todo /TODO/
-
-" set textwidth to 72 for git commit
-autocmd FileType gitcommit set textwidth=72
+syntax match Todo /TODO/
 
 " configure status line
 set laststatus=2
