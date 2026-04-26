@@ -41,8 +41,5 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter', 'InsertLeave' }, {
     command = 'match Trail /\\s\\+$/'
 })
 
--- "TODO" highlighting
-vim.cmd('syntax match Todo /TODO/')
-
 -- Confiure statusline.
 vim.o.statusline        = '%<%f %h%w%m%r%=%a  %n :: %Y @ %(%l:%c%) %P'
