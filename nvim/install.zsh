@@ -13,8 +13,8 @@ enforce 'git'
 link "${scriptdir}/init.lua" "${nvim_dir}/init.lua" ${force}
 
 # Install color scheme.
-link "${scriptdir}/onehalfdark.vim" "${nvim_dir}/colors/onehalfdark.vim" ${force}
-link "${scriptdir}/onehalfdark.txt" "${nvim_dir}/doc/onehalfdark.txt" ${force}
+link "${scriptdir}/../vim/onehalfdark.vim" "${nvim_colors_dir}/onehalfdark.vim" ${force}
+link "${scriptdir}/../vim/onehalfdark.txt" "${nvim_doc_dir}/onehalfdark.txt" ${force}
 
 # Install some plugins.
 git_clone 'nvim-lspconfig' 'https://github.com/neovim/nvim-lspconfig.git' "${nvim_plugins_dir}/nvim-lspconfig"

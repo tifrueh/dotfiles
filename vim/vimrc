@@ -1,6 +1,8 @@
 " Enable line numbers and syntax highlighting.
 set number
 syntax enable
+filetype on
+filetype plugin on
 
 " Show and configure listchars.
 set list
@@ -17,6 +19,7 @@ set linebreak
 
 " Enable cursorline.
 set cursorline
+colorscheme onehalfdark
 
 " whitespace highlighting
 highlight SpecialKey ctermfg=241 ctermbg=NONE guifg=#5c6370 guibg=NONE
@@ -30,4 +33,4 @@ syntax match Todo /TODO/
 
 " configure status line
 set laststatus=2
-set statusline=%<%f\ %h%w%m%r%=%a\ B%n\ ::\ %Y\ @\ %(%l:%c%)\ %P
+set statusline=%<%5*\ %f\ %h%w%m%r%*%=%a\ %7*\ B\ %n\ ::\ %Y\ @\ %(%l:%c%)\ %P\ %*
