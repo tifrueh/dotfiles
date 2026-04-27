@@ -14,6 +14,7 @@ link "${scriptdir}/init.lua" "${nvim_dir}/init.lua" ${force}
 
 # Install color scheme.
 link "${scriptdir}/onehalfdark.vim" "${nvim_dir}/colors/onehalfdark.vim" ${force}
+link "${scriptdir}/onehalfdark.txt" "${nvim_dir}/doc/onehalfdark.txt" ${force}
 
 # Install some plugins.
 git_clone 'nvim-lspconfig' 'https://github.com/neovim/nvim-lspconfig.git' "${nvim_plugins_dir}/nvim-lspconfig"

@@ -6,7 +6,7 @@ vim.cmd('syntax enable')
 vim.o.list              = true
 vim.o.listchars         = 'trail:·,tab:→ ,lead:·,nbsp:◦'
 
--- Configure spaces for intentation.
+-- Configure spaces for indentation.
 vim.o.tabstop           = 8
 vim.o.softtabstop       = 0
 vim.o.shiftwidth        = 4
@@ -21,6 +21,9 @@ vim.o.cursorline        = true
 
 -- Use onehalfdark color scheme.
 vim.cmd.colorscheme('onehalfdark')
+
+-- Configure floating window borders.
+vim.o.winborder         = 'rounded'
 
 -- Use true colors in the color scheme if possible.
 if vim.fn.exists('+termguigolors') == 1 then
@@ -41,5 +44,5 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter', 'InsertLeave' }, {
     command = 'match Trail /\\s\\+$/'
 })
 
--- Confiure statusline.
+-- Configure statusline.
 vim.o.statusline        = '%<%5* %f %h%w%m%r%*%=%a %7*  %n :: %Y @ %(%l:%c%) %P %*'

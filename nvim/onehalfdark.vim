@@ -16,6 +16,22 @@ let s:tgc = has('termguicolors') && &termguicolors
 
 let g:terminal_ansi_colors = ['#282c34', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4', '#5d677a', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4']
 
+if has('gui_running') || s:tgc
+  hi DiagnosticError          guifg=#e06c75    guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticWarn           guifg=#e5c07b guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticInfo           guifg=#56b6c2   guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticHint           guifg=#61afef   guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticOk             guifg=#98c379  guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticUnderlineError guifg=NONE    guibg=NONE        guisp=#e06c75    gui=undercurl
+  hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE        guisp=#e5c07b gui=undercurl
+  hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE        guisp=#56b6c2   gui=undercurl
+  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=@hint   gui=undercurl
+  hi DiagnosticUnderlineOk    guifg=NONE    guibg=NONE        guisp=#98c379  gui=undercurl
+  hi OkMsg                    guifg=#98c379  guibg=NONE        guisp=NONE    gui=NONE
+  hi NormalFloat              guifg=#dcdfe4  guibg=#282c34      guisp=NONE    gui=NONE
+  hi FloatBorder              guifg=#61afef   guibg=#282c34      guisp=NONE    gui=NONE
+endif
+
 let s:transp_bg = get(g:, 'onehalfdark_transp_bg', 0)
 
 hi! link Added diffAdded
@@ -38,7 +54,7 @@ hi! link PmenuMatchSel PmenuSel
 hi! link PopupNotification WarningMsg
 hi! link PopupSelected PmenuSel
 hi! link PreInsert NonText
-hi! link QuickFixLine Search
+hi! link QuickFixLine WildMenu
 hi! link Removed diffRemoved
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
@@ -103,10 +119,10 @@ hi NonText guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=2
 hi Number guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=NONE
 hi Operator guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi Pmenu guifg=#dcdfe4 guibg=#333842 guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=reverse
-hi PmenuSbar guifg=#61afef guibg=#282c34 guisp=NONE gui=reverse ctermfg=75 ctermbg=236 cterm=reverse term=NONE
+hi PmenuSbar guifg=NONE guibg=#333842 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi PmenuSel guifg=#61afef guibg=#282c34 guisp=NONE gui=reverse ctermfg=75 ctermbg=236 cterm=reverse term=NONE
 hi PmenuShadow guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=NONE
-hi PmenuThumb guifg=#dcdfe4 guibg=#333842 guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=NONE
+hi PmenuThumb guifg=NONE guibg=#61afef guisp=NONE gui=NONE ctermfg=NONE ctermbg=75 cterm=NONE term=NONE
 hi PreCondit guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=NONE
 hi PreProc guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=italic
 hi Question guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=standout
@@ -117,10 +133,10 @@ hi Special guifg=#61afef guibg=NONE guisp=NONE gui=NONE ctermfg=75 ctermbg=NONE 
 hi SpecialChar guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi SpecialComment guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi SpecialKey guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=bold
-hi SpellBad guifg=#e06c75 guibg=#282c34 guisp=#e06c75 gui=NONE ctermfg=167 ctermbg=236 cterm=NONE term=italic,underline
-hi SpellCap guifg=#e5c07b guibg=#282c34 guisp=#e5c07b gui=NONE ctermfg=179 ctermbg=236 cterm=NONE term=italic,underline
-hi SpellLocal guifg=#e5c07b guibg=#282c34 guisp=#e5c07b gui=NONE ctermfg=179 ctermbg=236 cterm=NONE term=italic,underline
-hi SpellRare guifg=#56b6c2 guibg=#282c34 guisp=#56b6c2 gui=NONE ctermfg=73 ctermbg=236 cterm=NONE term=italic,underline
+hi SpellBad guifg=#e06c75 guibg=#282c34 guisp=NONE gui=NONE ctermfg=167 ctermbg=236 cterm=NONE term=italic,underline
+hi SpellCap guifg=#e5c07b guibg=#282c34 guisp=NONE gui=NONE ctermfg=179 ctermbg=236 cterm=NONE term=italic,underline
+hi SpellLocal guifg=#e5c07b guibg=#282c34 guisp=NONE gui=NONE ctermfg=179 ctermbg=236 cterm=NONE term=italic,underline
+hi SpellRare guifg=#56b6c2 guibg=#282c34 guisp=NONE gui=NONE ctermfg=73 ctermbg=236 cterm=NONE term=italic,underline
 hi Statement guifg=#c678dd guibg=NONE guisp=NONE gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE term=bold
 hi StatusLine guifg=#dcdfe4 guibg=#333842 guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=bold,reverse
 hi StatusLineNC guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=reverse
@@ -156,6 +172,7 @@ hi VisualNOS guifg=#e06c75 guibg=#282c34 guisp=NONE gui=NONE ctermfg=167 ctermbg
 hi WarningMsg guifg=#e06c75 guibg=#282c34 guisp=NONE gui=NONE ctermfg=167 ctermbg=236 cterm=NONE term=standout
 hi WildMenu guifg=#61afef guibg=#282c34 guisp=NONE gui=reverse ctermfg=75 ctermbg=236 cterm=reverse term=bold
 hi diffAdded guifg=#98c379 guibg=NONE guisp=NONE gui=NONE ctermfg=150 ctermbg=NONE cterm=NONE term=NONE
+hi diffChanged guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=NONE
 hi diffRemoved guifg=#e06c75 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE term=NONE
 hi gitcommitBranch guifg=#c678dd guibg=NONE guisp=NONE gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE term=NONE
 hi gitcommitComment guifg=#5d677a guibg=NONE guisp=NONE gui=NONE ctermfg=60 ctermbg=NONE cterm=NONE term=NONE
@@ -235,10 +252,10 @@ if s:t_Co >= 8
   hi Number ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Operator ctermfg=LightGrey ctermbg=NONE cterm=NONE
   hi Pmenu ctermfg=LightGrey ctermbg=DarkGrey cterm=NONE
-  hi PmenuSbar ctermfg=DarkBlue ctermbg=Black cterm=reverse
+  hi PmenuSbar ctermfg=NONE ctermbg=DarkGrey cterm=NONE
   hi PmenuSel ctermfg=DarkBlue ctermbg=Black cterm=reverse
   hi PmenuShadow ctermfg=LightGrey ctermbg=Black cterm=NONE
-  hi PmenuThumb ctermfg=LightGrey ctermbg=DarkGrey cterm=NONE
+  hi PmenuThumb ctermfg=NONE ctermbg=DarkBlue cterm=NONE
   hi PreCondit ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi PreProc ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Question ctermfg=LightGrey ctermbg=Black cterm=NONE
@@ -288,6 +305,7 @@ if s:t_Co >= 8
   hi WarningMsg ctermfg=DarkRed ctermbg=Black cterm=NONE
   hi WildMenu ctermfg=DarkBlue ctermbg=Black cterm=reverse
   hi diffAdded ctermfg=DarkGreen ctermbg=NONE cterm=NONE
+  hi diffChanged ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi diffRemoved ctermfg=DarkRed ctermbg=NONE cterm=NONE
   hi gitcommitBranch ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi gitcommitComment ctermfg=DarkGrey ctermbg=NONE cterm=NONE

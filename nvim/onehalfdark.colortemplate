@@ -40,7 +40,7 @@ PmenuMatchSel     -> PmenuSel
 PopupNotification -> WarningMsg
 PopupSelected     -> PmenuSel
 PreInsert         -> NonText
-QuickFixLine      -> Search
+QuickFixLine      -> WildMenu
 Removed           -> diffRemoved
 StatusLineTerm    -> StatusLine
 StatusLineTermNC  -> StatusLineNC
@@ -106,18 +106,18 @@ MoreMsg              white             black
 NonText              white             black
 Normal               white             black
 Pmenu                white             statusline
-PmenuSbar            blue              black             reverse
+PmenuSbar            none              statusline
 PmenuSel             blue              black             reverse
 PmenuShadow          white             black
-PmenuThumb           white             statusline
+PmenuThumb           none              blue
 Question             white             black
 Search               yellow            black             reverse
 SignColumn           white             black
 SpecialKey           white             black
-SpellBad             red               black             s=red
-SpellCap             yellow            black             s=yellow
-SpellLocal           yellow            black             s=yellow
-SpellRare            cyan              black             s=cyan
+SpellBad             red               black
+SpellCap             yellow            black
+SpellLocal           yellow            black
+SpellRare            cyan              black
 StatusLine           white             statusline
 StatusLineNC         white             black
 TabLine              white             black             bold
@@ -188,13 +188,14 @@ Type                 yellow            none
 Typedef              yellow            none
 Underlined           white             none              underline
 
-; Set git hightlight groups.
+; Set git highlight groups.
 ; Group                                Foreground        Background        Attributes
 GitGutterAdd                           green             none
 GitGutterDelete                        red               none
 GitGutterChange                        yellow            none
 GitGutterChangeDelete                  -> GitGutterDelete
 diffAdded                              green             none
+diffChanged                            yellow            none
 diffRemoved                            red               none
 gitcommitComment                       brightblack       none
 gitcommitUnmerged                      red               none
@@ -215,6 +216,25 @@ gitcommitSelected                      -> gitcommitComment
 gitcommitDiscardedArrow                -> gitcommitDiscardedFile
 gitcommitSelectedArrow                 -> gitcommitSelectedFile
 gitcommitUnmergedArrow                 -> gitcommitUnmergedFile
+
+; Set neovim highlight groups.
+verbatim
+if has('gui_running') || s:tgc
+  hi DiagnosticError          guifg=@red    guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticWarn           guifg=@yellow guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticInfo           guifg=@cyan   guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticHint           guifg=@blue   guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticOk             guifg=@green  guibg=NONE        guisp=NONE    gui=NONE
+  hi DiagnosticUnderlineError guifg=NONE    guibg=NONE        guisp=@red    gui=undercurl
+  hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE        guisp=@yellow gui=undercurl
+  hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE        guisp=@cyan   gui=undercurl
+  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=@hint   gui=undercurl
+  hi DiagnosticUnderlineOk    guifg=NONE    guibg=NONE        guisp=@green  gui=undercurl
+  hi OkMsg                    guifg=@green  guibg=NONE        guisp=NONE    gui=NONE
+  hi NormalFloat              guifg=@white  guibg=@black      guisp=NONE    gui=NONE
+  hi FloatBorder              guifg=@blue   guibg=@black      guisp=NONE    gui=NONE
+endif
+endverbatim
 
 ; Default highlight groups for black & white terminals.
 ; Group              Unused Unused  Term attributes
@@ -290,10 +310,17 @@ debugBreakpoint/0    omit omit    reverse
 debugPC       /0     omit omit    reverse
 
 helpfile
-===========================================================================
-@fullname options                                *@shortname-options*
+================================================================================
+@fullname                                                *@shortname.txt*
 
-                                                 *g:@prefix_transp_bg*
+Author: Timo Früh <dev@tifrueh.ch>
+License: MIT
+
+My very own onehalf dark color scheme. See <https://github.com/sonph/onehalf>
+for colors.
+
+                                                         *@shortname-options*
+                                                     *g:@prefix_transp_bg*
 
 Set to true if you want a transparent background. Takes effect only in the
 terminal.
