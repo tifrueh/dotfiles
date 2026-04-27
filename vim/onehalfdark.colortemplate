@@ -231,7 +231,7 @@ if has('gui_running') || s:tgc
   hi DiagnosticUnderlineError guifg=NONE    guibg=NONE        guisp=@red    gui=undercurl
   hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE        guisp=@yellow gui=undercurl
   hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE        guisp=@cyan   gui=undercurl
-  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=@hint   gui=undercurl
+  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=@blue   gui=undercurl
   hi DiagnosticUnderlineOk    guifg=NONE    guibg=NONE        guisp=@green  gui=undercurl
   hi OkMsg                    guifg=@green  guibg=NONE        guisp=NONE    gui=NONE
   hi NormalFloat              guifg=@white  guibg=@black      guisp=NONE    gui=NONE
