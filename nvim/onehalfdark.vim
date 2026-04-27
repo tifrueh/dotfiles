@@ -208,14 +208,14 @@ if s:t_Co >= 8
   hi Boolean ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Character ctermfg=DarkGreen ctermbg=NONE cterm=NONE
   hi ColorColumn ctermfg=fg ctermbg=Black cterm=NONE
-  hi Comment ctermfg=DarkGrey ctermbg=NONE cterm=italic
+  hi Comment ctermfg=LightGrey ctermbg=NONE cterm=NONE
   hi Conceal ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Conditional ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi Constant ctermfg=DarkCyan ctermbg=NONE cterm=NONE
   hi Cursor ctermbg=Black cterm=NONE
-  hi CursorColumn ctermbg=DarkGrey cterm=NONE
+  hi CursorColumn ctermbg=DarkCyan cterm=NONE
   hi CursorIM ctermfg=NONE ctermbg=fg cterm=NONE
-  hi CursorLine ctermbg=DarkGrey cterm=NONE
+  hi CursorLine ctermfg=Black ctermbg=DarkCyan cterm=reverse
   hi CursorLineNr ctermfg=DarkBlue ctermbg=Black cterm=NONE
   hi Debug ctermfg=LightGrey ctermbg=NONE cterm=NONE
   hi Define ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
@@ -243,7 +243,7 @@ if s:t_Co >= 8
   hi Italic ctermfg=LightGrey ctermbg=NONE cterm=italic
   hi Keyword ctermfg=DarkRed ctermbg=NONE cterm=NONE
   hi Label ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
-  hi LineNr ctermfg=DarkGrey ctermbg=Black cterm=NONE
+  hi LineNr ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi Macro ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi MatchParen ctermfg=DarkBlue ctermbg=Black cterm=underline
   hi ModeMsg ctermfg=LightGrey ctermbg=Black cterm=NONE
@@ -251,8 +251,8 @@ if s:t_Co >= 8
   hi NonText ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi Number ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Operator ctermfg=LightGrey ctermbg=NONE cterm=NONE
-  hi Pmenu ctermfg=LightGrey ctermbg=DarkGrey cterm=NONE
-  hi PmenuSbar ctermfg=NONE ctermbg=DarkGrey cterm=NONE
+  hi Pmenu ctermfg=LightGrey ctermbg=Black cterm=NONE
+  hi PmenuSbar ctermfg=NONE ctermbg=Black cterm=NONE
   hi PmenuSel ctermfg=DarkBlue ctermbg=Black cterm=reverse
   hi PmenuShadow ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi PmenuThumb ctermfg=NONE ctermbg=DarkBlue cterm=NONE
@@ -271,7 +271,7 @@ if s:t_Co >= 8
   hi SpellLocal ctermfg=DarkYellow ctermbg=Black cterm=NONE
   hi SpellRare ctermfg=DarkCyan ctermbg=Black cterm=NONE
   hi Statement ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
-  hi StatusLine ctermfg=LightGrey ctermbg=DarkGrey cterm=NONE
+  hi StatusLine ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi StatusLineNC ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi StorageClass ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi String ctermfg=DarkGreen ctermbg=NONE cterm=NONE
@@ -286,21 +286,21 @@ if s:t_Co >= 8
   hi TitleBarNC ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi Todo ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi ToolbarButton ctermfg=DarkGreen ctermbg=Black cterm=bold,reverse
-  hi ToolbarLine ctermbg=DarkGrey cterm=NONE
+  hi ToolbarLine ctermbg=Black cterm=NONE
   hi Type ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Typedef ctermfg=DarkYellow ctermbg=NONE cterm=NONE
   hi Underlined ctermfg=LightGrey ctermbg=NONE cterm=underline
-  hi User1 ctermfg=Black ctermbg=DarkGrey cterm=bold
-  hi User2 ctermfg=DarkRed ctermbg=DarkGrey cterm=bold
-  hi User3 ctermfg=DarkGreen ctermbg=DarkGrey cterm=bold
-  hi User4 ctermfg=DarkYellow ctermbg=DarkGrey cterm=bold
-  hi User5 ctermfg=DarkBlue ctermbg=DarkGrey cterm=bold
-  hi User6 ctermfg=DarkMagenta ctermbg=DarkGrey cterm=bold
-  hi User7 ctermfg=DarkCyan ctermbg=DarkGrey cterm=bold
-  hi User8 ctermfg=LightGrey ctermbg=DarkGrey cterm=bold
-  hi User9 ctermfg=DarkGrey ctermbg=DarkGrey cterm=bold
+  hi User1 ctermfg=Black ctermbg=Black cterm=bold
+  hi User2 ctermfg=DarkRed ctermbg=Black cterm=bold
+  hi User3 ctermfg=DarkGreen ctermbg=Black cterm=bold
+  hi User4 ctermfg=DarkYellow ctermbg=Black cterm=bold
+  hi User5 ctermfg=DarkBlue ctermbg=Black cterm=bold
+  hi User6 ctermfg=DarkMagenta ctermbg=Black cterm=bold
+  hi User7 ctermfg=DarkCyan ctermbg=Black cterm=bold
+  hi User8 ctermfg=LightGrey ctermbg=Black cterm=bold
+  hi User9 ctermfg=DarkGrey ctermbg=Black cterm=bold
   hi VertSplit ctermfg=DarkBlue ctermbg=Black cterm=NONE
-  hi Visual ctermbg=DarkGrey cterm=NONE
+  hi Visual ctermbg=DarkCyan cterm=NONE
   hi VisualNOS ctermfg=DarkRed ctermbg=Black cterm=NONE
   hi WarningMsg ctermfg=DarkRed ctermbg=Black cterm=NONE
   hi WildMenu ctermfg=DarkBlue ctermbg=Black cterm=reverse
@@ -351,13 +351,13 @@ endif
 "      brightred #e06c75     167    #d75f5f     LightRed
 "    brightwhite #dcdfe4     253    #dadada        White
 "   brightyellow #e5c07b     179    #d7af5f  LightYellow
-"     cursorline #333842     237    #3a3a3a     DarkGrey
+"     cursorline #333842     237    #3a3a3a     DarkCyan
 "           cyan #56b6c2      73    #5fafaf     DarkCyan
 "          green #98c379     150    #afd787    DarkGreen
 "        magenta #c678dd     170    #d75fd7  DarkMagenta
 "            red #e06c75     167    #d75f5f      DarkRed
-"      selection #474e5c     239    #4e4e4e     DarkGrey
-"     statusline #333842     237    #3a3a3a     DarkGrey
+"      selection #474e5c     239    #4e4e4e     DarkCyan
+"     statusline #333842     237    #3a3a3a        Black
 "          white #dcdfe4     253    #dadada    LightGrey
 "         yellow #e5c07b     179    #d7af5f   DarkYellow
 

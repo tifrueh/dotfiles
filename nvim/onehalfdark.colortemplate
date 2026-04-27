@@ -64,9 +64,9 @@ Color: brightblue    #61afef     ~        LightBlue
 Color: brightmagenta #c678dd     ~        LightMagenta
 Color: brightcyan    #56b6c2     ~        LightCyan
 Color: brightwhite   #dcdfe4     ~        White
-Color: cursorline    #333842     ~        DarkGrey
-Color: statusline    #333842     ~        DarkGrey
-Color: selection     #474e5c     ~        DarkGrey
+Color: cursorline    #333842     ~        DarkCyan
+Color: statusline    #333842     ~        Black
+Color: selection     #474e5c     ~        DarkCyan
 
 Term colors: black       red       green       yellow       blue       magenta       cyan       white
              brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan brightwhite
@@ -87,6 +87,7 @@ Cursor               omit              black
 CursorColumn         omit              cursorline
 CursorIM             none              fg
 CursorLine           omit              cursorline
+CursorLine/16/8      black             cursorline        reverse
 CursorLineNr         blue              black
 DiffAdd              green             black
 DiffChange           yellow            black
@@ -100,6 +101,7 @@ Folded               white             black             italic
 IncSearch            yellow            black             reverse
 IncSearch/gui        yellow            black             standout
 LineNr               brightblack       black
+LineNr/16/8          white             black
 MatchParen           blue              black             underline
 ModeMsg              white             black
 MoreMsg              white             black
@@ -154,6 +156,7 @@ BoldItalic           white             none              bold,italic
 Boolean              yellow            none
 Character            green             none
 Comment              brightblack       none              italic
+Comment/16/8         white             none
 Conditional          magenta           none
 Constant             cyan              none
 Debug                white             none
