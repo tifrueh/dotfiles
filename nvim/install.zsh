@@ -12,14 +12,8 @@ enforce 'git'
 # Link main configuration.
 link "${scriptdir}/init.lua" "${nvim_dir}/init.lua" ${force}
 
-# Install color schemes.
-curl_fetch 'color-onehalfdark' \
-    'https://github.com/sonph/onehalf/raw/master/vim/colors/onehalfdark.vim' \
-    "${nvim_colors_dir}/onehalfdark.vim"
-
-curl_fetch 'color-onehalflight' \
-    'https://github.com/sonph/onehalf/raw/master/vim/colors/onehalflight.vim' \
-    "${nvim_colors_dir}/onehalflight.vim"
+# Install color scheme.
+link "${scriptdir}/onehalfdark.vim" "${nvim_dir}/colors/onehalfdark.vim" ${force}
 
 # Install some plugins.
 git_clone 'nvim-lspconfig' 'https://github.com/neovim/nvim-lspconfig.git' "${nvim_plugins_dir}/nvim-lspconfig"

@@ -42,4 +42,4 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter', 'InsertLeave' }, {
 })
 
 -- Confiure statusline.
-vim.o.statusline        = '%<%f %h%w%m%r%=%a  %n :: %Y @ %(%l:%c%) %P'
+vim.o.statusline        = '%<%5* %f %h%w%m%r%*%=%a %7*  %n :: %Y @ %(%l:%c%) %P %*'

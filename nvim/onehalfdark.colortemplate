@@ -1,0 +1,303 @@
+; vim: ft=colortemplate fdm=marker et ts=2 sw=2 vsts=21,18,18,2
+vim9script
+
+; Mandatory metadata:
+Short name:    onehalfdark
+Full name:     OneHalf Dark
+Author:        Timo Früh <dev@tifrueh.ch>
+Description:   My very own onehalf dark color scheme. See <https://github.com/sonph/onehalf> for colors.
+License:       MIT
+
+; Set backend.
+Options:       backend=vim     ; Generate VimL script code
+Options:       palette=true    ; Append the color palette to the output as a comment
+
+; Set variants.
+Environments:   gui 256 8 0
+
+; Define background.
+Background: dark
+
+; Link default link groups.
+Added             -> diffAdded
+Changed           -> diffChanged
+ComplMatchIns     -> Normal
+CurSearch         -> IncSearch
+CursorLineFold    -> FoldColumn
+CursorLineSign    -> SignColumn
+debugPC           -> SignColumn
+debugBreakpoint   -> SignColumn
+LineNrAbove       -> LineNr
+LineNrBelow       -> LineNr
+MessageWindow     -> WarningMsg
+PmenuBorder       -> Pmenu
+PmenuKind         -> Pmenu
+PmenuKindSel      -> PmenuSel
+PmenuExtra        -> Pmenu
+PmenuExtraSel     -> PmenuSel
+PmenuMatch        -> Pmenu
+PmenuMatchSel     -> PmenuSel
+PopupNotification -> WarningMsg
+PopupSelected     -> PmenuSel
+PreInsert         -> NonText
+QuickFixLine      -> Search
+Removed           -> diffRemoved
+StatusLineTerm    -> StatusLine
+StatusLineTermNC  -> StatusLineNC
+lCursor           -> Cursor
+
+; Define colors.
+; Color name         GUI         Base256  Base16 (optional)
+Color: black         #282c34     ~        Black
+Color: red           #e06c75     ~        DarkRed
+Color: green         #98c379     ~        DarkGreen
+Color: yellow        #e5c07b     ~        DarkYellow
+Color: blue          #61afef     ~        DarkBlue
+Color: magenta       #c678dd     ~        DarkMagenta
+Color: cyan          #56b6c2     ~        DarkCyan
+Color: white         #dcdfe4     ~        LightGrey
+Color: brightblack   #5d677a     ~        DarkGrey
+Color: brightred     #e06c75     ~        LightRed
+Color: brightgreen   #98c379     ~        LightGreen
+Color: brightyellow  #e5c07b     ~        LightYellow
+Color: brightblue    #61afef     ~        LightBlue
+Color: brightmagenta #c678dd     ~        LightMagenta
+Color: brightcyan    #56b6c2     ~        LightCyan
+Color: brightwhite   #dcdfe4     ~        White
+Color: cursorline    #333842     ~        DarkGrey
+Color: statusline    #333842     ~        DarkGrey
+Color: selection     #474e5c     ~        DarkGrey
+
+Term colors: black       red       green       yellow       blue       magenta       cyan       white
+             brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan brightwhite
+
+; Add transparency option.
+#const transp_bg = get(g:, '@prefix_transp_bg', 0)
+
+Normal
+  /gui/256/8+transp_bg 1 white             none
+Terminal
+  /256/8+transp_bg 1 white             none
+
+; Set interface highlight groups.
+; Group              Foreground        Background        Attributes
+ColorColumn          fg                black
+Conceal              none              none
+Cursor               omit              black
+CursorColumn         omit              cursorline
+CursorIM             none              fg
+CursorLine           omit              cursorline
+CursorLineNr         blue              black
+DiffAdd              green             black
+DiffChange           yellow            black
+DiffDelete           red               black
+DiffText             blue              black
+Directory            blue              black
+EndOfBuffer          white             black
+ErrorMsg             red               black
+FoldColumn           white             black
+Folded               white             black             italic
+IncSearch            yellow            black             reverse
+IncSearch/gui        yellow            black             standout
+LineNr               brightblack       black
+MatchParen           blue              black             underline
+ModeMsg              white             black
+MoreMsg              white             black
+NonText              white             black
+Normal               white             black
+Pmenu                white             statusline
+PmenuSbar            blue              black             reverse
+PmenuSel             blue              black             reverse
+PmenuShadow          white             black
+PmenuThumb           white             statusline
+Question             white             black
+Search               yellow            black             reverse
+SignColumn           white             black
+SpecialKey           white             black
+SpellBad             red               black             s=red
+SpellCap             yellow            black             s=yellow
+SpellLocal           yellow            black             s=yellow
+SpellRare            cyan              black             s=cyan
+StatusLine           white             statusline
+StatusLineNC         white             black
+TabLine              white             black             bold
+TabLineFill          white             black
+TabLineSel           green             black             bold,reverse
+Terminal             white             black
+Title                green             black
+TitleBar             white             black
+TitleBarNC           white             black
+ToolbarButton        green             black             bold,reverse
+ToolbarLine          omit              statusline
+VertSplit            blue              black
+Visual               omit              selection
+VisualNOS            red               black
+WarningMsg           red               black
+WildMenu             blue              black             reverse
+
+; Set user highlight groups.
+; Group              Foreground        Background        Attributes
+User1                black             statusline        bold
+User2                red               statusline        bold
+User3                green             statusline        bold
+User4                yellow            statusline        bold
+User5                blue              statusline        bold
+User6                magenta           statusline        bold
+User7                cyan              statusline        bold
+User8                white             statusline        bold
+User9                brightblack       statusline        bold
+
+; Set syntax highlight groups.
+; Group              Foreground        Background        Attributes
+Bold                 white             none              bold
+BoldItalic           white             none              bold,italic
+Boolean              yellow            none
+Character            green             none
+Comment              brightblack       none              italic
+Conditional          magenta           none
+Constant             cyan              none
+Debug                white             none
+Define               magenta           none
+Delimiter            white             none
+Error                red               black             reverse
+Exception            magenta           none
+Float                yellow            none
+Function             blue              none
+Identifier           red               none
+Ignore               white             none
+Include              magenta           none
+Italic               white             none              italic
+Keyword              red               none
+Label                magenta           none
+Macro                magenta           none
+Number               yellow            none
+Operator             white             none
+PreCondit            yellow            none
+PreProc              yellow            none
+Repeat               magenta           none
+Special              blue              none
+SpecialChar          white             none
+SpecialComment       white             none
+Statement            magenta           none
+StorageClass         yellow            none
+String               green             none
+Structure            yellow            none
+Tag                  white             none
+Todo                 magenta           none
+Type                 yellow            none
+Typedef              yellow            none
+Underlined           white             none              underline
+
+; Set git hightlight groups.
+; Group                                Foreground        Background        Attributes
+GitGutterAdd                           green             none
+GitGutterDelete                        red               none
+GitGutterChange                        yellow            none
+GitGutterChangeDelete                  -> GitGutterDelete
+diffAdded                              green             none
+diffRemoved                            red               none
+gitcommitComment                       brightblack       none
+gitcommitUnmerged                      red               none
+gitcommitOnBranch                      white             none
+gitcommitBranch                        magenta           none
+gitcommitDiscardedType                 red               none
+gitcommitSelectedType                  green             none
+gitcommitHeader                        white             none
+gitcommitUntrackedFile                 cyan              none
+gitcommitDiscardedFile                 red               none
+gitcommitSelectedFile                  green             none
+gitcommitUnmergedFile                  yellow            none
+gitcommitFile                          fg                none
+gitcommitNoBranch                      -> gitcommitBranch
+gitcommitUntracked                     -> gitcommitComment
+gitcommitDiscarded                     -> gitcommitComment
+gitcommitSelected                      -> gitcommitComment
+gitcommitDiscardedArrow                -> gitcommitDiscardedFile
+gitcommitSelectedArrow                 -> gitcommitSelectedFile
+gitcommitUnmergedArrow                 -> gitcommitUnmergedFile
+
+; Default highlight groups for black & white terminals.
+; Group              Unused Unused  Term attributes
+Normal        /0     omit omit
+Bold          /0     omit omit    bold
+BoldItalic    /0     omit omit    bold,italic
+ColorColumn   /0     omit omit    reverse
+ComplMatchIns /0     omit omit
+Conceal       /0     omit omit
+Cursor        /0     omit omit
+CursorColumn  /0     omit omit    reverse
+CursorLine    /0     omit omit    underline
+CursorLineNr  /0     omit omit    reverse,italic,bold,underline
+DiffAdd       /0     omit omit    reverse,underline
+DiffChange    /0     omit omit    reverse,underline
+DiffDelete    /0     omit omit    reverse,underline
+DiffText      /0     omit omit    bold,reverse,underline
+Directory     /0     omit omit
+EndOfBuffer   /0     omit omit
+ErrorMsg      /0     omit omit    bold,reverse,italic
+FoldColumn    /0     omit omit    reverse
+Folded        /0     omit omit    italic,reverse,underline
+IncSearch     /0     omit omit    reverse,bold,italic
+Italic        /0     omit omit    italic
+LineNr        /0     omit omit    reverse
+MatchParen    /0     omit omit    bold,underline
+ModeMsg       /0     omit omit
+MoreMsg       /0     omit omit
+NonText       /0     omit omit
+Pmenu         /0     omit omit    reverse
+PmenuBorder   /0     omit omit
+PmenuSbar     /0     omit omit
+PmenuSel      /0     omit omit
+PmenuShadow   /0     omit omit
+PmenuThumb    /0     omit omit
+PopupSelected /0     omit omit    reverse
+PreInsert     /0     omit omit
+Question      /0     omit omit    standout
+Search        /0     omit omit    underline,italic
+SignColumn    /0     omit omit    reverse
+SpecialKey    /0     omit omit    bold
+SpellBad      /0     omit omit    underline,italic
+SpellCap      /0     omit omit    underline,italic
+SpellLocal    /0     omit omit    underline,italic
+SpellRare     /0     omit omit    underline,italic
+StatusLine    /0     omit omit    reverse,bold
+StatusLineNC  /0     omit omit    reverse
+TabLine       /0     omit omit    reverse,underline,italic
+TabLineFill   /0     omit omit    reverse,underline
+TabLineSel    /0     omit omit    bold
+Title         /0     omit omit    bold
+VertSplit     /0     omit omit    reverse
+Visual        /0     omit omit    reverse
+VisualNOS     /0     omit omit
+WarningMsg    /0     omit omit    standout
+WildMenu      /0     omit omit    bold
+; Other conventional group names (see `:help group-name`)
+Comment       /0     omit omit    italic
+Constant      /0     omit omit    bold,italic
+Error         /0     omit omit    reverse
+Identifier    /0     omit omit    italic
+Ignore        /0     omit omit
+PreProc       /0     omit omit    italic
+Special       /0     omit omit    bold,italic
+Statement     /0     omit omit    bold
+Todo          /0     omit omit    bold,underline
+Type          /0     omit omit    bold
+Underlined    /0     omit omit    underline
+CursorIM      /0     omit omit
+ToolbarLine   /0     omit omit    reverse
+ToolbarButton /0     omit omit    bold,reverse
+debugBreakpoint/0    omit omit    reverse
+debugPC       /0     omit omit    reverse
+
+helpfile
+===========================================================================
+@fullname options                                *@shortname-options*
+
+                                                 *g:@prefix_transp_bg*
+
+Set to true if you want a transparent background. Takes effect only in the
+terminal.
+>
+  g:@prefix_transp_bg = false
+<
+endhelpfile
