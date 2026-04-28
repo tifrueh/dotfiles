@@ -16,22 +16,6 @@ let s:tgc = has('termguicolors') && &termguicolors
 
 let g:terminal_ansi_colors = ['#282c34', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4', '#5d677a', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4']
 
-if has('gui_running') || s:tgc
-  hi DiagnosticError          guifg=#e06c75    guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticWarn           guifg=#e5c07b guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticInfo           guifg=#56b6c2   guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticHint           guifg=#61afef   guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticOk             guifg=#98c379  guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticUnderlineError guifg=NONE    guibg=NONE        guisp=#e06c75    gui=undercurl
-  hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE        guisp=#e5c07b gui=undercurl
-  hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE        guisp=#56b6c2   gui=undercurl
-  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=#61afef   gui=undercurl
-  hi DiagnosticUnderlineOk    guifg=NONE    guibg=NONE        guisp=#98c379  gui=undercurl
-  hi OkMsg                    guifg=#98c379  guibg=NONE        guisp=NONE    gui=NONE
-  hi NormalFloat              guifg=#dcdfe4  guibg=#282c34      guisp=NONE    gui=NONE
-  hi FloatBorder              guifg=#61afef   guibg=#282c34      guisp=NONE    gui=NONE
-endif
-
 let s:transp_bg = get(g:, 'onehalfdark_transp_bg', 0)
 
 hi! link Added diffAdded
@@ -87,6 +71,16 @@ hi CursorLineNr guifg=#61afef guibg=#282c34 guisp=NONE gui=NONE ctermfg=75 cterm
 hi Debug guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi Define guifg=#c678dd guibg=NONE guisp=NONE gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE term=NONE
 hi Delimiter guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
+hi DiagnosticError guifg=#e06c75 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE term=NONE
+hi DiagnosticHint guifg=#61afef guibg=NONE guisp=NONE gui=NONE ctermfg=75 ctermbg=NONE cterm=NONE term=NONE
+hi DiagnosticInfo guifg=#56b6c2 guibg=NONE guisp=NONE gui=NONE ctermfg=73 ctermbg=NONE cterm=NONE term=NONE
+hi DiagnosticOk guifg=#98c379 guibg=NONE guisp=NONE gui=NONE ctermfg=150 ctermbg=NONE cterm=NONE term=NONE
+hi DiagnosticUnderlineError guifg=NONE guibg=NONE guisp=#e06c75 gui=undercurl ctermfg=NONE ctermbg=167 cterm=NONE term=NONE
+hi DiagnosticUnderlineHint guifg=NONE guibg=NONE guisp=#61afef gui=undercurl ctermfg=NONE ctermbg=75 cterm=NONE term=NONE
+hi DiagnosticUnderlineInfo guifg=NONE guibg=NONE guisp=#56b6c2 gui=undercurl ctermfg=NONE ctermbg=73 cterm=NONE term=NONE
+hi DiagnosticUnderlineOk guifg=NONE guibg=NONE guisp=#98c379 gui=undercurl ctermfg=NONE ctermbg=150 cterm=NONE term=NONE
+hi DiagnosticUnderlineWarn guifg=NONE guibg=NONE guisp=#e5c07b gui=undercurl ctermfg=NONE ctermbg=179 cterm=NONE term=NONE
+hi DiagnosticWarn guifg=#e06c75 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE term=NONE
 hi DiffAdd guifg=#98c379 guibg=#282c34 guisp=NONE gui=NONE ctermfg=150 ctermbg=236 cterm=NONE term=reverse,underline
 hi DiffChange guifg=#e5c07b guibg=#282c34 guisp=NONE gui=NONE ctermfg=179 ctermbg=236 cterm=NONE term=reverse,underline
 hi DiffDelete guifg=#e06c75 guibg=#282c34 guisp=NONE gui=NONE ctermfg=167 ctermbg=236 cterm=NONE term=reverse,underline
@@ -97,6 +91,7 @@ hi Error guifg=#e06c75 guibg=#282c34 guisp=NONE gui=reverse ctermfg=167 ctermbg=
 hi ErrorMsg guifg=#e06c75 guibg=#282c34 guisp=NONE gui=NONE ctermfg=167 ctermbg=236 cterm=NONE term=bold,italic,reverse
 hi Exception guifg=#c678dd guibg=NONE guisp=NONE gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE term=NONE
 hi Float guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=NONE
+hi FloatBorder guifg=#61afef guibg=#282c34 guisp=NONE gui=NONE ctermfg=75 ctermbg=236 cterm=NONE term=NONE
 hi FoldColumn guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=reverse
 hi Folded guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=italic ctermfg=253 ctermbg=236 cterm=italic term=italic,reverse,underline
 hi Function guifg=#61afef guibg=NONE guisp=NONE gui=NONE ctermfg=75 ctermbg=NONE cterm=NONE term=NONE
@@ -116,7 +111,9 @@ hi MatchParen guifg=#61afef guibg=#282c34 guisp=NONE gui=underline ctermfg=75 ct
 hi ModeMsg guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=NONE
 hi MoreMsg guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=NONE
 hi NonText guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=NONE
+hi NormalFloat guifg=#dcdfe4 guibg=#282c34 guisp=NONE gui=NONE ctermfg=253 ctermbg=236 cterm=NONE term=NONE
 hi Number guifg=#e5c07b guibg=NONE guisp=NONE gui=NONE ctermfg=179 ctermbg=NONE cterm=NONE term=NONE
+hi OkMsg guifg=#98c379 guibg=NONE guisp=NONE gui=NONE ctermfg=150 ctermbg=NONE cterm=NONE term=NONE
 hi Operator guifg=#dcdfe4 guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi Pmenu guifg=#dcdfe4 guibg=#333842 guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=reverse
 hi PmenuSbar guifg=NONE guibg=#333842 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
@@ -220,6 +217,16 @@ if s:t_Co >= 8
   hi Debug ctermfg=LightGrey ctermbg=NONE cterm=NONE
   hi Define ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi Delimiter ctermfg=LightGrey ctermbg=NONE cterm=NONE
+  hi DiagnosticError ctermfg=DarkRed ctermbg=NONE cterm=NONE
+  hi DiagnosticHint ctermfg=DarkBlue ctermbg=NONE cterm=NONE
+  hi DiagnosticInfo ctermfg=DarkCyan ctermbg=NONE cterm=NONE
+  hi DiagnosticOk ctermfg=DarkGreen ctermbg=NONE cterm=NONE
+  hi DiagnosticUnderlineError ctermfg=NONE ctermbg=DarkRed cterm=NONE
+  hi DiagnosticUnderlineHint ctermfg=NONE ctermbg=DarkBlue cterm=NONE
+  hi DiagnosticUnderlineInfo ctermfg=NONE ctermbg=DarkCyan cterm=NONE
+  hi DiagnosticUnderlineOk ctermfg=NONE ctermbg=DarkGreen cterm=NONE
+  hi DiagnosticUnderlineWarn ctermfg=NONE ctermbg=DarkYellow cterm=NONE
+  hi DiagnosticWarn ctermfg=DarkRed ctermbg=NONE cterm=NONE
   hi DiffAdd ctermfg=DarkGreen ctermbg=Black cterm=NONE
   hi DiffChange ctermfg=DarkYellow ctermbg=Black cterm=NONE
   hi DiffDelete ctermfg=DarkRed ctermbg=Black cterm=NONE
@@ -230,6 +237,7 @@ if s:t_Co >= 8
   hi ErrorMsg ctermfg=DarkRed ctermbg=Black cterm=NONE
   hi Exception ctermfg=DarkMagenta ctermbg=NONE cterm=NONE
   hi Float ctermfg=DarkYellow ctermbg=NONE cterm=NONE
+  hi FloatBorder ctermfg=DarkBlue ctermbg=Black cterm=NONE
   hi FoldColumn ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi Folded ctermfg=LightGrey ctermbg=Black cterm=italic
   hi Function ctermfg=DarkBlue ctermbg=NONE cterm=NONE
@@ -249,7 +257,9 @@ if s:t_Co >= 8
   hi ModeMsg ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi MoreMsg ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi NonText ctermfg=LightGrey ctermbg=Black cterm=NONE
+  hi NormalFloat ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi Number ctermfg=DarkYellow ctermbg=NONE cterm=NONE
+  hi OkMsg ctermfg=DarkGreen ctermbg=NONE cterm=NONE
   hi Operator ctermfg=LightGrey ctermbg=NONE cterm=NONE
   hi Pmenu ctermfg=LightGrey ctermbg=Black cterm=NONE
   hi PmenuSbar ctermfg=NONE ctermbg=Black cterm=NONE

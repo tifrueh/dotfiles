@@ -221,23 +221,25 @@ gitcommitSelectedArrow                 -> gitcommitSelectedFile
 gitcommitUnmergedArrow                 -> gitcommitUnmergedFile
 
 ; Set neovim highlight groups.
-verbatim
-if has('gui_running') || s:tgc
-  hi DiagnosticError          guifg=@red    guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticWarn           guifg=@yellow guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticInfo           guifg=@cyan   guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticHint           guifg=@blue   guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticOk             guifg=@green  guibg=NONE        guisp=NONE    gui=NONE
-  hi DiagnosticUnderlineError guifg=NONE    guibg=NONE        guisp=@red    gui=undercurl
-  hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE        guisp=@yellow gui=undercurl
-  hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE        guisp=@cyan   gui=undercurl
-  hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE        guisp=@blue   gui=undercurl
-  hi DiagnosticUnderlineOk    guifg=NONE    guibg=NONE        guisp=@green  gui=undercurl
-  hi OkMsg                    guifg=@green  guibg=NONE        guisp=NONE    gui=NONE
-  hi NormalFloat              guifg=@white  guibg=@black      guisp=NONE    gui=NONE
-  hi FloatBorder              guifg=@blue   guibg=@black      guisp=NONE    gui=NONE
-endif
-endverbatim
+; Group                                Foreground        Background        Attributes
+DiagnosticError                        red               none
+DiagnosticWarn                         red               none
+DiagnosticInfo                         cyan              none
+DiagnosticHint                         blue              none
+DiagnosticOk                           green             none
+DiagnosticUnderlineError               none              red
+DiagnosticUnderlineError/gui           none              none              s=red undercurl
+DiagnosticUnderlineWarn                none              yellow
+DiagnosticUnderlineWarn/gui            none              none              s=yellow undercurl
+DiagnosticUnderlineInfo                none              cyan
+DiagnosticUnderlineInfo/gui            none              none              s=cyan undercurl
+DiagnosticUnderlineHint                none              blue
+DiagnosticUnderlineHint/gui            none              none              s=blue undercurl
+DiagnosticUnderlineOk                  none              green
+DiagnosticUnderlineOk/gui              none              none              s=green undercurl
+OkMsg                                  green             none
+NormalFloat                            white             black
+FloatBorder                            blue              black
 
 ; Default highlight groups for black & white terminals.
 ; Group              Unused Unused  Term attributes
