@@ -17,22 +17,7 @@ export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 # stty lwrap undef
 # stty lnext undef
 
-# Use kedit script as text editor if possible.
-if type "kedit" &> /dev/null; then
-
-    old_editor=$EDITOR
-    old_visual=$VISUAL
-    EDITOR=$VISUAL
-    VISUAL="env VISUAL=${VISUAL} kedit"
-
-    command nnn -eE "$@"
-
-    EDITOR=$old_editor
-    VISUAL=$old_visual
-
-else
-    command nnn -eE "$@"
-fi
+command nnn -eE "$@"
 
 [ ! -f "$NNN_TMPFILE" ] || {
     . "$NNN_TMPFILE"
