@@ -17,7 +17,7 @@ export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 # stty lwrap undef
 # stty lnext undef
 
-command nnn -eE "$@"
+command nnn -AeEu "$@"
 
 [ ! -f "$NNN_TMPFILE" ] || {
     . "$NNN_TMPFILE"
