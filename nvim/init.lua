@@ -46,3 +46,10 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter', 'InsertLeave' }, {
 
 -- Configure statusline.
 vim.o.statusline        = '%<%5* %f %h%w%m%r%*%=%a %7*  %n :: %Y @ %(%l:%c%) %P %*'
+
+-- Start treesitter parser if one is available for the current file.
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(ev)
+        pcall(vim.treesitter.start, ev.buf)
+    end
+})
