@@ -53,6 +53,3 @@ vim.api.nvim_create_autocmd("FileType", {
         pcall(vim.treesitter.start, ev.buf)
     end
 })
-
--- Define default :Make command.
-vim.api.nvim_create_user_command('Make', 'echoerr "No Make command defined for this filetype"', { force = false })
