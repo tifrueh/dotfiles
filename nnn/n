@@ -18,11 +18,15 @@ export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 # stty lnext undef
 
 # Use kitty subshell if we're in a kitty terminal
-[ "$TERM" = 'xterm-kitty' ] && {
-    SHELL='kitten run-shell'
-}
+if [ "$TERM" = 'xterm-kitty' ]; then
+    OLD_SHELL=$SHELL
+    export SHELL='kitten run-shell'
+    command nnn -AeEu "$@"
+    export SHELL=$OLD_SHELL
+else
+    command nnn -AeEu "$@"
+fi
 
-command nnn -AeEu "$@"
 
 [ ! -f "$NNN_TMPFILE" ] || {
     . "$NNN_TMPFILE"
