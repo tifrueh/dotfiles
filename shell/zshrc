@@ -39,6 +39,7 @@ if [[ -d "${PLUGINS_DIR}/jdfs/" ]]; then
     fpath+=("${PLUGINS_DIR}/jdfs/")
     autoload -Uz jcd
     autoload -Uz jls
+    autoload -Uz jpushd
 fi
 
 if [[ -d "${PLUGINS_DIR}/nnn/" ]]; then

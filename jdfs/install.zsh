@@ -11,3 +11,4 @@ enforce 'jdfs'
 # Link jdfs zsh plugin.
 link "${scriptdir}/jcd" "${zsh_plugin_dir}/jdfs/jcd" ${force}
 link "${scriptdir}/jls" "${zsh_plugin_dir}/jdfs/jls" ${force}
+link "${scriptdir}/jpushd" "${zsh_plugin_dir}/jdfs/jpushd" ${force}
