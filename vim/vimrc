@@ -1,3 +1,7 @@
+" Set correct encoding.
+scriptencoding utf-8
+set encoding=utf-8
+
 " Enable line numbers and syntax highlighting.
 set number
 syntax enable
