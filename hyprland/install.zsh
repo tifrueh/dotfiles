@@ -6,7 +6,6 @@ setup $0 $@
 
 # Enforce the installation of a few essentials.
 enforce 'hyprland'
-enforce 'hypridle'
 enforce 'hyprlock'
 enforce 'hyprsunset'
 enforce 'waybar'
@@ -15,11 +14,12 @@ enforce 'nnn'
 enforce 'tofi-run'
 enforce 'dunst'
 enforce 'wpctl'
+enforce 'playerctl'
 enforce 'curl'
 enforce 'git'
 
 # Link the main configuration file.
-link "${scriptdir}/hyprland.conf" "${hypr_dir}/hyprland.conf" ${force}
+link "${scriptdir}/hyprland.lua" "${hypr_dir}/hyprland.lua" ${force}
 
 # Link the hypridle configuration.
 link "${scriptdir}/hypridle.conf" "${hypr_dir}/hypridle.conf" ${force}
@@ -31,7 +31,7 @@ link "${scriptdir}/hyprlock.conf" "${hypr_dir}/hyprlock.conf"
 link "${scriptdir}/hyprtoolkit.conf" "${hypr_dir}/hyprtoolkit.conf"
 
 # Create the hyprland override-hook.
-create "${hypr_dir}/override-hook.conf"
+create "${hypr_dir}/override-hook.lua"
 
 # Link waybar configuration.
 link "${scriptdir}/waybar-config" "${waybar_dir}/config" ${force}
