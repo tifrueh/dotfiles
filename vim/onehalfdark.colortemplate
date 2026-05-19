@@ -65,7 +65,8 @@ Color: brightmagenta #c678dd     ~        LightMagenta
 Color: brightcyan    #56b6c2     ~        LightCyan
 Color: brightwhite   #dcdfe4     ~        White
 Color: cursorline    #333842     ~        DarkCyan
-Color: statusline    #333842     ~        Black
+Color: bstatusline   #333842     ~        Black
+Color: fstatusline   #61afef     ~        Blue
 Color: selection     #474e5c     ~        DarkCyan
 
 Term colors: black       red       green       yellow       blue       magenta       cyan       white
@@ -107,8 +108,8 @@ ModeMsg              white             black
 MoreMsg              white             black
 NonText              white             black
 Normal               white             black
-Pmenu                white             statusline
-PmenuSbar            none              statusline
+Pmenu                white             bstatusline
+PmenuSbar            none              bstatusline
 PmenuSel             blue              black             reverse
 PmenuShadow          white             black
 PmenuThumb           none              blue
@@ -120,8 +121,8 @@ SpellBad             red               black
 SpellCap             yellow            black
 SpellLocal           yellow            black
 SpellRare            cyan              black
-StatusLine           white             statusline
-StatusLineNC         white             black
+StatusLine           fstatusline       bstatusline       bold,reverse
+StatusLineNC         fstatusline       bstatusline
 TabLine              white             black             bold
 TabLineFill          white             black
 TabLineSel           green             black             bold,reverse
@@ -130,24 +131,24 @@ Title                green             black
 TitleBar             white             black
 TitleBarNC           white             black
 ToolbarButton        green             black             bold,reverse
-ToolbarLine          omit              statusline
+ToolbarLine          omit              bstatusline
 VertSplit            blue              black
 Visual               omit              selection
 VisualNOS            red               black
 WarningMsg           red               black
-WildMenu             blue              black             reverse
+WildMenu             fstatusline       bstatusline       bold
 
 ; Set user highlight groups.
 ; Group              Foreground        Background        Attributes
-User1                black             statusline        bold
-User2                red               statusline        bold
-User3                green             statusline        bold
-User4                yellow            statusline        bold
-User5                blue              statusline        bold
-User6                magenta           statusline        bold
-User7                cyan              statusline        bold
-User8                white             statusline        bold
-User9                brightblack       statusline        bold
+User1                black             omit              bold
+User2                red               omit              bold
+User3                green             omit              bold
+User4                yellow            omit              bold
+User5                blue              omit              bold
+User6                magenta           omit              bold
+User7                cyan              omit              bold
+User8                white             omit              bold
+User9                brightblack       omit              bold
 
 ; Set syntax highlight groups.
 ; Group              Foreground        Background        Attributes
