@@ -17,6 +17,10 @@ link "${scriptdir}/ft-markdown.lua" "${nvim_ftplugin_dir}/markdown.lua" ${force}
 link "${scriptdir}/ft-haskell.lua" "${nvim_ftplugin_dir}/haskell.lua" ${force}
 link "${scriptdir}/ft-asciidoc.lua" "${nvim_ftplugin_dir}/asciidoc.lua" ${force}
 link "${scriptdir}/ft-tex.lua" "${nvim_ftplugin_dir}/tex.lua" ${force}
+link "${scriptdir}/ft-viper.lua" "${nvim_ftplugin_dir}/viper.lua" ${force}
+
+# Link regular plugins.
+link "${scriptdir}/pl-viper.lua" "${nvim_plugin_dir}/viper.lua" ${force}
 
 # Install color scheme.
 link "${scriptdir}/../vim/onehalfdark.vim" "${nvim_colors_dir}/onehalfdark.vim" ${force}
