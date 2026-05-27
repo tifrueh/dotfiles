@@ -1,6 +1,1 @@
-vim.filetype.add({
-    extension = {
-        vpr = 'viper',
-        sil = 'viper'
-    },
-})
+vim.pack.add({ "https://github.com/tifrueh/nvim-viper-ide.git" })
