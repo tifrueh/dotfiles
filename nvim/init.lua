@@ -19,6 +19,12 @@ vim.o.linebreak         = true
 -- Enable cursorline.
 vim.o.cursorline        = true
 
+-- Set colorcolumn.
+vim.wo.colorcolumn       = '+1'
+
+-- Configure undo.
+vim.bo.undofile         = true
+
 -- Use onehalfdark color scheme.
 vim.cmd.colorscheme('onehalfdark')
 
@@ -53,9 +59,3 @@ vim.api.nvim_create_autocmd("FileType", {
         pcall(vim.treesitter.start, ev.buf)
     end
 })
-
--- Set colorcolumn.
-vim.wo.colorcolumn       = '+1'
-
--- Configure undo.
-vim.bo.undofile         = true
