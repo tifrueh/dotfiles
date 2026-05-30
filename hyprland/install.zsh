@@ -8,6 +8,7 @@ setup $0 $@
 enforce 'hyprland'
 enforce 'hyprlock'
 enforce 'hyprsunset'
+enforce 'hyprshutdown'
 enforce 'waybar'
 enforce 'kitty'
 enforce 'nnn'
