@@ -22,6 +22,7 @@ link "${scriptdir}/ft-promela.lua" "${nvim_ftplugin_dir}/promela.lua" ${force}
 
 # Link regular plugins.
 link "${scriptdir}/pl-viper.lua" "${nvim_plugin_dir}/viper.lua" ${force}
+link "${scriptdir}/pl-git.lua" "${nvim_plugin_dir}/git.lua" ${force}
 
 # Install color scheme.
 link "${scriptdir}/../vim/onehalfdark.vim" "${nvim_colors_dir}/onehalfdark.vim" ${force}
