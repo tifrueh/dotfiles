@@ -56,3 +56,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Set colorcolumn.
 vim.o.colorcolumn       = '+1'
+
+-- Configure undo.
+vim.bo.undofile         = true
