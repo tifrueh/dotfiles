@@ -82,7 +82,7 @@ Terminal
 
 ; Set interface highlight groups.
 ; Group              Foreground        Background        Attributes
-ColorColumn          fg                black
+ColorColumn          omit              cursorline
 Conceal              none              none
 Cursor               omit              black
 CursorColumn         omit              cursorline

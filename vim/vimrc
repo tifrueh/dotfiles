@@ -45,3 +45,6 @@ syntax match Todo /TODO/
 " configure status line
 set laststatus=2
 set statusline=%<\ %f\ %h%w%m%r%=%a\ B\ %n\ ::\ %Y\ @\ %(%l:%c%)\ %P\ 
+
+" Configure color column.
+set colorcolumn=+1
