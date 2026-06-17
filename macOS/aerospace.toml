@@ -159,6 +159,7 @@ on-mode-changed = []
     ctrl-alt-f5 = 'reload-config'
     ctrl-alt-v = 'layout floating tiling'
     ctrl-alt-f = 'macos-native-fullscreen'
+    ctrl-alt-enter = 'exec-and-forget open -a /Applications/kitty.app ~ --args --single-instance --instance-group "aerospace"'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
