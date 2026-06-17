@@ -104,7 +104,7 @@ on-mode-changed = []
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    ctrl-alt-j = 'layout tiles horizontal vertical'
+    ctrl-alt-l = 'layout tiles horizontal vertical'
     #alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
