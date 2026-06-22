@@ -161,6 +161,10 @@ on-mode-changed = []
     ctrl-alt-f = 'macos-native-fullscreen'
     ctrl-alt-enter = 'exec-and-forget open -a /Applications/kitty.app ~ --args --single-instance --instance-group "aerospace"'
 
+# Force workspace 10 to secondary monitor.
+[workspace-to-monitor-force-assignment]
+    10 = 'secondary'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
