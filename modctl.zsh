@@ -164,6 +164,9 @@ validate_and_source () {
     if [[ -e "${MOD_ROOT}" && ! -d "${MOD_ROOT}" ]]; then
         error "Module root ${MOD_ROOT} exists and is not a directory."
     fi
+    if [[ "${MOD_ROOT}" == "/NOTSET" ]]; then
+        error "MOD_ROOT has not been configured."
+    fi
     debug "Read MOD_ROOT: ${MOD_ROOT}"
 
     if [[ "${MOD_LINKED}" -ne 1 ]]; then
@@ -315,7 +318,8 @@ scmd_init () {
         error "${1} is already initialised."
     fi
     info "Initialising ${1}."
-    printf "${state_template}" "${MOD_ROOT}" 0 > "${1}/.state.zsh"
+    printf "${state_template}" "/PLACEHOLDER" 0 > "${1}/.state.zsh"
+    warn "Don't forget to set MOD_ROOT in ${1} before linking."
 }
 
 # Fn: Execute the status subcommand.
