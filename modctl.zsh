@@ -8,11 +8,13 @@ setopt nullglob
 # Script metadata.
 scriptdir="${0:A:h}"
 scriptname="${0:A:t}"
-help_msg="usage: %s ( link | unlink ) <module>
+help_msg="usage: %s ( link | unlink | init | status ) <module>
 
 subcommands:
     link        Link a module.
     unlink      Unlink a module.
+    init        Initialise a module (create a .state.zsh).
+    status      Get some information about a module.
 
 arguments:
     <module>    The path to the module to operate upon.
@@ -26,6 +28,12 @@ environment:
 # Template for the automatic update of the state file.
 state_template="MOD_ROOT=%s
 MOD_LINKED=%d
+"
+
+# Template for the status message.
+status_template="Module: %s
+Root Directory: %s
+Linked: %s
 "
 
 # Globals that will be set by the sourcing procedure.
@@ -112,7 +120,7 @@ debug () {
 # Description
 #   ARGS        An array of command line arguments.
 validate_cli () {
-    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" ) ]]; then
+    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init"|| "${1}" == "status" ) ]]; then
         print_help
         exit 1
     fi
@@ -296,17 +304,44 @@ scmd_unlink () {
     printf "${state_template}" "${MOD_ROOT}" 0 > "${MOD_DIR}/.state.zsh"
 }
 
+# Fn: Execute the init subcommand.
+#
+# Synopsis
+#   scmd_init MODULE
+#
+# Description
+#   MODULE              Path to the module.
+scmd_init () {
+    if [[ -e "${1}/.state.zsh" ]]; then
+        error "${1} is already initialised."
+    fi
+    info "Initialising ${1}."
+    printf "${state_template}" "${MOD_ROOT}" 0 > "${1}/.state.zsh"
+}
+
+# Fn: Execute the status subcommand.
+#
+# Synopsis
+#   scmd_status
+scmd_status () {
+    printf "${status_template}" "${MOD_DIR}" "${MOD_ROOT}" "${MOD_LINKED}"
+}
+
 # = MAIN =======================================================================
 
 # Validate command line.
 validate_cli "${@}"
 
-# Validate and source passed module.
-validate_and_source "${2}"
-
 # Switch on subcommand (placeholder log messages for now).
 if [[ "${1}" == "link" ]]; then
+    validate_and_source "${2}"
     scmd_link
 elif [[ "${1}" == "unlink" ]]; then
+    validate_and_source "${2}"
     scmd_unlink
+elif [[ "${1}" == "init" ]]; then
+    scmd_init "${2}"
+elif [[ "${1}" == "status" ]]; then
+    validate_and_source "${2}"
+    scmd_status
 fi
