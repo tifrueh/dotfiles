@@ -148,7 +148,7 @@ validate_and_source () {
     fi
     debug "Found module directory ${MOD_DIR}."
 
-    state_file="${MOD_DIR}/.state.zsh"
+    local state_file="${MOD_DIR}/.state.zsh"
     if [[ ! -f "${state_file}" ]]; then
         error "State file of module ${1} not found. Either it does not exist or is not a regular file."
     fi
