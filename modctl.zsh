@@ -172,7 +172,7 @@ validate_and_source () {
     fi
     debug "Read MOD_LINKED: ${MOD_LINKED}"
 
-    info "Loaded module ${MOD_DIR}."
+    debug "Loaded module ${MOD_DIR}."
 }
 
 # Fn: Link all regular files in a directory recursively (except the ones that
