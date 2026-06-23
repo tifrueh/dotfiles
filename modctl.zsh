@@ -181,13 +181,13 @@ rec_link () {
 
     debug "Linking ${1} recursively with context ${2}."
 
-    destdir="${MOD_ROOT}/${2}"
-    destdir="${destdir:P}"
+    local destdir="${MOD_ROOT}/${2}"
+    local destdir="${destdir:P}"
     debug "Set destination directory to ${destdir}, creating."
     mkdir -p "${destdir}" || exit 1
 
     for file in ${1}/* ${1}/.*; do
-        file_basename="${file:t}"
+        local file_basename="${file:t}"
         if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
             debug "Encountered special file ${file}, not linking."
             continue
@@ -199,8 +199,8 @@ rec_link () {
         fi
         if [[ -f "${file}" ]]; then
             debug "Encountered regular file ${file}, linking."
-            destfile="${destdir}/${file_basename}"
-            destfile="${destfile:a}"
+            local destfile="${destdir}/${file_basename}"
+            local destfile="${destfile:a}"
             if [[ -e "${destfile}" ]]; then
                 error "${destfile} already exists, aborting."
                 exit 1
@@ -248,12 +248,12 @@ rec_unlink () {
 
     debug "Unlinking ${1} recursively with context ${2}."
 
-    destdir="${MOD_ROOT}/${2}"
-    destdir="${destdir:P}"
+    local destdir="${MOD_ROOT}/${2}"
+    local destdir="${destdir:P}"
     debug "Set destination directory to ${destdir}."
 
     for file in ${1}/* ${1}/.*; do
-        file_basename="${file:t}"
+        local file_basename="${file:t}"
         if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
             debug "Encountered special file ${file}, not unlinking."
             continue
@@ -265,8 +265,8 @@ rec_unlink () {
         fi
         if [[ -f "${file}" ]]; then
             debug "Encountered regular file ${file}, unlinking."
-            destfile="${destdir}/${file_basename}"
-            destfile="${destfile:a}"
+            local destfile="${destdir}/${file_basename}"
+            local destfile="${destfile:a}"
             if [[ ! -h "${destfile}" ]]; then
                 info "${destfile} does not exist (or is not a link), continuing."
                 continue
