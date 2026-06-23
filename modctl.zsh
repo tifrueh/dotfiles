@@ -318,7 +318,7 @@ scmd_init () {
         error "${1} is already initialised."
     fi
     info "Initialising ${1}."
-    printf "${state_template}" "/PLACEHOLDER" 0 > "${1}/.state.zsh"
+    printf "${state_template}" "/NOTSET" 0 > "${1}/.state.zsh"
     warn "Don't forget to set MOD_ROOT in ${1} before linking."
 }
 
