@@ -230,6 +230,69 @@ scmd_link () {
     fi
 }
 
+# Fn: Unlink all regular files in a directory recursively and delete the target
+# directory if it is empty after that. Depends upon finished globals
+# initialisation!
+#
+# Synopsis
+#   rec_unlink DIR CONTEXT
+#
+# Description
+#   DIR         The ABSOLUTE (!) path to the directory to unlink the contents of.
+#   CONTEXT     The path relative to MOD_ROOT of the directory that should be
+#   unlinked.
+rec_unlink () {
+
+    debug "Unlinking ${1} recursively with context ${2}."
+
+    destdir="${MOD_ROOT}/${2}"
+    destdir="${destdir:P}"
+    debug "Set destination directory to ${destdir}."
+
+    for file in ${1}/* ${1}/.*; do
+        file_basename="${file:t}"
+        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
+            debug "Encountered special file ${file}, not unlinking."
+            continue
+        fi
+        if [[ -d "${file}" ]]; then
+            debug "Encountered directory ${file}, entering."
+            rec_unlink "${file}" "${2}/${file_basename}"
+            continue
+        fi
+        if [[ -f "${file}" ]]; then
+            debug "Encountered regular file ${file}, unlinking."
+            destfile="${destdir}/${file_basename}"
+            destfile="${destfile:a}"
+            if [[ ! -h "${destfile}" ]]; then
+                info "${destfile} does not exist (or is not a link), continuing."
+                continue
+            fi
+            info "Unlinking ${destfile}."
+            rm "${destfile}"
+        fi
+    done
+
+    debug "Removing ${destdir} if it is empty."
+    rmdir --ignore-fail-on-non-empty --parents "${destdir}" || exit 1
+}
+
+# Fn: Execute the unlink subcommand on a module. Depends upon finished globals
+# initialisation!
+#
+# Synopsis
+#   scmd_unlink
+scmd_unlink () {
+
+    if [[ "${MOD_LINKED}" -ne 1 ]]; then
+        error "Module at ${MOD_DIR} not linked, aborting."
+    fi
+
+    rec_unlink "${MOD_DIR}" ""
+
+    printf "${state_template}" "${MOD_ROOT}" 0 > "${MOD_DIR}/.state.zsh"
+}
+
 # = MAIN =======================================================================
 
 # Validate command line.
@@ -242,5 +305,5 @@ validate_and_source "${2}"
 if [[ "${1}" == "link" ]]; then
     scmd_link
 elif [[ "${1}" == "unlink" ]]; then
-    info "Execute unlink on ${2}."
+    scmd_unlink
 fi
