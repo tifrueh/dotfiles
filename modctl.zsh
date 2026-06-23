@@ -211,7 +211,6 @@ rec_link () {
             local destfile="${destfile:a}"
             if [[ -e "${destfile}" ]]; then
                 error "${destfile} already exists, aborting."
-                exit 1
             fi
             info "Linking ${file} -> ${destfile}"
             ln -s "${file}" "${destfile}"
