@@ -178,8 +178,10 @@ rec_link () {
 
     debug "Linking ${1} recursively with context ${2}."
 
-    destdir="${MOD_ROOT}${2}"
-    debug "Set destination directory to ${destdir}."
+    destdir="${MOD_ROOT}/${2}"
+    destdir="${destdir:P}"
+    debug "Set destination directory to ${destdir}, creating."
+    mkdir -p "${destdir}" || exit 1
 
     for file in ${1}/* ${1}/.*; do
         file_basename="${file:t}"
@@ -195,6 +197,7 @@ rec_link () {
         if [[ -f "${file}" ]]; then
             debug "Encountered regular file ${file}, linking."
             destfile="${destdir}/${file_basename}"
+            destfile="${destfile:a}"
             if [[ -e "${destfile}" ]]; then
                 error "${destfile} already exists, aborting."
                 exit 1
