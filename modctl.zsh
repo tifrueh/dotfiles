@@ -120,7 +120,7 @@ debug () {
 # Description
 #   ARGS        An array of command line arguments.
 validate_cli () {
-    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init"|| "${1}" == "status" ) ]]; then
+    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init" || "${1}" == "status" ) ]]; then
         print_help
         exit 1
     fi
