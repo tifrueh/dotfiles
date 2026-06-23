@@ -277,7 +277,7 @@ rec_unlink () {
     done
 
     debug "Removing ${destdir} if it is empty."
-    rmdir --ignore-fail-on-non-empty --parents "${destdir}" || exit 1
+    rmdir --ignore-fail-on-non-empty "${destdir}" || exit 1
 }
 
 # Fn: Execute the unlink subcommand on a module. Depends upon finished globals
