@@ -195,7 +195,7 @@ rec_link () {
     local destdir="${MOD_ROOT}/${2}"
     local destdir="${destdir:P}"
     debug "Set destination directory to ${destdir}, creating."
-    mkdir -p "${destdir}" || exit 1
+    mkdir -p "${destdir}" || error "Failed to create destination directory ${destdir}."
 
     for file in ${1}/* ${1}/.*; do
         local file_basename="${file:t}"
@@ -212,11 +212,8 @@ rec_link () {
             debug "Encountered regular file ${file}, linking."
             local destfile="${destdir}/${file_basename}"
             local destfile="${destfile:a}"
-            if [[ -e "${destfile}" ]]; then
-                error "${destfile} already exists, aborting."
-            fi
             info "Linking ${file} -> ${destfile}"
-            ln -s "${file}" "${destfile}"
+            ln -s "${file}" "${destfile}" || error "Failed to link ${file}."
         fi
     done
 }
@@ -234,7 +231,7 @@ scmd_link () {
 
     rec_link "${MOD_DIR}" ""
 
-    printf "${state_template}" "${MOD_ROOT}" 1 > "${MOD_DIR}/.state.zsh"
+    printf "${state_template}" "${MOD_ROOT}" 1 > "${MOD_DIR}/.state.zsh" || error "Failed to write state file."
 
     echo ""
 
@@ -278,16 +275,16 @@ rec_unlink () {
             local destfile="${destdir}/${file_basename}"
             local destfile="${destfile:a}"
             if [[ ! -h "${destfile}" ]]; then
-                info "${destfile} does not exist (or is not a link), continuing."
+                warn "${destfile} does not exist (or is not a link), continuing."
                 continue
             fi
             info "Unlinking ${destfile}."
-            rm "${destfile}"
+            rm "${destfile}" || error "Failed to unlink ${destfile}."
         fi
     done
 
     debug "Removing ${destdir} if it is empty."
-    rmdir --ignore-fail-on-non-empty "${destdir}" || exit 1
+    rmdir "${destdir}" 2> /dev/null || debug "Removing ${destdir} failed, leaving in place."
 }
 
 # Fn: Execute the unlink subcommand on a module. Depends upon finished globals
@@ -303,7 +300,7 @@ scmd_unlink () {
 
     rec_unlink "${MOD_DIR}" ""
 
-    printf "${state_template}" "${MOD_ROOT}" 0 > "${MOD_DIR}/.state.zsh"
+    printf "${state_template}" "${MOD_ROOT}" 0 > "${MOD_DIR}/.state.zsh" || error "Failed to write state file."
 }
 
 # Fn: Execute the init subcommand.
@@ -318,7 +315,7 @@ scmd_init () {
         error "${1} is already initialised."
     fi
     info "Initialising ${1}."
-    printf "${state_template}" "/NOTSET" 0 > "${1}/.state.zsh"
+    printf "${state_template}" "/NOTSET" 0 > "${1}/.state.zsh" || error "Failed to write state file."
     warn "Don't forget to set MOD_ROOT in ${1} before linking."
 }
 
