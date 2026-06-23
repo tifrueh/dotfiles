@@ -2,13 +2,14 @@
 
 # = GLOBALS ====================================================================
 
+# Script metadata.
 scriptdir="${0:A:h}"
 scriptname="${0:A:t}"
-help_msg="usage: %s ( mount | unmount ) <module>
+help_msg="usage: %s ( link | unlink ) <module>
 
 subcommands:
-    mount       Mount a module.
-    unmount     Unmount a module.
+    link        Link a module.
+    unlink      Unlink a module.
 
 arguments:
     <module>    The path to the module to operate upon.
@@ -18,6 +19,16 @@ environment:
     NOINFO      Set to suppress informational messages.
     NOWARN      Set to suppress warnings.
 "
+
+# Template for the automatic update of the state file.
+state_template="MOD_ROOT=%s
+MOD_LINKED=%d
+"
+
+# Globals that will be set by the sourcing procedure.
+MOD_DIR=""
+MOD_ROOT=""
+MOD_LINKED=""
 
 # = FUNCTIONS ==================================================================
 
@@ -98,7 +109,7 @@ debug () {
 # Description
 #   ARGS        An array of command line arguments.
 validate_cli () {
-    if [[ $# -ne 2 || ! ( "${1}" == "mount" || "${1}" == "unmount" ) ]]; then
+    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" ) ]]; then
         print_help
         exit 1
     fi
@@ -111,17 +122,22 @@ validate_cli () {
 #
 # Description
 #   MODULE      Path to the module to validate and source.
+#
+# Also sets the following variables:
+#  MOD_DIR      Absolute path to the module to validate.
+#  MOD_ROOT     Absolute path to the module root.
+#  MOD_LINKED   Whether or not the module is already linked.
 validate_and_source () {
 
     debug "Validating ${1}."
 
-    mod_dir="${1:A}"
-    if [[ ! -d "${1}" ]]; then
-        error "Module ${1} not found. Either it does not exist or is not a directory."
+    MOD_DIR="${1:P}"
+    if [[ ! -d "${MOD_DIR}" ]]; then
+        error "Module ${MOD_DIR} not found. Either it does not exist or is not a directory."
     fi
-    debug "Found module directory ${mod_dir}."
+    debug "Found module directory ${MOD_DIR}."
 
-    state_file="${mod_dir}/.state.zsh"
+    state_file="${MOD_DIR}/.state.zsh"
     if [[ ! -f "${state_file}" ]]; then
         error "State file of module ${1} not found. Either it does not exist or is not a regular file."
     fi
@@ -133,6 +149,10 @@ validate_and_source () {
     if [[ ! -v MOD_ROOT ]]; then
         error "State file ${state_file} does not set MOD_ROOT."
     fi
+    MOD_ROOT="${MOD_ROOT:P}"
+    if [[ -e "${MOD_ROOT}" && ! -d "${MOD_ROOT}" ]]; then
+        error "Module root ${MOD_ROOT} exists and is not a directory."
+    fi
     debug "Read MOD_ROOT: ${MOD_ROOT}"
 
     if [[ "${MOD_LINKED}" -ne 1 ]]; then
@@ -141,7 +161,70 @@ validate_and_source () {
     fi
     debug "Read MOD_LINKED: ${MOD_LINKED}"
 
-    info "Loaded module ${mod_dir}."
+    info "Loaded module ${MOD_DIR}."
+}
+
+# Fn: Link all regular files in a directory recursively (except the ones that
+# contain module metadata). Depends upon finished globals initialisation!
+#
+# Synopsis
+#   rec_link DIR CONTEXT
+#
+# Description
+#   DIR         The ABSOLUTE (!) path to the directory to link the contents of.
+#   CONTEXT     The path relative to MOD_ROOT of the directory that the links
+#               should be placed in.
+rec_link () {
+
+    debug "Linking ${1} recursively with context ${2}."
+
+    destdir="${MOD_ROOT}${2}"
+    debug "Set destination directory to ${destdir}."
+
+    for file in ${1}/* ${1}/.*; do
+        file_basename="${file:t}"
+        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
+            debug "Encountered special file ${file}, not linking."
+            continue
+        fi
+        if [[ -d "${file}" ]]; then
+            debug "Encountered directory ${file}, entering."
+            rec_link "${file}" "${2}/${file_basename}"
+            continue
+        fi
+        if [[ -f "${file}" ]]; then
+            debug "Encountered regular file ${file}, linking."
+            destfile="${destdir}/${file_basename}"
+            if [[ -e "${destfile}" ]]; then
+                error "${destfile} already exists, aborting."
+                exit 1
+            fi
+            info "Linking ${file} -> ${destfile}"
+            ln -s "${file}" "${destfile}"
+        fi
+    done
+}
+
+# Fn: Execute the link subcommand on a module. Depends upon finished
+# globals initialisation!
+#
+# Synopsis
+#   scmd_link
+scmd_link () {
+
+    if [[ "${MOD_LINKED}" -eq 1 ]]; then
+        error "Module at ${MOD_DIR} already linked, aborting."
+    fi
+
+    rec_link "${MOD_DIR}" ""
+
+    printf "${state_template}" "${MOD_ROOT}" 1 > "${MOD_DIR}/.state.zsh"
+
+    echo ""
+
+    if [[ -f "${MOD_DIR}/README.txt" ]]; then
+        display "${MOD_DIR}/README.txt"
+    fi
 }
 
 # = MAIN =======================================================================
@@ -153,8 +236,8 @@ validate_cli "${@}"
 validate_and_source "${2}"
 
 # Switch on subcommand (placeholder log messages for now).
-if [[ "${1}" == "mount" ]]; then
-    info "Execute mount on ${2}."
-elif [[ "${1}" == "unmount" ]]; then
-    info "Execute unmount on ${2}."
+if [[ "${1}" == "link" ]]; then
+    scmd_link
+elif [[ "${1}" == "unlink" ]]; then
+    info "Execute unlink on ${2}."
 fi
