@@ -2,8 +2,6 @@
 
                                       ---
 
-                            Example Root: /home/user
-
 This module contains a full configuration for 'hyprland', plus for a few
 essentials.
 
