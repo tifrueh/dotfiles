@@ -339,6 +339,10 @@ scmd_status () {
         local fancy_color="0"
     fi
     printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${MOD_DIR}" "${MOD_ROOT}"
+    if whence tree > /dev/null; then
+        echo ""
+        tree -a "${MOD_DIR}" -I "README.txt" -I ".state.zsh" -I ".state.default.zsh"
+    fi
 }
 
 # = MAIN =======================================================================
