@@ -33,15 +33,15 @@ autoload -Uz compinit; compinit
 autoload -Uz promptinit; promptinit
 prompt mu
 
-# Source custom plugins if they exist
-if [[ -d "${PLUGINS_DIR}/jdfs/" ]]; then
+# Source custom plugins if the corresponding application is installed
+if whence jdfs > /dev/null; then
     fpath+=("${PLUGINS_DIR}/jdfs/")
     autoload -Uz jcd
     autoload -Uz jls
     autoload -Uz jpushd
 fi
 
-if [[ -d "${PLUGINS_DIR}/nnn/" ]]; then
+if whence nnn > /dev/null; then
     fpath+=("${PLUGINS_DIR}/nnn/")
     source "${PLUGINS_DIR}/nnn/nnn.zsh"
     autoload -Uz n
