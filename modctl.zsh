@@ -233,9 +233,8 @@ scmd_link () {
 
     printf "${state_template}" "${MOD_ROOT}" 1 > "${MOD_DIR}/.state.zsh" || error "Failed to write state file."
 
-    echo ""
-
     if [[ -f "${MOD_DIR}/README.txt" ]]; then
+        echo ""
         display "${MOD_DIR}/README.txt"
     fi
 }
