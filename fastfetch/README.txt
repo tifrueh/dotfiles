@@ -2,4 +2,4 @@
 
                                       ---
 
-                      Example Root: /home/user/fastfetch/
+                  Example Root: /home/user/.config/fastfetch/
