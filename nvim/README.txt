@@ -2,8 +2,6 @@
 
                                       ---
 
-                     Example Root: /home/user/.config/nvim
-
 This module contains a full configuration for the neovim editor, complete with a
 few filetype plugins and a color scheme. The configuration also pulls in the
 'gitsigns' and 'viper-ide' plugins from GitHub using neovim's native package
