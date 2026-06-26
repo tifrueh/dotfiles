@@ -35,6 +35,13 @@ Cosmetics:
 * tela-circle-icon-theme-blue
 * vimix-cursors
 
+Also make sure that the file 'override-hook.lua' exists in the /linked/ module
+root (even if no overriding is necessary), as the main configuration file will
+produce an error if that file does not exist.
+
+Note: Forcing the existence of this file is a /temporary/ solution. I'll figure
+out something cleaner than this eventually. I hope.
+
 Note on Login Management
 ========================
 
