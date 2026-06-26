@@ -32,7 +32,6 @@ fpath+=("$THEMES_DIR/mu/")
 autoload -Uz compinit; compinit
 autoload -Uz promptinit; promptinit
 prompt mu
-source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source custom plugins if they exist
 if [[ -d "${PLUGINS_DIR}/jdfs/" ]]; then
@@ -64,3 +63,8 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 
 # Source override hook
 [[ -f ~/.zoverride ]] && source ~/.zoverride
+
+# Load syntax highlighting if it is available
+if [[ -f "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "${PLUGINS_DIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
