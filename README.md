@@ -24,6 +24,9 @@ are intended to be modular and to depend upon each other as little as possible.
 * *unlinking a module*: Unlinking a module means removing its links from the
   filesystem.
 
+* *initialising a module*: Initialising a module means preparing it for linking
+  on a specific machine, i.e. creating its state file.
+
 ## (Un-)Linking Procedure
 
 When linking or unlinking a module, the following happens:
@@ -53,10 +56,11 @@ The individual modules, in addition to the regular files that should be linked
 as described [above](#un-linking-procedure), contains three additional files,
 which will not be linked, in its root directory.:
 
-| File         | Description                     |
-|---           |---                              |
-| `.state.zsh` | [State File](#state-file)       |
-| `README.txt` | [Documentation](#documentation) |
+| File                 | Optional | Version Control | Description                               |
+|---                   |---       |---              | ---                                       |
+| `.state.zsh`         | no       | no              | [State File](#state-file)                 |
+| `.state.default.zsh` | yes      | yes             | [Default State File](#default-state-file) |
+| `README.txt`         | yes      | yes             |[Documentation](#documentation)            |
 
 ### State File
 
@@ -66,6 +70,13 @@ The file `.state.zsh` shall set two shell variables:
   manually).
 * `MOD_LINKED`: `1` if the module is currently linked, anything else otherwise
   (this should be set manually only for debugging/recovery purposes).
+
+### Default State File
+
+The file `.state.default.zsh` shall be the module-specific default for the
+`.state.zsh` file. If it exists, then the initialisation process will copy it to
+`.state.zsh`, and if it doesn't, then the `.state.zsh` will be created according
+to the global default.
 
 ### Documentation
 

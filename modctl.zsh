@@ -199,7 +199,7 @@ rec_link () {
 
     for file in ${1}/* ${1}/.*; do
         local file_basename="${file:t}"
-        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
+        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
             debug "Encountered special file ${file}, not linking."
             continue
         fi
@@ -261,7 +261,7 @@ rec_unlink () {
 
     for file in ${1}/* ${1}/.*; do
         local file_basename="${file:t}"
-        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" ]]; then
+        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
             debug "Encountered special file ${file}, not unlinking."
             continue
         fi
@@ -311,12 +311,20 @@ scmd_unlink () {
 # Description
 #   MODULE              Path to the module.
 scmd_init () {
-    if [[ -e "${1}/.state.zsh" ]]; then
+    local state_file="${1}/.state.zsh"
+    local default_state_file="${1}/.state.default.zsh"
+    if [[ -e "${state_file}" ]]; then
         error "${1} is already initialised."
     fi
     info "Initialising ${1}."
-    printf "${state_template}" "/NOTSET" 0 > "${1}/.state.zsh" || error "Failed to write state file."
-    warn "Don't forget to set MOD_ROOT in ${1} before linking."
+    if [[ -e "${default_state_file}" ]]; then
+        debug "Found default state file ${default_state_file}, copying."
+        cp "${default_state_file}" "${state_file}" || error "Failed to copy state file."
+        warn "Don't forget to check if the default state file does what you want it to."
+    else
+        printf "${state_template}" "/NOTSET" 0 > "${1}/.state.zsh" || error "Failed to write state file."
+        warn "Don't forget to set MOD_ROOT in ${1} before linking."
+    fi
 }
 
 # Fn: Execute the status subcommand.
