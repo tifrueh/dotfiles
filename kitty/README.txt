@@ -2,8 +2,6 @@
 
                                       ---
 
-                     Example Root: /home/user/.config/kitty
-
 This module contains all configuration concerning the kitty terminal. There are
 two peculiarities that are worth noting:
 
