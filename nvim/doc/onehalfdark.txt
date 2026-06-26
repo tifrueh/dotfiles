@@ -1,0 +1,18 @@
+================================================================================
+OneHalf Dark                                                *onehalfdark.txt*
+
+Author: Timo Früh <dev@tifrueh.ch>
+License: MIT
+
+My very own onehalf dark color scheme. See <https://github.com/sonph/onehalf>
+for colors.
+
+                                                         *onehalfdark-options*
+                                                     *g:onehalfdark_transp_bg*
+
+Set to true if you want a transparent background. Takes effect only in the
+terminal.
+>
+  g:onehalfdark_transp_bg = false
+<
+ vim:ft=help:tw=78:ts=8:noet:norl:
