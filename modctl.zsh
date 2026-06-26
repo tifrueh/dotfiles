@@ -31,9 +31,9 @@ MOD_LINKED=%d
 "
 
 # Template for the status message.
-status_template="Module: %s
+status_template="        Linked: \x1B[%dm%s\x1B[0m
+        Module: %s
 Root Directory: %s
-Linked: %s
 "
 
 # Globals that will be set by the sourcing procedure.
@@ -324,7 +324,14 @@ scmd_init () {
 # Synopsis
 #   scmd_status
 scmd_status () {
-    printf "${status_template}" "${MOD_DIR}" "${MOD_ROOT}" "${MOD_LINKED}"
+    if [[ "${MOD_LINKED}" -eq 1 ]]; then
+        local fancy_linked="● (linked)"
+        local fancy_color="32"
+    else
+        local fancy_linked="○ (unlinked)"
+        local fancy_color="0"
+    fi
+    printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${MOD_DIR}" "${MOD_ROOT}"
 }
 
 # = MAIN =======================================================================
