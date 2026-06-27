@@ -31,9 +31,10 @@ MOD_LINKED=%d
 "
 
 # Template for the status message.
-status_template="        Linked: \x1B[%dm%s\x1B[0m
-        Module: %s
-Root Directory: %s
+status_template="\x1B[%dm%s\x1B[0m %s
+Module Directory: %s
+  Root Directory: %s
+          Linked: %s
 "
 
 # Globals that will be set by the sourcing procedure.
@@ -332,13 +333,17 @@ scmd_init () {
 #   scmd_status
 scmd_status () {
     if [[ "${MOD_LINKED}" -eq 1 ]]; then
-        local fancy_linked="● (linked)"
+        local fancy_linked="●"
         local fancy_color="32"
+        local text_linked="linked"
     else
-        local fancy_linked="○ (unlinked)"
+        local fancy_linked="○"
         local fancy_color="0"
+        local text_linked="unlinked"
     fi
-    printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${MOD_DIR}" "${MOD_ROOT}"
+    local title="${MOD_DIR:t} (${text_linked}) "
+    local title_line="${(r:78::=:)title:t}"
+    printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${title_line}" "${MOD_DIR}" "${MOD_ROOT}" "${MOD_LINKED}"
     if whence tree > /dev/null; then
         echo ""
         tree -a "${MOD_DIR}" -I "README.txt" -I ".state.zsh" -I ".state.default.zsh"
