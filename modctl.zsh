@@ -119,6 +119,23 @@ debug () {
     log_msg "${1}" "DEBUG"
 }
 
+# Fn: Check whether or not a file is a special metadata file and should not be
+# (un-)linked.
+#
+# Synopsis
+#   is_special FILE
+#
+# Description
+#   FILE        The path to the file in question.
+is_special () {
+    local file_basename="${1:t}"
+    if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # Fn: Validate that the command line adheres to the specified syntax.
 #
 # Synopsis
@@ -211,7 +228,7 @@ rec_link () {
 
     for file in ${1}/* ${1}/.*; do
         local file_basename="${file:t}"
-        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
+        if is_special "${file_basename}"; then
             debug "Encountered special file ${file}, not linking."
             continue
         fi
@@ -272,7 +289,7 @@ rec_unlink () {
 
     for file in ${1}/* ${1}/.*; do
         local file_basename="${file:t}"
-        if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
+        if is_special "${file_basename}"; then
             debug "Encountered special file ${file}, not unlinking."
             continue
         fi
