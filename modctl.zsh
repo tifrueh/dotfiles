@@ -8,7 +8,7 @@ setopt nullglob
 # Script metadata.
 scriptdir="${0:A:h}"
 scriptname="${0:A:t}"
-help_msg="usage: %s ( link | unlink | init | status ) <module>
+help_msg="usage: %s ( link | unlink | init | status ) <module> { <module> }
 
 subcommands:
     link        Link a module.
@@ -17,7 +17,11 @@ subcommands:
     status      Get some information about a module.
 
 arguments:
-    <module>    The path to the module to operate upon.
+    <module>    The path to the module to operate upon. Can be specified
+                multiple times to perform the same action upon multiple
+                modules. Note, however, that any error whatsoever will result
+                in immediate termination, irrespective of whether there would
+                have been more modules to process.
 
 environment:
     DEBUG       Set for debug output.
@@ -123,7 +127,7 @@ debug () {
 # Description
 #   ARGS        An array of command line arguments.
 validate_cli () {
-    if [[ $# -ne 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init" || "${1}" == "status" ) ]]; then
+    if [[ $# -lt 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init" || "${1}" == "status" ) ]]; then
         print_help
         exit 1
     fi
@@ -144,6 +148,11 @@ validate_cli () {
 validate_and_source () {
 
     debug "Validating ${1}."
+    debug "Clearing globals."
+
+    MOD_DIR=""
+    MOD_ROOT=""
+    MOD_LINKED=""
 
     MOD_DIR="${1:P}"
     if [[ ! -d "${MOD_DIR}" ]]; then
@@ -371,14 +380,31 @@ validate_cli "${@}"
 
 # Switch on subcommand (placeholder log messages for now).
 if [[ "${1}" == "link" ]]; then
-    validate_and_source "${2}"
-    scmd_link
+    shift
+    for mod in "$@"; do
+        validate_and_source "${mod}"
+        scmd_link
+    done
 elif [[ "${1}" == "unlink" ]]; then
-    validate_and_source "${2}"
-    scmd_unlink
+    shift
+    for mod in "$@"; do
+        validate_and_source "${mod}"
+        scmd_unlink
+    done
 elif [[ "${1}" == "init" ]]; then
-    scmd_init "${2}"
+    shift
+    for mod in "$@"; do
+        scmd_init "${mod}"
+    done
 elif [[ "${1}" == "status" ]]; then
-    validate_and_source "${2}"
-    scmd_status
+    shift
+    if [[ $# -eq 1 ]]; then
+        local flavor="VERBOSE"
+    else
+        local flavor="ONELINE"
+    fi
+    for mod in "$@"; do
+        validate_and_source "${mod}"
+        scmd_status "${flavor}"
+    done
 fi
