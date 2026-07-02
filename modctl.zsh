@@ -8,7 +8,10 @@ setopt nullglob
 # Script metadata.
 scriptdir="${0:A:h}"
 scriptname="${0:A:t}"
-help_msg="usage: %s ( link | unlink | init | status [-o|-v] ) <module> {<module>}
+help_msg="usage: modctl link <module> {<module>}
+              | unlink <module> {<module>}
+              | init <module> {<module>}
+              | status [ -o | -v ] <module> {<module>}
 
 subcommands:
     link                Link a module.
