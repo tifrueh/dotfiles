@@ -138,11 +138,7 @@ debug () {
 #   FILE        The path to the file in question.
 is_special () {
     local file_basename="${1:t}"
-    if [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]; then
-        return 0
-    else
-        return 1
-    fi
+    [[ "${file_basename}" == "README.txt" || "${file_basename}" == ".state.zsh" || "${file_basename}" == ".state.default.zsh" ]]
 }
 
 # Fn: Validate that the command line adheres to the specified syntax.
