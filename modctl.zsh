@@ -30,11 +30,13 @@ state_template="MOD_ROOT=%s
 MOD_LINKED=%d
 "
 
-# Template for the status message.
+# Templates for the status message.
 status_template="\x1B[%dm%s\x1B[0m %s
 Module Directory: %s
   Root Directory: %s
           Linked: %s
+"
+status_template_oneline="\x1B[%dm%s\x1B[0m %s
 "
 
 # Globals that will be set by the sourcing procedure.
@@ -327,26 +329,38 @@ scmd_init () {
     fi
 }
 
-# Fn: Execute the status subcommand.
+# Fn: Execute the status subcommand. Depends upon finished globals
+# initialisation!
 #
 # Synopsis
-#   scmd_status
+#   scmd_status FLAVOUR
+#
+# Description
+#   FLAVOUR             The status message flavour. Should be one of
+#                       [ "ONELINE", "VERBOSE" ]. The default is "VERBOSE".
 scmd_status () {
     if [[ "${MOD_LINKED}" -eq 1 ]]; then
         local fancy_linked="●"
         local fancy_color="32"
         local text_linked="linked"
+        local align_pad="  "
     else
         local fancy_linked="○"
         local fancy_color="0"
         local text_linked="unlinked"
+        local align_pad=""
     fi
-    local title="${MOD_DIR:t} (${text_linked}) "
-    local title_line="${(r:78::=:)title:t}"
-    printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${title_line}" "${MOD_DIR}" "${MOD_ROOT}" "${MOD_LINKED}"
-    if whence tree > /dev/null; then
-        echo ""
-        tree -a "${MOD_DIR}" -I "README.txt" -I ".state.zsh" -I ".state.default.zsh"
+    if [[ "${1}" == "ONELINE" ]]; then
+        local title="( ${text_linked}${align_pad} ) ${MOD_DIR:t}"
+        printf "${status_template_oneline}" "${fancy_color}" "${fancy_linked}" "${title}"
+    else
+        local title="${MOD_DIR:t} (${text_linked}) "
+        local title_line="${(r:78::=:)title:t}"
+        printf "${status_template}" "${fancy_color}" "${fancy_linked}" "${title_line}" "${MOD_DIR}" "${MOD_ROOT}" "${MOD_LINKED}"
+        if whence tree > /dev/null; then
+            echo ""
+            tree -a "${MOD_DIR}" -I "README.txt" -I ".state.zsh" -I ".state.default.zsh"
+        fi
     fi
 }
 
