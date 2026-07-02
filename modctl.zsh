@@ -2,6 +2,7 @@
 
 # = OPTIONS ====================================================================
 setopt nullglob
+setopt globdots
 
 # = GLOBALS ====================================================================
 
@@ -234,7 +235,7 @@ rec_link () {
     debug "Set destination directory to ${destdir}, creating."
     mkdir -p "${destdir}" || error "Failed to create destination directory ${destdir}."
 
-    for file in ${1}/* ${1}/.*; do
+    for file in ${1}/*; do
         local file_basename="${file:t}"
         if is_special "${file_basename}"; then
             debug "Encountered special file ${file}, not linking."
@@ -295,7 +296,7 @@ rec_unlink () {
     local destdir="${destdir:P}"
     debug "Set destination directory to ${destdir}."
 
-    for file in ${1}/* ${1}/.*; do
+    for file in ${1}/*; do
         local file_basename="${file:t}"
         if is_special "${file_basename}"; then
             debug "Encountered special file ${file}, not unlinking."
