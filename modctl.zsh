@@ -149,7 +149,7 @@ is_special () {
 # Description
 #   ARGS        An array of command line arguments.
 validate_cli () {
-    if [[ $# -lt 2 || ! ( "${1}" == "link" || "${1}" == "unlink" || "${1}" == "init" || "${1}" == "status" ) ]]; then
+    if [[ ! "$@" =~ '^(link|unlink|init|status( -o| --oneline| -v| --verbose)?) [^-].*$' ]]; then
         print_help
         exit 1
     fi
