@@ -8,25 +8,30 @@ setopt nullglob
 # Script metadata.
 scriptdir="${0:A:h}"
 scriptname="${0:A:t}"
-help_msg="usage: %s ( link | unlink | init | status ) <module> { <module> }
+help_msg="usage: %s ( link | unlink | init | status [-o|-v] ) <module> {<module>}
 
 subcommands:
-    link        Link a module.
-    unlink      Unlink a module.
-    init        Initialise a module (create a .state.zsh).
-    status      Get some information about a module.
+    link                Link a module.
+    unlink              Unlink a module.
+    init                Initialise a module (create a .state.zsh).
+    status              Get some information about a module.
+
+options:
+    -o, --oneline       Produce short status messages.
+    -v, --verbose       Produce verbose status messages.
 
 arguments:
-    <module>    The path to the module to operate upon. Can be specified
-                multiple times to perform the same action upon multiple
-                modules. Note, however, that any error whatsoever will result
-                in immediate termination, irrespective of whether there would
-                have been more modules to process.
+    <module>            The path to the module to operate upon. Can be
+                        specified multiple times to perform the same action
+                        upon multiple modules. Note, however, that any error
+                        whatsoever will result in immediate termination,
+                        irrespective of whether there would have been more
+                        modules to process.
 
 environment:
-    DEBUG       Set for debug output.
-    NOINFO      Set to suppress informational messages.
-    NOWARN      Set to suppress warnings.
+    DEBUG               Set for debug output.
+    NOINFO              Set to suppress informational messages.
+    NOWARN              Set to suppress warnings.
 "
 
 # Template for the automatic update of the state file.
@@ -419,6 +424,14 @@ elif [[ "${1}" == "status" ]]; then
         local flavor="VERBOSE"
     else
         local flavor="ONELINE"
+    fi
+    if [[ "${1}" == "-o" || "${1}" == "--oneline" ]]; then
+        local flavor="ONELINE"
+        shift
+    fi
+    if [[ "${1}" == "-v" || "${1}" == "--verbose" ]]; then
+        local flavor="VERBOSE"
+        shift
     fi
     for mod in "$@"; do
         validate_and_source "${mod}"
