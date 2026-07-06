@@ -1,4 +1,4 @@
-if not (vim.fn.filereadable(vim.fn.getcwd().."/makefile") or vim.fn.filereadable(vim.fn.getcwd().."/Makefile")) then
+if not (vim.fn.filereadable(vim.fn.getcwd().."/makefile") == 1 or vim.fn.filereadable(vim.fn.getcwd().."/Makefile") == 1) then
     vim.bo.makeprg = 'viper-silicon $* "%"'
 end
 
