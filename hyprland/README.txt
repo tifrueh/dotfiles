@@ -16,6 +16,7 @@ Applications:
 * dunst
 * hyprland
 * hyprlock
+* hyprpaper
 * hyprshutdown
 * hyprsunset
 * kitty
@@ -64,3 +65,11 @@ found at [2]. It is packaged for Arch Linux as a part of [3].
 [1]: https://github.com/coderonline/base16-vtrgb
 [2]: https://github.com/tifrueh/base16-onehalfdark
 [3]: https://github.com/tifrueh/PKGBUILDs
+
+Note on Backgrounds
+===================
+
+This module includes configuration for the 'hyprpaper' utility, but no wallpaper
+images files. Instead, wallpapers should be placed in the
+'~/.local/share/backgrounds/' directory (or symlink them there), and 'hyprpaper'
+will select a random one from there at startup.
