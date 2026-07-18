@@ -199,5 +199,9 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("dunst")
 end)
 
+-- ENVIRONMENT
+hl.env("XCURSOR_THEME", "Vimix Cursors")
+hl.env("XCURSOR_SIZE", "28")
+
 -- OVERRIDE-HOOK
 require("override-hook")
