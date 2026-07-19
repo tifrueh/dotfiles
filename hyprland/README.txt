@@ -69,7 +69,7 @@ found at [2]. It is packaged for Arch Linux as a part of [3].
 Note on Backgrounds
 ===================
 
-This module includes configuration for the 'hyprpaper' utility, but no wallpaper
-images files. Instead, wallpapers should be placed in the
-'~/.local/share/backgrounds/' directory (or symlink them there), and 'hyprpaper'
-will select a random one from there at startup.
+This module includes configuration for the 'hyprpaper' and 'hyprlock'
+utilities, but no wallpaper images files. Instead, the desired wallpaper should
+be placed at (or symlinked to) the file '~/.local/etc/background'. 'hyprpaper'
+and 'hyprlock' will then pick it up from there.
