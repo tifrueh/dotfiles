@@ -235,7 +235,7 @@ bar {
 for_window [shell="xwayland"] border pixel 0
 for_window [app_id="vivaldi-stable" title=".*(B|b)itwarden.*"] floating enable
 for_window [app_id="guitarix"] inhibit_idle visible
-for_window [app_id="steam_app_.*"] move workspace 0
+for_window [class="steam_app_.*"] move workspace 10
 
 # Mandatory include
 include /etc/sway/config.d/*
