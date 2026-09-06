@@ -38,7 +38,7 @@ exec dunst
 
 ### Gaps
 gaps inner 10
-gaps outer 10
+gaps outer 8
 
 ### Window Colors
 client.focused           $col_blue  $col_blue  $col_black $col_green $col_blue
