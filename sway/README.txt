@@ -14,17 +14,17 @@ The packages that this configuration directly depends upon are the following
 Applications:
 
 * dunst
-* sway
-* swaylock
-* swayidle
-* swaybg
+* grim
 * kitty
 * nnn
 * playerctl
+* sway
+* swaybg
+* swayidle
+* swaylock
 * tofi (AUR)
 * waybar
 * wireplumber
-* grim
 * xdg-desktop-portal-wlr
 
 Cosmetics:
