@@ -16,12 +16,15 @@ Applications:
 * dunst
 * sway
 * swaylock
+* swayidle
+* swaybg
 * kitty
 * nnn
 * playerctl
 * tofi (AUR)
 * waybar
 * wireplumber
+* grim
 
 Cosmetics:
 
@@ -30,6 +33,12 @@ Cosmetics:
 * otf-font-awesome
 * tela-circle-icon-theme-blue
 * vimix-cursors
+
+Additional Configuration
+========================
+
+The configuration in this module will also load any files placed in the
+'config.d' directory of the module root.
 
 Note on Login Management
 ========================
