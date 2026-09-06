@@ -1,0 +1,11 @@
+font=Inter Display 12
+message-padding=10
+button-padding=5
+button-border-size=2
+
+[warning]
+background=E5C07B
+border=282C34
+text=282C34
+button-background=E5C07B
+button-text=282C34
