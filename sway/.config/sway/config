@@ -227,4 +227,8 @@ bar {
 #    }
 }
 
+# Mandatory include
+include /etc/sway/config.d/*
+
+# Custom user includes
 include ~/.config/sway/config.d/*
