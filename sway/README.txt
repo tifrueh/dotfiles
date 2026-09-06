@@ -25,6 +25,7 @@ Applications:
 * waybar
 * wireplumber
 * grim
+* xdg-desktop-portal-wlr
 
 Cosmetics:
 
