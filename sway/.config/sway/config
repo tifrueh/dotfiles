@@ -81,6 +81,9 @@ default_border pixel 2
     # Lock the screen
     bindsym $mod+Alt+L exec swaylock
 
+    # Pin a window
+    bindsym $mod+P sticky toggle
+
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Escape exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
