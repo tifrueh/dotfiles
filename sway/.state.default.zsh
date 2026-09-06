@@ -1,1 +1,1 @@
-MOD_ROOT="${HOME}/.config/sway"
+MOD_ROOT="${HOME}"

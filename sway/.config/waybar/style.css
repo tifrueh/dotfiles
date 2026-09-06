@@ -1,0 +1,128 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    color: #dcdfe4;
+    font-family: FontAwesome, Inter Display, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+tooltip {
+    background-color: rgba(40, 44, 52, 0.9);
+    border-radius: 10px;
+    border: 1px solid rgba(97, 175, 239, 1);
+}
+
+#workspaces {
+    background-color: rgba(40, 44, 52, 0.8);
+    border-radius: 10px;
+    margin: 5px 10px 0px 16px;
+    padding: 5px;
+}
+
+#workspaces button {
+    background-color: transparent;
+    border-radius: 7.5px;
+    padding: 0px 2px;
+}
+
+#workspaces button.focused {
+    background-color: rgba(97, 175, 239, 1);
+}
+
+#workspaces button.urgent {
+    background-color: rgba(235, 77, 75, 1);
+}
+
+#window,
+#custom-clock,
+#mpris,
+#idle_inhibitor,
+#wireplumber,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray,
+#custom-suspend {
+    border-radius: 10px;
+    margin: 7px 5px 0px 5px;
+}
+
+#mpris.paused,
+#idle_inhibitor,
+#wireplumber.muted,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray {
+    background-color: rgba(40, 44, 52, 0.8);
+}
+
+#custom-clock {
+    background-color: rgba(40, 44, 52, 0.8);
+    padding: 0px 10px;
+}
+
+#mpris {
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 10px;
+}
+
+#idle_inhibitor {
+    padding: 0px 13px 0px 10px;
+}
+
+#idle_inhibitor.activated {
+    background-color: rgba(97, 175, 239, 0.8);
+}
+
+#wireplumber {
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 9px 0px 10px;
+}
+
+#wireplumber.muted {
+    padding: 0px 15px 0px 10px;
+}
+
+#cpu {
+    padding: 0px 15px 0px 10px;
+}
+
+#memory {
+    padding: 0px 10px 0px 10px;
+}
+
+#disk {
+    padding: 0px 15px 0px 10px;
+}
+
+#network {
+    padding: 0px 17px 0px 10px;
+}
+
+#tray {
+    background-color: rgba(97, 175, 239, 0.8);
+    padding: 0px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(235, 77, 75, 1);
+}
+
+#custom-suspend {
+    background-color: rgba(152, 195, 121, 1);
+    font-size: 20px;
+    padding: 0px 14px 0px 10px;
+    margin-right: 16px;
+}

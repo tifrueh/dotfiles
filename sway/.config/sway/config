@@ -47,7 +47,7 @@ client.urgent            $col_red   $col_red   $col_black $col_green $col_red
 font Inter Display 12
 
 ### Title Bar
-titlebar_padding 10 5
+default_border pixel 2
 
 ### Key bindings
 #

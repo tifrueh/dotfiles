@@ -1,0 +1,89 @@
+{
+    "height": 30,
+    "spacing": 0,
+    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-center": ["custom/clock"],
+    "modules-right": ["mpris", "idle_inhibitor", "wireplumber", "cpu", "memory", "disk", "network", "tray", "custom/suspend"],
+    "sway/workspaces": {
+        "format": " {name} ",
+        "disable-scroll": true
+    },
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 40
+    },
+    "custom/clock": {
+        "interval": 1,
+        "format": "{}",
+        "exec": "date +'%F %T %z'"
+    },
+    "mpris": {
+        "interval": 1,
+        "format": "{status_icon}",
+        "dynamic-importance-order": [
+            "title",
+            "position",
+            "length",
+            "artist",
+            "album"
+        ],
+        "status-icons": {
+            "paused": "",
+            "playing": "",
+            "stopped": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "{player}: {dynamic}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        }
+    },
+    "wireplumber": {
+        "interval": 1,
+        "format": "{volume}% ",
+        "format-muted": "",
+        "tooltip": true,
+        "tooltip-format": "{node_name}: {volume}%"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "interval": 10,
+        "format": "{percentage}% / {swapPercentage}% ",
+        "tooltip": true,
+        "tooltip-format": "Memory: {used} GiB / {total} GiB used\nSwap: {swapUsed} GiB / {swapTotal} GiB used"
+    },
+    "disk": {
+        "interval": 60,
+        "format": "{percentage_used}% ",
+        "tooltip": true,
+        "tooltip-format": "{used} GiB / {total} GiB used on {path}"
+    },
+    "network": {
+        "interval": 1,
+        "format": "󰅛",
+        "format-ethernet": " {bandwidthDownBytes}   {bandwidthUpBytes}  ",
+        "format-wifi": " {bandwidthDownBytes}   {bandwidthUpBytes}  ",
+        "tooltip": true,
+        "tooltip-format": "󰅛",
+        "tooltip-format-ethernet": "IP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}",
+        "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}/{cidr}\nInterface: {ifname}\nGateway: {gwaddr}\nSignal: {signaldBm} dBm"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "custom/suspend": {
+        "format": "󰤁",
+        "on-click": "systemctl suspend",
+        "tooltip": true,
+        "tooltip-format": "Suspend system"
+    }
+}
