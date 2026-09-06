@@ -1,0 +1,14 @@
+image=~/.local/etc/background
+color=282c34
+bs-hl-color=e06c75
+font=Inter Display
+inside-color=98c37999
+inside-clear-color=e5c07b99
+inside-ver-color=61afef99
+inside-wrong-color=e06c7599
+key-hl-color=56b6c2
+ring-color=98c379
+ring-clear-color=e5c07b
+ring-ver-color=61afef
+ring-wrong-color=e06c75
+text-caps-lock-color=282c34
