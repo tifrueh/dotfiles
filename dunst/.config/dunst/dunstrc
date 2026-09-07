@@ -2,7 +2,7 @@
     offset = (16, 16)
     icon_corner_radius = 0
     gap_size = 10
-    corner_radius = 0
+    corner_radius = 10
     separator_color = auto
     sort = yes
     font = Inter Display 11
