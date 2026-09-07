@@ -38,6 +38,7 @@ tooltip {
 }
 
 #window,
+#battery,
 #custom-clock,
 #mpris,
 #idle_inhibitor,
@@ -53,6 +54,7 @@ tooltip {
 }
 
 #mpris.paused,
+#battery,
 #idle_inhibitor,
 #wireplumber.muted,
 #cpu,
@@ -104,6 +106,10 @@ tooltip {
 
 #network {
     padding: 0px 17px 0px 10px;
+}
+
+#battery {
+    padding: 0px 10px 0px 10px;
 }
 
 #tray {

@@ -41,6 +41,15 @@ Additional Configuration
 The configuration in this module will also load any files placed in the
 'config.d' directory of the module root.
 
+Note on Bar Styles
+==================
+
+This module includes two separate configurations for waybar,
+'.config/waybar/config.net', which shows network status, and
+'.config/waybar/config.bat', which shows battery status. The desired one needs
+to be symlinked manually to '.config/waybar/config' in the module root after
+linking.
+
 Note on Login Management
 ========================
 
