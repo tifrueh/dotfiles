@@ -237,6 +237,9 @@ for_window [app_id="vivaldi-stable" title=".*(B|b)itwarden.*"] floating enable
 for_window [app_id="guitarix"] inhibit_idle visible
 for_window [class="steam_app_.*"] move workspace 10
 
+### Cursor Theme
+seat seat0 xcursor_theme Vimix-cursors 32
+
 # Mandatory include
 include /etc/sway/config.d/*
 
