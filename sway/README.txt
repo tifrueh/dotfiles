@@ -47,7 +47,7 @@ Note on Login Management
 Login management is probably most easily done using 'greetd' and 'tuigreet',
 with, for example, a greeter line like:
 
-tuigreet --cmd '/usr/bin/start-hyprland' --time --window-padding=1 --theme 'border=blue;button=green;time=blue' --remember-session
+tuigreet --cmd '/usr/bin/sway' --time --window-padding=1 --theme 'border=blue;button=green;time=blue' --remember-session
 
 Note on Theming the Virtual Console
 ===================================
