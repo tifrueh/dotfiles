@@ -236,12 +236,16 @@ for_window [shell="xwayland"] border pixel 0
 for_window [app_id="vivaldi-stable" title=".*(B|b)itwarden.*"] floating enable
 for_window [app_id="guitarix"] inhibit_idle visible
 for_window [class="steam_app_.*"] move workspace 10
+for_window [title="Unlock Database - KeePassXC"] floating enable
 
 ### Cursor Theme
 seat seat0 xcursor_theme Vimix-cursors 32
 
 # Mandatory include
 include /etc/sway/config.d/*
+
+### Run keyring
+exec sleep 0.3 && keepassxc
 
 # Custom user includes
 include ~/.config/sway/config.d/*
