@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if command -v pandoc > /dev/null 2>&1; then
+    pandoc -f html -t ansi | less -R
+else
+    less
+fi
