@@ -14,8 +14,8 @@ The packages that this configuration directly depends upon are the following
 Applications:
 
 * dunst
+* gnome-keyring
 * grim
-* keepassxc
 * kitty
 * nnn
 * playerctl
@@ -50,15 +50,6 @@ This module includes two separate configurations for waybar,
 '.config/waybar/config.bat', which shows battery status. The desired one needs
 to be symlinked manually to '.config/waybar/config' in the module root after
 linking.
-
-Note on Keyring
-===============
-
-This module uses KeePassXC as login keyring. Ensure that the following file
-exists and is a KeePassXC database that can be accessed using the Secret
-Service Integration:
-
-~/.local/share/keepassxc/login.kdbx
 
 Note on Login Management
 ========================
