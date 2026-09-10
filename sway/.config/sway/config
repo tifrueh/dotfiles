@@ -245,7 +245,7 @@ seat seat0 xcursor_theme Vimix-cursors 32
 include /etc/sway/config.d/*
 
 ### Run keyring
-exec sleep 0.3 && keepassxc
+exec sleep 0.5 && keepassxc
 
 # Custom user includes
 include ~/.config/sway/config.d/*
