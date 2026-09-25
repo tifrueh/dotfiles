@@ -236,6 +236,7 @@ for_window [shell="xwayland"] border pixel 0
 for_window [app_id="vivaldi-stable" title=".*(B|b)itwarden.*"] floating enable
 for_window [app_id="guitarix"] inhibit_idle visible
 for_window [class="steam_app_.*"] move workspace 10
+for_window [class="steam_app_.*"] inhibit_idle visible
 for_window [title="Unlock Database - KeePassXC"] floating enable
 
 ### Cursor Theme
