@@ -21,10 +21,10 @@ export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 if [ "$TERM" = 'xterm-kitty' ]; then
     OLD_SHELL=$SHELL
     export SHELL='kitten run-shell'
-    command nnn -AeEu "$@"
+    command nnn -Aeu "$@"
     export SHELL=$OLD_SHELL
 else
-    command nnn -AeEu "$@"
+    command nnn -Aeu "$@"
 fi
 
 
