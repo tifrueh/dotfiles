@@ -224,7 +224,7 @@ gitcommitUnmergedArrow                 -> gitcommitUnmergedFile
 ; Set neovim highlight groups.
 ; Group                                Foreground        Background        Attributes
 DiagnosticError                        red               none
-DiagnosticWarn                         red               none
+DiagnosticWarn                         yellow            none
 DiagnosticInfo                         cyan              none
 DiagnosticHint                         blue              none
 DiagnosticOk                           green             none
