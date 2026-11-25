@@ -167,7 +167,7 @@ Error                red               black             reverse
 Exception            magenta           none
 Float                yellow            none
 Function             blue              none
-Identifier           red               none
+Identifier           white             none
 Ignore               white             none
 Include              magenta           none
 Italic               white             none              italic
