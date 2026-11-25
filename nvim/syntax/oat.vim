@@ -4,21 +4,8 @@
 " Remark:       A /very/ simple VIM Syntax file for the OAT (v1/v2) as defined
 "               in the Compiler Design course at ETHZ (approximately).
 
-" Add to keyword symbols.
+" Add ? to keyword symbols.
 setlocal iskeyword+=?
-setlocal iskeyword+=|
-setlocal iskeyword+=&
-setlocal iskeyword+=[
-setlocal iskeyword+=]
-setlocal iskeyword+=!
-setlocal iskeyword+=<
-setlocal iskeyword+=>
-setlocal iskeyword+==
-setlocal iskeyword+=-
-setlocal iskeyword+=*
-setlocal iskeyword+=+
-setlocal iskeyword+=~
-setlocal iskeyword+=.
 
 " Set case sensitivity.
 syntax case match
@@ -44,39 +31,47 @@ syntax keyword oatTrue        true
 syntax keyword oatFalse       false
 
 " Define operator keywords.
-syntax keyword oatGtGtGt      >>>
-syntax keyword oatArrow       ->
-syntax keyword oatLtlt        <<
-syntax keyword oatGtGt        >>
-syntax keyword oatBangEq      !=
-syntax keyword oatLtEq        <=
-syntax keyword oatLt          <
-syntax keyword oatGtEq        >=
-syntax keyword oatEqEq        ==
-syntax keyword oatPlus        +
-syntax keyword oatDash        -
-syntax keyword oatStar        *
-syntax keyword oatGt          >
-
-" Define matchings.
-syntax match   oatInt         /0x\x\+\|\d\+/
-syntax match   oatLineComment /#.*/
+syntax match   oatPlus        /+/
+syntax match   oatDash        /-/
+syntax match   oatStar        /*/
+syntax match   oatEqEq        /==/
+syntax match   oatBangEq      /!=/
+syntax match   oatLt          /</
+syntax match   oatLtEq        /<=/
+syntax match   oatGt          />/
+syntax match   oatGtEq        />=/
+syntax match   oatAmper       /&/
+syntax match   oatBar         /|/
 syntax match   oatIAnd        /\[&\]/
 syntax match   oatIOr         /\[|\]/
-syntax match   oatBar         /|/
-syntax match   oatAmper       /&/
+syntax match   oatLtlt        /<</
+syntax match   oatGtGt        />>/
+syntax match   oatGtGtGt      />>>/
+syntax match   oatBang        /!/
+syntax match   oatTilde       /\~/
+syntax match   oatArrow       /->/
+syntax match   oatDot         /\./
+syntax match   oatEq          /=/
+
+" Define matchings.
+syntax match   oatIdent       /\a\w*/
+syntax match   oatInt         /\(0x\x\+\|\d\+\)/
+syntax match   oatLineComment /#.*/
+syntax match   oatFunction    /\a\w*\ze\s*(/
+syntax match   oatTArray      /\a\+\ze\(\[\s*\]\)\+/
 
 " Define regions.
 syntax region  oatString      start=/"/ skip=/\\"/ end=/"/
 syntax region  oatComment     start=/\/\*/ end=/\*\// contains=oatComment
 
 " Link to highlight groups.
-hi def link    oatStruct      Type
+hi def link    oatStruct      Keyword
 hi def link    oatNull        Special
 hi def link    oatTVoid       Type
 hi def link    oatTString     Type
 hi def link    oatTBool       Type
 hi def link    oatTInt        Type
+hi def link    oatTArray      Type
 hi def link    oatElse        Conditional
 hi def link    oatIf          Conditional
 hi def link    oatIfQ         Conditional
@@ -89,25 +84,30 @@ hi def link    oatFor         Repeat
 hi def link    oatNew         Keyword
 hi def link    oatTrue        Boolean
 hi def link    oatFalse       Boolean
-hi def link    oatGtGtGt      Operator
-hi def link    oatArrow       Operator
-hi def link    oatLtlt        Operator
-hi def link    oatGtGt        Operator
-hi def link    oatBangEq      Operator
-hi def link    oatLtEq        Operator
-hi def link    oatLt          Operator
-hi def link    oatGtEq        Operator
-hi def link    oatEqEq        Operator
 hi def link    oatPlus        Operator
 hi def link    oatDash        Operator
 hi def link    oatStar        Operator
+hi def link    oatEqEq        Operator
+hi def link    oatBangEq      Operator
+hi def link    oatLt          Operator
+hi def link    oatLtEq        Operator
 hi def link    oatGt          Operator
-hi def link    oatBar         Operator
+hi def link    oatGtEq        Operator
 hi def link    oatAmper       Operator
+hi def link    oatBar         Operator
 hi def link    oatIAnd        Operator
 hi def link    oatIOr         Operator
+hi def link    oatLtlt        Operator
+hi def link    oatGtGt        Operator
+hi def link    oatGtGtGt      Operator
+hi def link    oatBang        Operator
+hi def link    oatTilde       Operator
+hi def link    oatArrow       Operator
+hi def link    oatDot         Operator
+hi def link    oatEq          Operator
 hi def link    oatIdent       Identifier
 hi def link    oatInt         Number
 hi def link    oatLineComment Comment
 hi def link    oatString      String
 hi def link    oatComment     Comment
+hi def link    oatFunction    Function
