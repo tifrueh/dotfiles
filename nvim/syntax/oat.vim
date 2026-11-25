@@ -64,6 +64,12 @@ syntax match   oatTArray      /\a\+\ze\(\[\s*\]\)\+/
 syntax region  oatString      start=/"/ skip=/\\"/ end=/"/
 syntax region  oatComment     start=/\/\*/ end=/\*\// contains=oatComment
 
+" Optionally enable a heuristic distinction between named types and regular
+" identifiers by whether or not the first letter is capitalised.
+if exists("b:oat_guessstruct")
+    syntax match oatNamedT    /\u\w*/
+endif
+
 " Link to highlight groups.
 hi def link    oatStruct      Keyword
 hi def link    oatNull        Special
@@ -111,3 +117,4 @@ hi def link    oatLineComment Comment
 hi def link    oatString      String
 hi def link    oatComment     Comment
 hi def link    oatFunction    Function
+hi def link    oatNamedT      Type

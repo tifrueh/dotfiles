@@ -3,3 +3,4 @@ vim.filetype.add({
         oat = "oat"
     }
 })
+vim.b.oat_guessstruct = true
