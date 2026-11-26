@@ -4,9 +4,6 @@
 " Remark:       A /very/ simple VIM Syntax file for the OAT (v1/v2) as defined
 "               in the Compiler Design course at ETHZ (approximately).
 
-" Add ? to keyword symbols.
-setlocal iskeyword+=?
-
 " Set case sensitivity.
 syntax case match
 
@@ -19,7 +16,6 @@ syntax keyword oatTBool       bool
 syntax keyword oatTInt        int
 syntax keyword oatElse        else
 syntax keyword oatIf          if
-syntax keyword oatIfQ         if?
 syntax keyword oatWhile       while
 syntax keyword oatReturn      return
 syntax keyword oatVar         var
@@ -80,7 +76,6 @@ hi def link    oatTInt        Type
 hi def link    oatTArray      Type
 hi def link    oatElse        Conditional
 hi def link    oatIf          Conditional
-hi def link    oatIfQ         Conditional
 hi def link    oatWhile       Repeat
 hi def link    oatReturn      Keyword
 hi def link    oatVar         Keyword
