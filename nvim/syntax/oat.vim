@@ -50,7 +50,8 @@ syntax match   oatDot         /\./
 syntax match   oatEq          /=/
 
 " Define matchings.
-syntax match   oatIdent       /\a\w*/
+syntax match   oatIdent       /\l\w*/
+syntax match   oatTStruct      /\u\w*/
 syntax match   oatInt         /\(0x\x\+\|\d\+\)/
 syntax match   oatLineComment /#.*/
 syntax match   oatFunction    /\a\w*\ze\s*(/
@@ -59,12 +60,6 @@ syntax match   oatTArray      /\a\+\ze\(\[\s*\]\)\+/
 " Define regions.
 syntax region  oatString      start=/"/ skip=/\\"/ end=/"/
 syntax region  oatComment     start=/\/\*/ end=/\*\// contains=oatComment
-
-" Optionally enable a heuristic distinction between named types and regular
-" identifiers by whether or not the first letter is capitalised.
-if exists("b:oat_guessstruct")
-    syntax match oatNamedT    /\u\w*/
-endif
 
 " Link to highlight groups.
 hi def link    oatStruct      Keyword
@@ -106,10 +101,10 @@ hi def link    oatTilde       Operator
 hi def link    oatArrow       Operator
 hi def link    oatDot         Operator
 hi def link    oatEq          Operator
+hi def link    oatTStruct     Type
 hi def link    oatIdent       Identifier
 hi def link    oatInt         Number
 hi def link    oatLineComment Comment
 hi def link    oatString      String
 hi def link    oatComment     Comment
 hi def link    oatFunction    Function
-hi def link    oatNamedT      Type
